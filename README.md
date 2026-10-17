@@ -19,11 +19,22 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 | `js/app.js` | Page copy for Home, How it works, Why this happens, About, Take a break, and the Final screen. Each is a `render…` function. |
 | `css/styles.css` | Design tokens are at the top. |
 
+## After any content edit
+- Run `node tools/validate-cases.js` from the repo root. It checks fields and citation ids, not whether a source is accurate.
+- In a browser, check that **Skip to content** and the **because** link in Case 1's Logic stage stay on the current page, and that browser Back still works.
+
 ## Before launch checklist
-- [ ] Every source marked `status: "verify"` has been checked against the original. Then change it to `"checked"`.
-- [ ] The hotline and 988 numbers are confirmed on their official sites. Then remove the "verify before launch" tags in `app.js`.
-- [ ] Replace the `vacatur` placeholder source (used in Case 5) with a checked source on state record-relief laws. Confirm the claim that some laws cover only prostitution charges.
-- [ ] Confirm the National Domestic Violence Hotline details (Case 2).
-- [ ] NC State counseling and Women's Center details are added (`resourcesHTML` in `app.js`).
-- [ ] The About page has the creator's name and "Why I made this", in the creator's own words.
-- [ ] Opening `index.html` directly works on the showcase laptop, including with Wi-Fi off.
+
+**Mina (author tasks)**
+- [ ] Verify each source marked `status: "verify"` against the original (the case mechanisms and legal context first), then change it to `"checked"`. A source that doesn't support its sentence gets rewritten or removed, not just relabeled.
+- [ ] Add NC State counseling and Women's Center details (`resourcesHTML` in `app.js`), from official NC State pages.
+- [ ] Write the creator's name and "Why I made this" on the About page, in her own words.
+- [ ] After publishing, add the QR code and site address to `#/showcase` and `#/handout`.
+- [ ] Rehearse the showcase path with a timer and one classmate, and print the handout once on the real printer.
+- [ ] Open `index.html` directly on the showcase laptop with Wi-Fi off.
+
+**Done**
+- [x] Course readings checked against the ebook (page ranges from its print-page markers).
+- [x] Hotline, NDVH, and 988 numbers confirmed on their official sites (Oct. 17, 2026). Re-check close to the showcase.
+- [x] Vacatur placeholder replaced with Polaris's Criminal Records Relief page (checked Oct. 17, 2026).
+- [x] Survivor-led organization links (NSN, GEMS) checked and linked from the Sources page. NSWP is still `verify`: its site didn't respond.

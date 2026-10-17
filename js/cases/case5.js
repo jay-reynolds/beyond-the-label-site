@@ -156,7 +156,7 @@ window.BTL_CASES.push({
       ],
       actions: [
         { lead: "Ask about the conditions.", text: "When you hear “she keeps going back,” ask what is waiting for her on the other side of leaving. Judge the conditions, not just the person." },
-        { lead: "Support record relief.", text: "Find out what your state’s vacatur law covers, and ask your state legislators to extend it to every conviction connected to trafficking, not only prostitution charges. [[vacatur]] A record shouldn’t keep a person from housing and work." },
+        { lead: "Support record relief.", text: "Find out what your state’s vacatur law covers, and ask your state legislators to make sure it covers every conviction connected to trafficking. [[vacatur]] A record shouldn’t keep a person from housing and work." },
         { lead: "Fund what comes after the exit.", text: "Support longer-term housing, treatment without judgment [[davis]], and services that last as long as people need them. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself. [[hotline]]" },
         { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them. [[nsn]]" }
       ]

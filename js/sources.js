@@ -63,8 +63,10 @@ window.BTL_SOURCES = [
     items: [
       { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale. Harper.",
         note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services). Focused mainly on girls and young women." },
-      { id: "nsn", cite: "National Survivor Network, n.d.", status: "verify", text: "National Survivor Network. (n.d.). [Website]. Coalition to Abolish Slavery & Trafficking.",
-        note: "A survivor-led network. Confirm the current URL and description before listing." },
+      { id: "nsn", cite: "National Survivor Network, n.d.", status: "checked", url: "https://nationalsurvivornetwork.org/", text: "National Survivor Network. (n.d.). Retrieved October 17, 2026, from https://nationalsurvivornetwork.org/",
+        note: "Checked Oct. 17, 2026: a membership association of trafficking survivors working toward a movement “led by survivors.” Contact runs through the Coalition to Abolish Slavery & Trafficking (CAST)." },
+      { id: "gems", cite: "GEMS, n.d.", status: "checked", url: "https://www.gems-girls.org/", text: "Girls Educational & Mentoring Services. (n.d.). Retrieved October 17, 2026, from https://www.gems-girls.org/",
+        note: "Founded by survivor Rachel Lloyd in 1998; serves girls and young women in New York City, with a Survivor Leadership Institute." },
       { id: "nswp", cite: "NSWP, n.d.", status: "verify", text: "Global Network of Sex Work Projects. (n.d.). [Website].", note: "A sex worker-led network. Confirm the current URL and description before listing." }
     ]
   },
@@ -72,11 +74,12 @@ window.BTL_SOURCES = [
     group: "Research and support organizations",
     items: [
       { id: "ilo", cite: "ILO, 2012", status: "verify", text: "International Labour Organization. (2012). ILO indicators of forced labour. International Labour Office." },
-      { id: "ndvh", cite: "National Domestic Violence Hotline, n.d.", status: "verify", text: "National Domestic Violence Hotline. (n.d.). [Website].",
-        note: "Confirm phone, text, and chat details before launch." },
-      { id: "vacatur", cite: "Vacatur source needed", status: "placeholder", text: "Placeholder: a checked source on state vacatur and criminal-record relief laws for trafficking survivors (e.g., a Polaris issue brief). To be found and verified by the author." },
-      { id: "hotline", cite: "National Human Trafficking Hotline, n.d.", status: "verify", text: "National Human Trafficking Hotline. (n.d.). [Website]. Polaris.",
-        note: "Operated by Polaris, a research and hotline organization (not survivor-led). Confirm phone and text numbers before launch." }
+      { id: "ndvh", cite: "National Domestic Violence Hotline, n.d.", status: "checked", url: "https://www.thehotline.org", text: "National Domestic Violence Hotline. (n.d.). Retrieved October 17, 2026, from https://www.thehotline.org",
+        note: "Checked Oct. 17, 2026: call 1-800-799-7233 or text START to 88788." },
+      { id: "vacatur", cite: "Polaris, n.d.", status: "checked", url: "https://polarisproject.org/criminal-records-relief/", text: "Polaris. (n.d.). Criminal records relief. Retrieved October 17, 2026, from https://polarisproject.org/criminal-records-relief/",
+        note: "Checked Oct. 17, 2026: all states except Alaska, Iowa, and Maine, plus the federal government, offer some form of record relief for survivors." },
+      { id: "hotline", cite: "National Human Trafficking Hotline, n.d.", status: "checked", url: "https://humantraffickinghotline.org/en", text: "National Human Trafficking Hotline. (n.d.). Retrieved October 17, 2026, from https://humantraffickinghotline.org/en",
+        note: "Checked Oct. 17, 2026: call 1-888-373-7888 or text 233733. The site says it is operated by Compass Connections and funded by the U.S. Administration for Children and Families." }
     ]
   }
 ];

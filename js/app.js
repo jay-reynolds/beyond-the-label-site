@@ -15,7 +15,11 @@
   var memory = {};
   var storageOK = true;
   function load() {
-    try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
+    try {
+      var v = JSON.parse(localStorage.getItem(STORE_KEY));
+      // Anything that isn't a plain object (corrupted or hand-edited) falls back to empty progress.
+      return v && typeof v === "object" && !Array.isArray(v) ? v : {};
+    }
     catch (e) { storageOK = false; return memory; }
   }
   var state = load();
@@ -455,8 +459,9 @@
   }
 
   function resourcesHTML() {
-    return '<ul><li>National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733 <span class="verify">verify before launch</span></li>' +
-      '<li>988 Suicide &amp; Crisis Lifeline (U.S.): call or text 988 <span class="verify">verify before launch</span></li>' +
+    return '<ul><li>National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733</li>' +
+      '<li>National Domestic Violence Hotline (U.S.): call 1-800-799-7233 or text START to 88788</li>' +
+      '<li>988 Suicide &amp; Crisis Lifeline (U.S.): call or text 988</li>' +
       '<li>If you’re in immediate danger, call 911.</li>' +
       '<li class="placeholder" style="list-style:none">Placeholder: NC State campus counseling and the Women’s Center. Look up their current details on official NC State pages.</li></ul>';
   }
@@ -490,6 +495,7 @@
           '<ul class="source-list">' + g.items.map(function (it) {
             return '<li id="src-' + it.id + '" tabindex="-1">' + esc(it.text) +
               (it.status === "verify" ? ' <span class="verify">verify before launch</span>' : it.status === "placeholder" ? ' <span class="verify">to be added</span>' : "") +
+              (it.url ? ' <a href="' + esc(it.url) + '" rel="noopener" target="_blank">Visit ' + esc(it.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")) + '<span class="sr-only"> (opens in a new tab)</span></a>' : "") +
               (it.note ? '<span class="note">' + esc(it.note) + "</span>" : "") + "</li>";
           }).join("") + "</ul></section>";
       }).join(""));
@@ -523,7 +529,7 @@
         }).join("") + "</div></fieldset>" +
         (show.revealed
           ? '<div class="reveal"><p class="key-idea">The hidden premise: “' + esc(key.text) + "”</p><p>" + rich(c.logic.isTrue) + "</p></div>"
-          : '<div class="btn-row"><button class="btn btn-secondary" data-action="show-reveal">Show the hidden premise</button></div>');
+          : '<div class="btn-row"><button class="btn btn-secondary" data-action="sc-reveal">Show the hidden premise</button></div>');
     } else if (n === 3) {
       body = provenanceChip(c.fuller.label) + '<p class="stage-kicker">What the observer couldn’t see</p>' +
         c.fuller.paragraphs.map(function (p) { return '<p class="scenario-text">' + rich(p) + "</p>"; }).join("") +
@@ -537,9 +543,9 @@
         '<span class="placeholder-inline">Placeholder: site address and QR code, added once the site is published.</span></p></div>';
     }
     var nav = '<div class="stage-nav">' +
-      (n > 1 ? '<button class="btn btn-quiet" data-action="show-back">Back</button>' : '<span></span>') +
-      (n < steps ? '<button class="btn btn-primary" data-action="show-next">' + ["", "What is it assuming?", "What couldn’t we see?", "Say it more carefully"][n] + "</button>"
-        : '<button class="btn btn-primary" data-action="show-restart">Start over for the next visitor</button>') + "</div>";
+      (n > 1 ? '<button class="btn btn-quiet" data-action="sc-back">Back</button>' : '<span></span>') +
+      (n < steps ? '<button class="btn btn-primary" data-action="sc-next">' + ["", "What is it assuming?", "What couldn’t we see?", "Say it more carefully"][n] + "</button>"
+        : '<button class="btn btn-primary" data-action="sc-restart">Start over for the next visitor</button>') + "</div>";
     return '<div class="page showcase"><div class="reading">' +
       '<p class="eyebrow">Beyond the Label · ' + n + " of " + steps + "</p>" + h1(n === 1 ? "Three minutes, one claim" : n === 2 ? "Find the hidden step" : n === 3 ? "The fuller picture" : "Think before you label") +
       body + nav + "</div></div>";
@@ -630,6 +636,7 @@
       if (kind === "post" && cs.reframeShown) rerenderKeepingFocus(t);
     } else if (kind === "sort") {
       cs.sort = cs.sort || {}; cs.sort[t.name.replace("sort-", "")] = t.value; save();
+      if (cs.sortRevealed) rerenderKeepingFocus(t);
     } else if (kind === "premise") {
       cs.premise = t.value; save();
       if (cs.premiseRevealed) rerenderKeepingFocus(t);
@@ -663,11 +670,11 @@
     var action = b.getAttribute("data-action"), c = currentCase();
     if (action === "ack-note") { state.noteAck = true; save(); location.hash = "#/cases"; return; }
     if (action === "print") { window.print(); return; }
-    if (action.indexOf("show-") === 0) {
-      if (action === "show-next") show.step = Math.min(4, show.step + 1);
-      if (action === "show-back") show.step = Math.max(1, show.step - 1);
-      if (action === "show-reveal") show.revealed = true;
-      if (action === "show-restart") show = { step: 1, rating: null, pick: null, revealed: false };
+    if (action.indexOf("sc-") === 0) {
+      if (action === "sc-next") show.step = Math.min(4, show.step + 1);
+      if (action === "sc-back") show.step = Math.max(1, show.step - 1);
+      if (action === "sc-reveal") show.revealed = true;
+      if (action === "sc-restart") show = { step: 1, rating: null, pick: null, revealed: false };
       first = false; route();
       return;
     }
@@ -705,6 +712,36 @@
   });
 
   applyTheme(state.theme);
-  window.addEventListener("hashchange", route);
+  // Same-page anchors (the skip link, "because") share the hash with the router.
+  // Handle them without changing the route.
+  function jumpTo(id) {
+    var el = document.getElementById(id);
+    if (!el) return false;
+    if (el.tagName === "DETAILS") el.open = true;
+    if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ block: "start" });
+    return true;
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (href.indexOf("#/") === 0 || href === "#") return;
+    e.preventDefault();
+    jumpTo(href.slice(1));
+  });
+  window.addEventListener("hashchange", function () {
+    var h = location.hash;
+    if (h && h.indexOf("#/") !== 0) {
+      // A bare #anchor arrived some other way (typed, or an old link): jump, then restore the route.
+      var back = state.lastRoute || "#/";
+      history.replaceState(null, "", back);
+      route();
+      jumpTo(h.slice(1));
+      return;
+    }
+    route();
+  });
   route();
 })();

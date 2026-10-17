@@ -122,7 +122,7 @@ window.BTL_CASES.push({
         ],
         after: "Affection is on the list on purpose. The point isn’t to rule it out. It’s that returning, by itself, can’t tell these explanations apart, and several can be true together."
       },
-      legal: "U.S. law treats sex trafficking of an adult as requiring force, fraud, or coercion. [[tvpa]] An abusive relationship is not, by itself, trafficking. The law sets a threshold for prosecution. It doesn’t capture everything a person lives through in a controlling relationship. The law doesn’t capture everything a person lives through in a controlling relationship."
+      legal: "U.S. law treats sex trafficking of an adult as requiring force, fraud, or coercion. [[tvpa]] An abusive relationship is not, by itself, trafficking. The law sets a threshold for prosecution. It doesn’t capture everything a person lives through in a controlling relationship."
     },
 
     fuller: {
