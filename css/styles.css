@@ -465,3 +465,21 @@ td.q { font-weight: 700; color: var(--unknown); }
 .cite { font-size: 0.9em; white-space: nowrap; }
 /* On phones the full sentence strip is too tall to keep pinned. */
 @media (max-width: 719px) { .case-top { position: static; } }
+
+/* ---------- Showcase (gallery table) and handout ---------- */
+.showcase { font-size: 1.25rem; }
+.showcase .reading { max-width: 44rem; }
+.showcase .scenario-text { font-size: 1.375rem; }
+.showcase .claim-display { font-size: clamp(1.75rem, 4.5vw, 2.5rem); }
+.qr-card { display: flex; gap: var(--s5); align-items: center; border: 1px solid var(--rule); padding: var(--s4); margin: var(--s6) 0; background: var(--surface); }
+.qr-box {
+  flex: none; width: 112px; height: 112px; border: 2px dashed var(--rule); display: grid; place-items: center;
+  font-family: var(--sans); font-weight: 700; color: var(--muted);
+}
+.placeholder-inline { font-family: var(--sans); font-size: 0.875rem; color: var(--muted); }
+@media print {
+  .no-print { display: none !important; }
+  .handout { padding-top: 0; }
+  .handout h1 { font-size: 28pt; }
+  .handout h2 { margin-top: 14pt; font-size: 14pt; }
+}

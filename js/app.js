@@ -495,6 +495,69 @@
       }).join(""));
   }
 
+  // ---------- Showcase path (about 3 minutes, for the gallery table) ----------
+  // Uses one case's content. Answers live in memory only and reset for each visitor.
+  var SHOWCASE_CASE = 1;
+  var show = { step: 1, rating: null, pick: null, revealed: false };
+
+  function renderShowcase() {
+    var c = findCase(SHOWCASE_CASE);
+    if (!c || !c.ready) return renderNotFound();
+    var steps = 4, n = show.step, body = "";
+    if (n === 1) {
+      body = provenanceChip() + '<p class="stage-kicker">What an observer sees</p>' +
+        c.scenario.paragraphs.map(function (p) { return '<p class="scenario-text">' + rich(p) + "</p>"; }).join("") +
+        '<p class="claim-label">A reader might conclude:</p><p class="claim-display">“' + claimHTML(c.claim) + "”</p>" +
+        '<fieldset data-show="rating"><legend>Does the scenario support that?</legend><div class="scale">' +
+        [["yes", "Yes"], ["unsure", "Not sure"], ["no", "No"]].map(function (o) {
+          return '<label class="choice"><input type="radio" name="show-rating" value="' + o[0] + '"' + (show.rating === o[0] ? " checked" : "") + "> " + o[1] + "</label>";
+        }).join("") + "</div></fieldset>" +
+        "<p>" + rich(c.claimStage.normalize) + "</p>";
+    } else if (n === 2) {
+      var key = keyOption(c);
+      body = '<p class="stage-kicker">What is it assuming?</p><h2 style="margin-top:0">' + esc(c.logic.prompt) + "</h2>" +
+        '<fieldset data-show="pick"><legend class="sr-only">Pick the hidden premise</legend><div class="choice-stack">' +
+        c.logic.options.map(function (o) {
+          return '<label class="choice"><input type="radio" name="show-pick" value="' + o.id + '"' + (show.pick === o.id ? " checked" : "") +
+            '> <span class="choice-text">' + esc(o.text) + "</span></label>";
+        }).join("") + "</div></fieldset>" +
+        (show.revealed
+          ? '<div class="reveal"><p class="key-idea">The hidden premise: “' + esc(key.text) + "”</p><p>" + rich(c.logic.isTrue) + "</p></div>"
+          : '<div class="btn-row"><button class="btn btn-secondary" data-action="show-reveal">Show the hidden premise</button></div>');
+    } else if (n === 3) {
+      body = provenanceChip(c.fuller.label) + '<p class="stage-kicker">What the observer couldn’t see</p>' +
+        c.fuller.paragraphs.map(function (p) { return '<p class="scenario-text">' + rich(p) + "</p>"; }).join("") +
+        '<p class="key-idea">' + rich(c.fuller.agency) + "</p>";
+    } else {
+      body = '<p class="stage-kicker">Say it more carefully</p>' +
+        '<div class="compare"><div class="before"><span class="label">Instead of</span><p>“' + esc(c.claim) + '”</p></div>' +
+        '<div class="after"><span class="label">Try</span><p>“' + esc(c.reframe.model) + "”</p></div></div>" +
+        renderCTA(c.reframe.actions) +
+        '<div class="qr-card"><div class="qr-box" aria-hidden="true">QR</div><p><strong>Try all five cases on your phone.</strong><br>' +
+        '<span class="placeholder-inline">Placeholder: site address and QR code, added once the site is published.</span></p></div>';
+    }
+    var nav = '<div class="stage-nav">' +
+      (n > 1 ? '<button class="btn btn-quiet" data-action="show-back">Back</button>' : '<span></span>') +
+      (n < steps ? '<button class="btn btn-primary" data-action="show-next">' + ["", "What is it assuming?", "What couldn’t we see?", "Say it more carefully"][n] + "</button>"
+        : '<button class="btn btn-primary" data-action="show-restart">Start over for the next visitor</button>') + "</div>";
+    return '<div class="page showcase"><div class="reading">' +
+      '<p class="eyebrow">Beyond the Label · ' + n + " of " + steps + "</p>" + h1(n === 1 ? "Three minutes, one claim" : n === 2 ? "Find the hidden step" : n === 3 ? "The fuller picture" : "Think before you label") +
+      body + nav + "</div></div>";
+  }
+
+  // ---------- Printable handout for the showcase table ----------
+  function renderHandout() {
+    return '<div class="page handout"><div class="reading">' + h1("Beyond the Label") +
+      '<p class="lede">How language and reasoning shape the way we understand trafficking narratives.</p>' +
+      "<h2>The issue</h2><p>People often judge trafficked women’s choices from what they can see: she stayed, she went back, she participated, she didn’t leave. What’s visible rarely explains why. Those assumptions shape who gets believed, helped, or blamed.</p>" +
+      "<h2>Who it’s for</h2><p>College students and young adults who meet these stories on social media, in the news, and in everyday conversation.</p>" +
+      "<h2>Before you label, ask</h2><ol><li>What do I know?</li><li>What am I assuming?</li><li>What evidence am I missing?</li><li>What does the person’s own account tell me, if they’ve shared one?</li><li>How can I describe this more carefully?</li></ol>" +
+      "<h2>Then act</h2><ul><li>Question “she could have left” when you hear it.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li></ul>" +
+      '<div class="qr-card"><div class="qr-box" aria-hidden="true">QR</div><p><strong>Try the interactive cases.</strong><br><span class="placeholder-inline">Placeholder: site address and QR code.</span></p></div>' +
+      '<p class="meta">WGS 200 · NC State University · Fall 2026. Need support? National Human Trafficking Hotline (U.S.): 1-888-373-7888, text 233733.</p>' +
+      '<div class="btn-row no-print"><button class="btn btn-secondary" data-action="print">Print</button></div></div></div>';
+  }
+
   function renderNotFound() {
     return page(h1("Page not found") + '<p>That page doesn’t exist. <a href="#/">Go to the home page</a> or <a href="#/cases">see the cases</a>.</p>');
   }
@@ -524,6 +587,8 @@
     else if (parts[0] === "note") { html = renderNote(); title = "Content note · " + title; }
     else if (parts[0] === "break") { html = renderBreak(); title = "Take a break · " + title; }
     else if (parts[0] === "final") { html = renderFinal(); title = "Think before you label · " + title; }
+    else if (parts[0] === "showcase") { html = renderShowcase(); title = "Showcase · " + title; }
+    else if (parts[0] === "handout") { html = renderHandout(); title = "Handout · " + title; }
     else if (parts[0] === "sources") { html = renderSources(); title = "Sources · " + title; if (parts[1]) focusSel = "#src-" + parts[1]; }
     else { html = renderNotFound(); }
 
@@ -552,6 +617,8 @@
 
   app.addEventListener("change", function (e) {
     var t = e.target, c = currentCase();
+    if (t.name === "show-rating") { show.rating = t.value; return; }
+    if (t.name === "show-pick") { show.pick = t.value; return; }
     var form = t.closest("[data-form]");
     if (!c || !form) return;
     var cs = caseState(c.id), kind = form.getAttribute("data-form");
@@ -596,6 +663,14 @@
     var action = b.getAttribute("data-action"), c = currentCase();
     if (action === "ack-note") { state.noteAck = true; save(); location.hash = "#/cases"; return; }
     if (action === "print") { window.print(); return; }
+    if (action.indexOf("show-") === 0) {
+      if (action === "show-next") show.step = Math.min(4, show.step + 1);
+      if (action === "show-back") show.step = Math.max(1, show.step - 1);
+      if (action === "show-reveal") show.revealed = true;
+      if (action === "show-restart") show = { step: 1, rating: null, pick: null, revealed: false };
+      first = false; route();
+      return;
+    }
     if (action === "finish-case") { var fc = findCase(b.getAttribute("data-case")); if (fc) { caseState(fc.id).done = true; save(); } return; }
     if (!c) return;
     var cs = caseState(c.id), focusAfter = null;

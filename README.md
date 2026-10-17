@@ -7,6 +7,10 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 - **Local server:** `python3 -m http.server 8765` in this folder, then open http://127.0.0.1:8765/
 - **Publish:** upload this folder to any static host (GitHub Pages, Netlify, Cloudflare Pages).
 
+## Showcase table
+- `#/showcase`: a 4-step, about 3-minute walk through one case, in large type, with a "Start over for the next visitor" button. Answers are kept in memory only. Choose the case with `SHOWCASE_CASE` in `js/app.js`.
+- `#/handout`: a one-page printable handout. Add the QR code and site address once the site is published.
+
 ## Where the words live
 | File | What to edit |
 |---|---|
