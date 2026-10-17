@@ -485,3 +485,8 @@ td.q { font-weight: 700; color: var(--unknown); }
 }
 .qr-img { flex: none; width: 132px; height: 132px; background: #fff; padding: 4px; border: 1px solid var(--rule); }
 .qr-url { font-family: var(--sans); font-weight: 600; font-size: 1.0625rem; overflow-wrap: anywhere; }
+
+.nudge { border-left: 4px solid var(--accent); background: var(--surface); padding: var(--s4); margin: var(--s5) 0; }
+.nudge p { margin-bottom: var(--s2); }
+.nudge .btn-row { margin: 0; }
+.reset-row { margin-top: var(--s4); font-family: var(--sans); font-size: 0.9375rem; }

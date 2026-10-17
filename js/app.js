@@ -206,6 +206,54 @@
       "</div></div>";
   }
 
+  // Commit-then-compare: each reveal waits until the learner has answered,
+  // but can always be opened anyway, and each step can be started over.
+  function remainingSort(c, cs) {
+    var sorted = cs.sort || {};
+    return c.sort.items.filter(function (it) { return !sorted[it.id]; }).length;
+  }
+  var REVEALS = {
+    "reveal-sort": {
+      flag: "sortRevealed", label: "Compare with one reading", focus: ".reading-note",
+      ready: function (c, cs) { return remainingSort(c, cs) === 0; },
+      nudge: function (c, cs) {
+        var n = remainingSort(c, cs);
+        return "You have " + n + " statement" + (n === 1 ? "" : "s") + " left to sort. Sort " + (n === 1 ? "it" : "them") + " first, or see the reading now.";
+      },
+      reset: function (cs) { cs.sort = {}; }
+    },
+    "reveal-premise": {
+      flag: "premiseRevealed", label: "See how each option works", focus: ".feedback-list",
+      ready: function (c, cs) { return !!cs.premise; },
+      nudge: function () { return "Pick the sentence you think the argument relies on first, or see the explanation now."; },
+      reset: function (cs) { delete cs.premise; }
+    },
+    "reveal-cards": {
+      flag: "cardsRevealed", label: "Compare", focus: ".card-why",
+      ready: function (c, cs) { return (cs.cards || []).length > 0; },
+      nudge: function () { return "Choose at least one question first, or see the comparison now."; },
+      reset: function (cs) { cs.cards = []; }
+    },
+    "show-reframe": {
+      flag: "reframeShown", label: "Show one careful version", focus: ".compare",
+      ready: function (c, cs) { return !!(cs.rewrite && cs.rewrite.trim()); },
+      nudge: function () { return "Try writing your own version first. A rough one is fine. Or see one careful version now."; },
+      reset: function (cs) { delete cs.checks; delete cs.post; }
+    }
+  };
+  var nudges = {};
+  function revealRow(c, cs, action) {
+    var r = REVEALS[action];
+    if (nudges[action] && !r.ready(c, cs)) {
+      return '<div class="nudge reveal" tabindex="-1"><p>' + esc(r.nudge(c, cs)) + '</p><div class="btn-row">' +
+        '<button class="btn btn-secondary" data-action="' + action + '" data-anyway="1">Show it now</button></div></div>';
+    }
+    return '<div class="btn-row"><button class="btn btn-secondary" data-action="' + action + '">' + esc(r.label) + "</button></div>";
+  }
+  function resetRow(action) {
+    return '<p class="reset-row"><button type="button" class="btn-link" data-action="reset" data-target="' + action + '">Start this step over</button></p>';
+  }
+
   var NEXT_LABEL = ["See a common interpretation", "Look at the assumptions", "Check the logic", "Ask what’s missing", "See the fuller picture", "Say it more carefully"];
 
   var STAGE_RENDER = [
@@ -244,7 +292,7 @@
             (chosen === k ? " checked" : "") + "> " + ICONS[k] + " " + esc(CATS[k].label) + "</label>";
         }).join("");
         var note = revealed ? '<div class="reading-note reveal ' + CATS[it.answer].note + '"><span class="cat-label">One reading: ' + catTag(it.answer) + "</span> " +
-          rich(it.reason) + (chosen ? ' <span class="meta">You chose: ' + esc(CATS[chosen].label) + ".</span>" : "") + "</div>" : "";
+          rich(it.reason) + ' <span class="meta">' + (chosen ? "You chose: " + esc(CATS[chosen].label) + "." : "You didn’t sort this one.") + "</span></div>" : "";
         return '<li class="sort-item"><fieldset><legend class="sort-statement" style="font-family:var(--serif);font-weight:400;font-size:1.125rem">' + esc(it.text) + "</legend>" +
           '<div class="sort-options">' + opts + "</div></fieldset>" + note + "</li>";
       }).join("");
@@ -253,9 +301,10 @@
           "<p>" + rich(c.sort.intro) + "</p>" +
           '<div class="legend-row">' + catTag("stated") + catTag("assumed") + catTag("unknown") + "</div>" +
           '<ol class="sort-list" data-form="sort">' + items + "</ol>" +
+          '<p class="meta" id="sort-count">' + (c.sort.items.length - remainingSort(c, cs)) + " of " + c.sort.items.length + " sorted</p>" +
           (revealed
-            ? '<p class="key-idea reveal">' + rich(c.sort.takeaway) + "</p><p class=\"meta\">Where the scenario is ambiguous, reasonable people can sort differently.</p>"
-            : '<div class="btn-row"><button class="btn btn-secondary" data-action="reveal-sort">Compare with one reading</button></div>'),
+            ? '<p class="key-idea reveal">' + rich(c.sort.takeaway) + "</p><p class=\"meta\">Where the scenario is ambiguous, reasonable people can sort differently.</p>" + resetRow("reveal-sort")
+            : revealRow(c, cs, "reveal-sort")),
         margin: "<div><h2>Observation vs. conclusion</h2><p>An observed behavior doesn’t necessarily give complete information about the circumstances, motivations, or constraints around it.</p></div>"
       };
     },
@@ -301,8 +350,8 @@
           '<li class="unstated"><span class="lbl">P2<span class="sr-only">, unstated premise</span></span><span>' + slot + '<span class="tag">Unstated</span></span></li>' +
           '<li class="conclusion"><span class="lbl">∴<span class="sr-only"> Conclusion</span></span><span>' + esc(L.conclusion) + '<span class="tag">Conclusion</span></span></li></ol>' +
           '<fieldset data-form="premise"><legend>' + esc(L.prompt) + '</legend><div class="choice-stack">' + options + "</div></fieldset>" +
-          (revealed ? feedback + '<p class="reveal">This premise does the real work. Without it, the conclusion doesn’t follow.</p>'
-            : '<div class="btn-row"><button class="btn btn-secondary" data-action="reveal-premise">See how each option works</button></div>') +
+          (revealed ? feedback + '<p class="reveal">This premise does the real work. Without it, the conclusion doesn’t follow.</p>' + resetRow("reveal-premise")
+            : revealRow(c, cs, "reveal-premise")) +
           (revealed ? '<div class="reveal"><h2>Two separate questions</h2>' +
             "<h3>1. Does it follow?</h3><p>" + rich(L.follows) + "</p>" +
             "<h3>2. Are the premises true?</h3><p>" + rich(L.isTrue) + "</p>" +
@@ -333,8 +382,8 @@
           "<p>" + rich(E.intro) + "</p>" +
           '<fieldset data-form="cards"><legend>Choose up to ' + E.pick + ' <span class="meta" id="pick-count" aria-live="polite">(' + picks.length + " chosen)</span></legend>" +
           '<ul class="cards">' + cards + "</ul></fieldset>" +
-          (revealed ? '<p class="key-idea reveal">' + rich(E.compareNote) + "</p>"
-            : '<div class="btn-row"><button class="btn btn-secondary" data-action="reveal-cards">Compare</button></div>') +
+          (revealed ? '<p class="key-idea reveal">' + rich(E.compareNote) + "</p>" + resetRow("reveal-cards")
+            : revealRow(c, cs, "reveal-cards")) +
           (E.rivals ? "<h2>" + esc(E.rivals.title) + "</h2><p>" + rich(E.rivals.text) + "</p><ul>" +
             E.rivals.list.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ul><p>" + rich(E.rivals.after) + "</p>" : ""),
         margin: (E.legal ? "<div><h2>What the law says</h2><p>" + rich(E.legal) + "</p></div>" : "") +
@@ -382,11 +431,11 @@
           '<label for="rewrite" class="sr-only">Your version</label>' +
           '<textarea id="rewrite" data-field="rewrite" maxlength="600" placeholder="Write your version here">' + esc(cs.rewrite || "") + "</textarea>" +
           '<p class="field-note">Please don’t include names or personal experiences. This stays in your browser.</p>' +
-          (shown ? "" : '<div class="btn-row"><button class="btn btn-secondary" data-action="show-reframe">Show one careful version</button></div>') +
+          (shown ? "" : revealRow(c, cs, "show-reframe")) +
           (shown ? '<div class="reveal"><div class="compare"><div class="before"><span class="label">Instead of</span><p>“' + esc(c.claim) + '”</p></div>' +
             '<div class="after"><span class="label">One careful version</span><p>“' + esc(R.model) + "”</p></div></div>" +
             "<h2>Why it’s more precise</h2><ul>" + R.why.map(function (w) { return "<li>" + esc(w) + "</li>"; }).join("") + "</ul>" +
-            "<p>This isn’t the one correct opinion. It shows more careful reasoning and language.</p>" +
+            "<p>This isn’t the one correct opinion. It shows more careful reasoning and language.</p>" + resetRow("show-reframe") +
             '<fieldset data-form="checks"><legend>Check your own version</legend><div class="choice-stack">' +
             R.selfcheck.map(function (s, i) {
               return '<label class="choice"><input type="checkbox" value="' + i + '"' + (checks.indexOf(i) >= 0 ? " checked" : "") + '> <span class="choice-text">' + esc(s) + "</span></label>";
@@ -641,7 +690,11 @@
       if (kind === "post" && cs.reframeShown) rerenderKeepingFocus(t);
     } else if (kind === "sort") {
       cs.sort = cs.sort || {}; cs.sort[t.name.replace("sort-", "")] = t.value; save();
-      if (cs.sortRevealed) rerenderKeepingFocus(t);
+      if (cs.sortRevealed || nudges["reveal-sort"]) rerenderKeepingFocus(t);
+      else {
+        var sc = document.getElementById("sort-count");
+        if (sc) sc.textContent = (c.sort.items.length - remainingSort(c, cs)) + " of " + c.sort.items.length + " sorted";
+      }
     } else if (kind === "premise") {
       cs.premise = t.value; save();
       if (cs.premiseRevealed) rerenderKeepingFocus(t);
@@ -685,16 +738,28 @@
     }
     if (action === "finish-case") { var fc = findCase(b.getAttribute("data-case")); if (fc) { caseState(fc.id).done = true; save(); } return; }
     if (!c) return;
-    var cs = caseState(c.id), focusAfter = null;
-    if (action === "reveal-sort") { cs.sortRevealed = true; focusAfter = ".reading-note"; }
-    if (action === "reveal-premise") { cs.premiseRevealed = true; focusAfter = ".feedback-list"; }
-    if (action === "reveal-cards") { cs.cardsRevealed = true; focusAfter = ".card-why"; }
-    if (action === "show-reframe") { cs.reframeShown = true; focusAfter = ".compare"; }
+    var cs = caseState(c.id), focusAfter = null, message = "";
+    var r = REVEALS[action];
+    if (r) {
+      if (!r.ready(c, cs) && !b.hasAttribute("data-anyway")) {
+        nudges[action] = true; focusAfter = ".nudge"; message = r.nudge(c, cs);
+      } else {
+        cs[r.flag] = true; nudges[action] = false; focusAfter = r.focus; message = "Explanation shown.";
+      }
+    } else if (action === "reset") {
+      var target = REVEALS[b.getAttribute("data-target")];
+      if (!target) return;
+      cs[target.flag] = false; target.reset(cs);
+      nudges[b.getAttribute("data-target")] = false;
+      focusAfter = ".stage h1"; message = "This step has been cleared.";
+    } else {
+      return;
+    }
     save();
     var y = window.scrollY; first = true; route(); window.scrollTo(0, y);
     var el = focusAfter && app.querySelector(focusAfter);
-    if (el) { el.setAttribute("tabindex", "-1"); el.focus({ preventScroll: false }); }
-    live.textContent = "Explanation shown.";
+    if (el) { if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1"); el.focus({ preventScroll: false }); }
+    live.textContent = message;
   });
 
   // Footer: theme and clear progress
