@@ -352,7 +352,7 @@
           '<div class="lenses">' + F.lenses.map(function (l) {
             return '<div class="lens"><h3>' + esc(l.name) + '</h3><p class="src">' + esc(l.src) + " " + l.src_ids.map(function (id) { return rich("[[" + id + "]]"); }).join(" ") + "</p><p>" + rich(l.text) + "</p><p><em>" + esc(l.q) + "</em></p></div>";
           }).join("") + "</div>" +
-          (F.lensNote ? '<p class="meta">' + esc(F.lensNote) + "</p>" : "") : "") +
+          (F.lensNote ? '<p class="meta">' + rich(F.lensNote) + "</p>" : "") : "") +
           (F.idealVictim ? '<div class="panel"><p class="panel-title">The “ideal victim”</p><p>' + rich(F.idealVictim) + "</p></div>" : "") +
           (F.cards || []).map(function (x) { return '<div class="panel"><p class="panel-title">' + esc(x.title) + "</p><p>" + rich(x.text) + "</p></div>"; }).join("") +
           "<h2>Back to the claim</h2><p>" + rich(F.returnPrompt) + "</p>" +

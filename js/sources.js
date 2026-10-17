@@ -40,7 +40,9 @@ window.BTL_SOURCES = [
       { id: "brennan", cite: "Brennan, 2014", status: "verify", text: "Brennan, D. (2014). Life interrupted: Trafficking into forced labor in the United States. Duke University Press." },
       { id: "stark", cite: "Stark, 2007", status: "verify", text: "Stark, E. (2007). Coercive control: How men entrap women in personal life. Oxford University Press." },
       { id: "christie", cite: "Christie, 1986", status: "verify", text: "Christie, N. (1986). The ideal victim. In E. A. Fattah (Ed.), From crime policy to victim policy (pp. 17–30). Macmillan." },
-      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm." }
+      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm." },
+      { id: "duttonpainter", cite: "Dutton & Painter, 1993", status: "verify", text: "Dutton, D. G., & Painter, S. (1993). Emotional attachments in abusive relationships: A test of traumatic bonding theory. Violence and Victims, 8(2), 105–120." },
+      { id: "doezema", cite: "Doezema, 2010", status: "verify", text: "Doezema, J. (2010). Sex slaves and discourse masters: The construction of trafficking. Zed Books." }
     ]
   },
   {
@@ -51,7 +53,8 @@ window.BTL_SOURCES = [
       { id: "olsaretti", cite: "Olsaretti, 2004", status: "verify", text: "Olsaretti, S. (2004). Liberty, desert and the market: A philosophical study. Cambridge University Press." },
       { id: "wertheimer", cite: "Wertheimer, 1987", status: "verify", text: "Wertheimer, A. (1987). Coercion. Princeton University Press." },
       { id: "mackenzie", cite: "Mackenzie & Stoljar, 2000", status: "verify", text: "Mackenzie, C., & Stoljar, N. (Eds.). (2000). Relational autonomy: Feminist perspectives on autonomy, agency, and the social self. Oxford University Press." },
-      { id: "khader", cite: "Khader, 2011", status: "verify", text: "Khader, S. J. (2011). Adaptive preferences and women’s empowerment. Oxford University Press." }
+      { id: "khader", cite: "Khader, 2011", status: "verify", text: "Khader, S. J. (2011). Adaptive preferences and women’s empowerment. Oxford University Press." },
+      { id: "mackinnon", cite: "MacKinnon, 1989", status: "verify", text: "MacKinnon, C. A. (1989). Toward a feminist theory of the state. Harvard University Press.", note: "A leading statement of the view that prostitution is itself a form of sexual exploitation." }
     ]
   },
   {
@@ -61,7 +64,8 @@ window.BTL_SOURCES = [
       { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale. Harper.",
         note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services)." },
       { id: "nsn", cite: "National Survivor Network, n.d.", status: "verify", text: "National Survivor Network. (n.d.). [Website]. Coalition to Abolish Slavery & Trafficking.",
-        note: "A survivor-led network. Confirm the current URL and description before listing." }
+        note: "A survivor-led network. Confirm the current URL and description before listing." },
+      { id: "nswp", cite: "NSWP, n.d.", status: "verify", text: "Global Network of Sex Work Projects. (n.d.). [Website].", note: "A sex worker-led network. Confirm the current URL and description before listing." }
     ]
   },
   {
