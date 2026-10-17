@@ -18,11 +18,11 @@ window.BTL_SOURCES = [
       { id: "abulughod", cite: "Abu-Lughod, 2002/2025", status: "checked", text: "Abu-Lughod, L. (2025). Do Muslim women really need saving? Anthropological reflections on cultural relativism and its others. In R. Gay (Ed.), The portable feminist reader (pp. 141–150). Penguin Books. (Original work published 2002)",
         note: "Critiques “saving” narratives that treat women as lacking agency." },
       { id: "giragrant", cite: "Grant, 2012/2025", status: "checked", text: "Grant, M. G. (2025). Happy hookers. In R. Gay (Ed.), The portable feminist reader (pp. 511–515). Penguin Books. (Original work published 2012)",
-        note: "By a former sex worker; on the gap between “savior” narratives and sex workers’ own accounts. Planned for Case 3." },
+        note: "By a former sex worker; on the gap between “savior” narratives and sex workers’ own accounts. Used in Case 3." },
       { id: "davis", cite: "Davis & Shaylor, 2001/2025", status: "checked", text: "Davis, A. Y., & Shaylor, C. (2025). Race, gender, and the prison industrial complex: California and beyond. In R. Gay (Ed.), The portable feminist reader (pp. 334–355). Penguin Books. (Original work published 2001)",
-        note: "Criminalization of poor women, including through prostitution laws. Planned for Case 5." },
+        note: "Criminalization of poor women, including through prostitution laws. Used in Case 5." },
       { id: "rubin", cite: "Rubin, 1984/2025", status: "checked", text: "Rubin, G. S. (2025). Thinking sex: Notes for a radical theory of the politics of sexuality (excerpt). In R. Gay (Ed.), The portable feminist reader (pp. 427–447). Penguin Books. (Original work published 1984)",
-        note: "How some sexual behavior is constructed as moral and some as deviant. Planned for Case 3." }
+        note: "How some sexual behavior is constructed as moral and some as deviant. Used in Case 3." }
     ]
   },
   {

@@ -25,7 +25,7 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 
 ## Before launch checklist
 
-**Mina (author tasks)**
+**Author tasks**
 - [ ] Verify each source marked `status: "verify"` against the original (the case mechanisms and legal context first), then change it to `"checked"`. A source that doesn't support its sentence gets rewritten or removed, not just relabeled.
 - [ ] Add NC State counseling and Women's Center details (`resourcesHTML` in `app.js`), from official NC State pages.
 - [ ] Write the creator's name and "Why I made this" on the About page, in her own words.
