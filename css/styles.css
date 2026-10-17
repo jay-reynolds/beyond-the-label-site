@@ -483,3 +483,5 @@ td.q { font-weight: 700; color: var(--unknown); }
   .handout h1 { font-size: 28pt; }
   .handout h2 { margin-top: 14pt; font-size: 14pt; }
 }
+.qr-img { flex: none; width: 132px; height: 132px; background: #fff; padding: 4px; border: 1px solid var(--rule); }
+.qr-url { font-family: var(--sans); font-weight: 600; font-size: 1.0625rem; overflow-wrap: anywhere; }

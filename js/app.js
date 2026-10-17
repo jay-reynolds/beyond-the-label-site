@@ -504,6 +504,12 @@
   // ---------- Showcase path (about 3 minutes, for the gallery table) ----------
   // Uses one case's content. Answers live in memory only and reset for each visitor.
   var SHOWCASE_CASE = 1;
+  // Public address. The QR image (img/qr.svg) encodes this; regenerate it if the address changes.
+  var SITE_URL = "https://topographic-oceans.com";
+  function qrCard(lead) {
+    return '<div class="qr-card"><img class="qr-img" src="img/qr.svg" width="132" height="132" alt="QR code for ' + esc(SITE_URL.replace("https://", "")) + '">' +
+      "<p><strong>" + esc(lead) + '</strong><br><span class="qr-url">' + esc(SITE_URL.replace("https://", "")) + "</span></p></div>";
+  }
   var show = { step: 1, rating: null, pick: null, revealed: false };
 
   function renderShowcase() {
@@ -539,8 +545,7 @@
         '<div class="compare"><div class="before"><span class="label">Instead of</span><p>“' + esc(c.claim) + '”</p></div>' +
         '<div class="after"><span class="label">Try</span><p>“' + esc(c.reframe.model) + "”</p></div></div>" +
         renderCTA(c.reframe.actions) +
-        '<div class="qr-card"><div class="qr-box" aria-hidden="true">QR</div><p><strong>Try all five cases on your phone.</strong><br>' +
-        '<span class="placeholder-inline">Placeholder: site address and QR code, added once the site is published.</span></p></div>';
+        qrCard("Try all five cases on your phone.");
     }
     var nav = '<div class="stage-nav">' +
       (n > 1 ? '<button class="btn btn-quiet" data-action="sc-back">Back</button>' : '<span></span>') +
@@ -559,7 +564,7 @@
       "<h2>Who it’s for</h2><p>College students and young adults who meet these stories on social media, in the news, and in everyday conversation.</p>" +
       "<h2>Before you label, ask</h2><ol><li>What do I know?</li><li>What am I assuming?</li><li>What evidence am I missing?</li><li>What does the person’s own account tell me, if they’ve shared one?</li><li>How can I describe this more carefully?</li></ol>" +
       "<h2>Then act</h2><ul><li>Question “she could have left” when you hear it.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li></ul>" +
-      '<div class="qr-card"><div class="qr-box" aria-hidden="true">QR</div><p><strong>Try the interactive cases.</strong><br><span class="placeholder-inline">Placeholder: site address and QR code.</span></p></div>' +
+      qrCard("Try the interactive cases.") +
       '<p class="meta">WGS 200 · NC State University · Fall 2026. Need support? National Human Trafficking Hotline (U.S.): 1-888-373-7888, text 233733.</p>' +
       '<div class="btn-row no-print"><button class="btn btn-secondary" data-action="print">Print</button></div></div></div>';
   }
