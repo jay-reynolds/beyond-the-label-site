@@ -6,7 +6,7 @@ window.BTL_CASES.push({
     title: "Participation",
     claim: "She participated, so she consented.",
     focus: "Participation → assumed consent",
-    minutes: 7,
+    minutes: 10,
     person: "C.",
 
     scenario: {
@@ -52,7 +52,7 @@ window.BTL_CASES.push({
         { id: "b", text: "She participated for several months.", key: false,
           why: "This repeats the stated fact with more detail. It doesn’t connect taking part to consenting." },
         { id: "c", text: "She agreed to do sex work before she moved.", key: false,
-          why: "This is stated, and it matters: her first decision was real. But agreeing to the work at the start doesn’t reach conditions she was never told about." },
+          why: "This is stated, and it matters: her first decision was real. But agreeing to the work at the start doesn’t, by itself, reach conditions that may have been added or changed later." },
         { id: "d", text: "No one would freely choose sex work.", key: false,
           why: "This is a different claim, and it points toward the opposite conclusion. Feminists disagree about it, and many sex workers say they did choose their work. Either way, it doesn’t connect participation to consent." }
       ],
@@ -80,7 +80,7 @@ window.BTL_CASES.push({
           lines: [ { f: "<var>V</var> <span class=op>→</span> (<span class=op>¬</span><var>C</var> <span class=op>∧</span> <span class=op>¬</span><var>D</var> <span class=op>∧</span> <var>K</var>)", r: "If V, then not C, and not D, and K." } ],
           text: "Here V means “she gave valid consent,” C means “she was coerced,” D means “she was deceived about what she agreed to,” and K means “she had the capacity to consent.” The symbol ¬ means “not” and ∧ means “and.” Participation can be true while C or D is also true. So the premise P → A is believable only if A means “went along.” The conclusion matters only if A means V." },
         { title: "If C. were under 18",
-          text: "The analysis changes completely. Under U.S. law, a commercial sex act involving anyone under 18 is sex trafficking. No force, fraud, or coercion has to be shown. [[tvpa]] The Palermo Protocol likewise requires no coercive means when the person is a child. [[palermo]] For a minor, whether she “went along” doesn’t enter into it." }
+          text: "The analysis changes completely. Under U.S. law, anyone under 18 who is induced to perform a commercial sex act is a victim of sex trafficking. No force, fraud, or coercion has to be shown. [[tvpa]] The Palermo Protocol likewise requires no coercive means when the person is a child. [[palermo]] For a minor, whether she “went along” doesn’t enter into it." }
       ],
       beyond: {
         sentence: "She agreed because she believed the terms were fair.",
@@ -89,7 +89,7 @@ window.BTL_CASES.push({
       },
       inverse: [
         { title: "Not following doesn’t make it false", text: "Showing that a conclusion doesn’t follow is not the same as showing it’s false. C. may be working under exactly the terms she agreed to. The point is that participation alone can’t tell us." },
-        { title: "The opposite overreach", text: "It would be equally unsupported to conclude, from the observer’s view alone, that C. was trafficked. What changes the analysis is evidence of fraud and coercion, not the fact of sex work." }
+        { title: "The opposite overreach", text: "It would be equally unsupported to conclude, from the observer’s view alone, that C. was trafficked. What changes the analysis is evidence of force, fraud, or coercion, not the fact of sex work." }
       ]
     },
 
@@ -127,14 +127,14 @@ window.BTL_CASES.push({
         ],
         after: "The first explanation is on the list on purpose. The point isn’t to rule it out. It’s that participation, by itself, can’t tell these explanations apart."
       },
-      legal: "The Palermo Protocol, Article 3, defines trafficking as an act (such as recruiting or transporting someone), carried out by a means (such as threat, force, fraud, deception, or abuse of a position of vulnerability), for the purpose of exploitation. Article 3(b) says a victim’s consent is irrelevant where any of those means were used. [[palermo]] That does not mean adults can’t consent to sex work. It means consent obtained through coercion or deception doesn’t count. U.S. law likewise defines sex trafficking of adults by force, fraud, or coercion. [[tvpa]] The law sets a threshold for prosecution. It doesn’t capture everything a person lives through."
+      legal: "The Palermo Protocol, Article 3, defines trafficking as an act (such as recruiting or transporting someone), carried out by a means (such as threat, force, fraud, deception, or abuse of a position of vulnerability), for the purpose of exploitation. Article 3(b) says a victim’s consent to the intended exploitation is irrelevant where any of those means were used. [[palermo]] That does not mean adults can’t consent to sex work. It means consent obtained through coercion or deception doesn’t count. U.S. law likewise defines sex trafficking of adults by force, fraud, or coercion. [[tvpa]] The law sets a threshold for prosecution. It doesn’t capture everything a person lives through."
     },
 
     fuller: {
       label: "Still constructed. Each detail reflects a pattern documented in research on trafficking and the sex trade. This is one possible fuller picture: a different one, in which C. works under the terms she agreed to, would fit the same observations.",
       paragraphs: [
         "Before she moved, C. agreed to a specific arrangement with the people who offered her the job. She would keep a set share of what she earned, choose her own clients, and be free to leave. She knew what the work was. That decision was real, and it was hers.",
-        "After she arrived, the terms changed. Her travel and housing costs became a “debt,” and her share of the earnings shrank to almost nothing while it was “paid down.” Someone checks her phone. She has been told that if she leaves, the debt will pass to her younger sister, and that if she goes to the police, she will be the one arrested. Because selling sex is a crime in most of the U.S., that threat is easy to believe.",
+        "After she arrived, the terms changed. Her travel and housing costs became a “debt,” and her share of the earnings shrank to almost nothing while it was “paid down.” Someone checks her phone. She has been told that if she leaves, the debt will pass to her younger sister, and that if she goes to the police, she will be the one arrested. Because selling sex is a crime almost everywhere in the U.S., that threat is easy to believe.",
         "C. is not passive. She negotiates over money and conditions every day, turns down clients she judges unsafe, and keeps a hidden record of every payment she has made toward the “debt.”"
       ],
       mechanisms: [
@@ -157,14 +157,14 @@ window.BTL_CASES.push({
       lensNote: "These are two perspectives, not one correct theory. They ask different questions, and neither settles the wider debate about sex work.",
       cards: [
         { title: "Contested terrain",
-          text: "Feminists disagree sharply about sex work. Some, often called abolitionists, argue that the sex trade grows out of gender and economic inequality, so that choices inside it are never fully free. Many in this camp support decriminalizing people who sell sex while penalizing buyers. Others, including many sex workers and sex worker-led organizations, argue that sex work is work, that treating all of it as trafficking harms both sex workers and trafficking survivors, and that labor rights are the better answer. [[giragrant]] [[kempadoo]] Many people hold positions in between. This case doesn’t settle that debate. Its question is narrower: what can and can’t be inferred from participation." },
+          text: "Feminists disagree sharply about sex work. Some, often called abolitionists, argue that prostitution is itself a form of sexual exploitation rooted in gender and economic inequality, so that choices inside it are never fully free. [[mackinnon]] Many in this camp support decriminalizing people who sell sex while penalizing buyers. Others, including many sex workers and sex worker-led organizations, argue that sex work is work, that treating all of it as trafficking harms both sex workers and trafficking survivors, and that decriminalization and labor rights are the better answer. [[giragrant]] [[kempadoo]] Many people hold positions in between. This case doesn’t settle that debate. Its question is narrower: what can and can’t be inferred from participation." },
         { title: "Who gets to tell the story",
-          text: "Grant describes anti-trafficking campaigners who speak about sex workers’ lives without asking them, and who take a sex worker’s disagreement as proof that she must be a victim. She argues that campaigns to “save” sex workers can remove the options they rely on for safety and income. [[giragrant]] Lila Abu-Lughod, writing about a different context, warns that the urge to save women can drown out what they say about their own lives. [[abulughod]] In C.’s case, the person best placed to say which terms she agreed to is C." },
+          text: "Grant describes anti-trafficking campaigners who speak about sex workers’ lives without asking them, and who take a sex worker’s disagreement as proof that she must be a victim. She argues that campaigns to “save” sex workers can remove the options they rely on for safety and income. [[giragrant]] Lila Abu-Lughod, writing about a different context, warns that the rhetoric of saving women carries a sense of superiority, and can keep us from seeing that they may want different things than we want for them. [[abulughod]] In C.’s case, the person best placed to say which terms she agreed to is C." },
         { title: "What changed the analysis",
           text: "Notice what did the work in this fuller picture: the changed terms, the debt, the threats, and the monitoring. Not the fact of sex work. If C. were working under the terms she agreed to, the same observations would fit, and nothing here would show she was trafficked." }
       ],
       returnPrompt: "Look back at the claim: “She participated, so she consented.” Consented to what?",
-      survivors: "To hear from trafficking survivors in their own words, start with survivor-led work. [[nsn]] [[lloyd]] For sex workers’ own accounts, start with writing by sex workers, such as Grant’s. [[giragrant]] The two groups don’t always agree, and both are worth hearing."
+      survivors: "To hear from trafficking survivors in their own words, start with survivor-led work. [[nsn]] [[lloyd]] For sex workers’ own accounts, start with sex worker-led groups and writing by sex workers, such as Grant’s. [[nswp]] [[giragrant]] These voices don’t always agree, some people belong to both groups, and all are worth hearing."
     },
 
     reframe: {
@@ -184,7 +184,7 @@ window.BTL_CASES.push({
       ],
       actions: [
         { lead: "Ask “consented to what?”", text: "When you hear “she knew what she was getting into,” ask whether what she is in now is what she agreed to." },
-        { lead: "Don’t treat sex work as proof of trafficking.", text: "The reverse shortcut is just as unsupported. What matters is fraud, force, and coercion. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself." },
+        { lead: "Don’t treat sex work as proof of trafficking.", text: "The reverse shortcut is just as unsupported. For adults, what matters is force, fraud, or coercion. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself." },
         { lead: "Listen to the people involved.", text: "Seek out writing and organizations led by sex workers and by trafficking survivors, not only stories told about them." },
         { lead: "Push for structural change.", text: "Support policies that let people report exploitation, violence, or trafficking without being arrested themselves, and criminal-record relief (vacatur) for trafficking survivors." }
       ]

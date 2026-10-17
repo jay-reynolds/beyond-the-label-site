@@ -62,7 +62,7 @@ window.BTL_SOURCES = [
     note: "This project does not quote survivors. These are places to hear from survivors directly.",
     items: [
       { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale. Harper.",
-        note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services)." },
+        note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services). Focused mainly on girls and young women." },
       { id: "nsn", cite: "National Survivor Network, n.d.", status: "verify", text: "National Survivor Network. (n.d.). [Website]. Coalition to Abolish Slavery & Trafficking.",
         note: "A survivor-led network. Confirm the current URL and description before listing." },
       { id: "nswp", cite: "NSWP, n.d.", status: "verify", text: "Global Network of Sex Work Projects. (n.d.). [Website].", note: "A sex worker-led network. Confirm the current URL and description before listing." }
@@ -72,6 +72,9 @@ window.BTL_SOURCES = [
     group: "Research and support organizations",
     items: [
       { id: "ilo", cite: "ILO, 2012", status: "verify", text: "International Labour Organization. (2012). ILO indicators of forced labour. International Labour Office." },
+      { id: "ndvh", cite: "National Domestic Violence Hotline, n.d.", status: "verify", text: "National Domestic Violence Hotline. (n.d.). [Website].",
+        note: "Confirm phone, text, and chat details before launch." },
+      { id: "vacatur", cite: "Vacatur source needed", status: "placeholder", text: "Placeholder: a checked source on state vacatur and criminal-record relief laws for trafficking survivors (e.g., a Polaris issue brief). To be found and verified by the author." },
       { id: "hotline", cite: "National Human Trafficking Hotline, n.d.", status: "verify", text: "National Human Trafficking Hotline. (n.d.). [Website]. Polaris.",
         note: "Operated by Polaris, a research and hotline organization (not survivor-led). Confirm phone and text numbers before launch." }
     ]

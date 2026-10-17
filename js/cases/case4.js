@@ -54,7 +54,7 @@ window.BTL_CASES.push({
       ],
       follows: "With the hidden premise added, the argument is valid. If both premises were true, the conclusion would have to be true. Logicians call this form modus tollens: if C then L; not L; therefore not C.",
       isTrue: "But is the hidden premise true? It is close to backwards. Coercion works by making leaving costly or dangerous, so it tends to produce staying. [[stark]] Not leaving is what coercion would often look like, which means it can’t count as evidence against it. The argument is valid, but the premise is a myth, not a fact. So this is not a fallacy in the usual sense. The reasoning is fine; the belief it is built on is not.",
-      keyIdea: "Valid arguments can carry myths in their premises. When the reasoning is sound but the conclusion still feels off, check the premise. That is a question about evidence, not logic.",
+      keyIdea: "Valid arguments can carry myths in their premises. When an argument is valid but the conclusion still feels off, check the premises. That is a question about evidence, not logic.",
       symbols: {
         key: [ ["C", "She is being coerced."], ["L", "She leaves (or seeks help)."] ],
         steps: [
@@ -76,7 +76,7 @@ window.BTL_CASES.push({
             { f: "<span class=op>¬</span><var>K</var>", r: "She wasn’t locked in." },
             { f: "<span class=op>∴</span> <span class=op>¬</span><var>C</var>", r: "Therefore, she wasn’t coerced." }
           ],
-          text: "Here K means “she was locked in.” This version is not valid. It denies the antecedent. Being locked in is one way of coercing someone. It isn’t the only way. This time the form itself fails, for a different reason than before." },
+          text: "(¬ means “not”; ∨ means “or.”) Here K means “she was locked in.” This version is not valid. It denies the antecedent. Being locked in is one way of coercing someone. It isn’t the only way. This time the form itself fails, for a different reason than before." },
         { title: "A third reading: “held or free”",
           lines: [
             { f: "<var>P</var> <span class=op>∨</span> <var>F</var>", r: "Either she was physically prevented from leaving, or she stayed freely." },
@@ -99,7 +99,7 @@ window.BTL_CASES.push({
         { id: "e1", text: "Has anyone threatened her, or people she cares about, if she leaves?", relevant: true,
           why: "Threats against family are a recognized form of coercion, and they work without any locked door. [[tvpa]] [[stark]]" },
         { id: "e2", text: "What has she been told would happen if she went to the police?", relevant: true,
-          why: "Being told you will be arrested or reported to immigration keeps many people from seeking help, whether or not it is true." },
+          why: "Being told you will be arrested or reported to immigration keeps many people from seeking help, whether or not it is true. [[brennan]]" },
         { id: "e3", text: "Is her phone, or her time, monitored by anyone?", relevant: true,
           why: "Surveillance means an open door and a phone don’t add up to real freedom to act. [[stark]]" },
         { id: "e4", text: "Does she have money, a safe place to go, and a way to ask for help in a language she is comfortable in?", relevant: true,
@@ -107,7 +107,7 @@ window.BTL_CASES.push({
         { id: "e5", text: "Is the building in a busy part of town?", relevant: false,
           why: "Coercion happens in every kind of place. This doesn’t help us tell explanations apart." },
         { id: "e6", text: "Does she seem calm when she shops?", relevant: false,
-          why: "Calm can mean many things. Looking at ease is not evidence of being free." }
+          why: "Calm can mean many things. Looking at ease tells us little either way." }
       ],
       compareNote: "Four of these bear directly on whether leaving is realistic. Picking any three of them is a good choice. Your picks don’t need to match anyone else’s.",
       rivals: {
@@ -132,11 +132,11 @@ window.BTL_CASES.push({
       ],
       mechanisms: [
         { name: "Threats to family", system: "Coercion beyond physical restraint", text: "Danger to people she loves can keep a person in place more firmly than a lock. [[stark]]" },
-        { name: "Fear of criminalization and abuse of the legal process", system: "Criminal law, immigration enforcement", text: "If police are seen as a risk rather than a refuge, calling them is not a realistic option. [[tvpa]]" },
-        { name: "Surveillance", system: "Coercive control", text: "Checking her phone makes every contact outside the workplace a risk. [[stark]]" },
-        { name: "Language isolation", system: "Services that assume English", text: "Limited English narrows who she can ask, and what she can ask for. [[crenshaw]]" }
+        { name: "Fear of criminalization and abuse of the legal process", system: "Criminal law, immigration enforcement", text: "Threatening someone with arrest or deportation is itself coercion under U.S. law, which calls it abuse of the legal process. When police seem like a risk, calling them isn’t a realistic option. [[tvpa]]" },
+        { name: "Surveillance", system: "Coercive control", text: "Research on coercive control describes this tactic: checking her phone makes every outside contact a risk. [[stark]]" },
+        { name: "Language isolation", system: "Services that assume English", text: "When hotlines, shelters, and police work mainly in English, limited English narrows who she can ask, and what she can ask for." }
       ],
-      agency: "D. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes writing that pictures women as one generic, powerless victim. D. is constrained, not powerless. [[mohanty]]",
+      agency: "D. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes Western feminist writing that pictures “Third World women” as one generic, powerless victim. D. is constrained, not powerless. [[mohanty]]",
       idealVictim: "D. doesn’t match the popular image of a coercion victim. No one has her locked in, and she goes out on her own. Sociologist Nils Christie called this the “ideal victim” problem: we recognize harm most easily in people who fit a familiar story, and overlook others. [[christie]]",
       returnPrompt: "Look back at the claim: “She didn’t leave, so she wasn’t being coerced.” What did it leave out?",
       survivors: "To hear from survivors in their own words, start with survivor-led work. [[nsn]]"
@@ -158,7 +158,7 @@ window.BTL_CASES.push({
         "My version points to what we’d need to know."
       ],
       actions: [
-        { lead: "Ask what the door is made of.", text: "When you hear “the door wasn’t even locked,” ask what else could keep someone in place." },
+        { lead: "Look past the open door.", text: "When you hear “the door wasn’t even locked,” ask what else could keep someone in place." },
         { lead: "Know the signs.", text: "Monitored phones, threats to family, and fear of police are warning signs even when nothing is locked. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself. [[hotline]]" },
         { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them. [[nsn]]" },
         { lead: "Push for structural change.", text: "Support policies that let people ask police and courts for help without fear of being arrested or reported themselves, and that fund services in languages people speak." }

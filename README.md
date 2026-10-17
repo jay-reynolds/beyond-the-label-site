@@ -22,6 +22,8 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 ## Before launch checklist
 - [ ] Every source marked `status: "verify"` has been checked against the original. Then change it to `"checked"`.
 - [ ] The hotline and 988 numbers are confirmed on their official sites. Then remove the "verify before launch" tags in `app.js`.
+- [ ] Replace the `vacatur` placeholder source (used in Case 5) with a checked source on state record-relief laws. Confirm the claim that some laws cover only prostitution charges.
+- [ ] Confirm the National Domestic Violence Hotline details (Case 2).
 - [ ] NC State counseling and Women's Center details are added (`resourcesHTML` in `app.js`).
 - [ ] The About page has the creator's name and "Why I made this", in the creator's own words.
 - [ ] Opening `index.html` directly works on the showcase laptop, including with Wi-Fi off.

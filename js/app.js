@@ -276,7 +276,7 @@
       var sym = L.symbols;
       var symbols = !sym ? "" : '<details class="more"><summary>Show it in symbols</summary><div class="more-body">' +
         '<p class="symbol-key">' + sym.key.map(function (k) { return "<strong>" + k[0] + "</strong> = " + esc(k[1]); }).join("<br>") +
-        "<br><strong>→</strong> means “if … then …”. <strong>∴</strong> means “therefore.”</p>" +
+        "<br><strong>→</strong> means “if … then …”. <strong>¬</strong> means “not.” <strong>∨</strong> means “or.” <strong>∴</strong> means “therefore.”</p>" +
         sym.steps.map(function (st) {
           return "<h3>" + esc(st.label) + "</h3>" + formulaWell(st.lines) + "<p>" + rich(st.note) + "</p>";
         }).join("") + "</div></details>";
@@ -348,7 +348,7 @@
             return '<li><span class="m-name">' + esc(m.name) + '</span><span class="m-system">' + esc(m.system) + "</span>" + rich(m.text) + "</li>";
           }).join("") + "</ul>" +
           '<p class="key-idea">' + rich(F.agency) + "</p>" +
-          (F.lenses ? "<h2>Personhood and agency</h2><p>How should we think about " + esc(c.person) + "’s choices? Here are " + (F.lenses.length === 1 ? "a perspective" : F.lenses.length + " perspectives") + " to weigh.</p>" +
+          (F.lenses ? "<h2>Personhood and agency</h2><p>How should we think about " + esc(c.person) + "’s choices? " + (F.lenses.length === 1 ? "Here is a perspective" : "Here are " + F.lenses.length + " perspectives") + " to weigh.</p>" +
           '<div class="lenses">' + F.lenses.map(function (l) {
             return '<div class="lens"><h3>' + esc(l.name) + '</h3><p class="src">' + esc(l.src) + " " + l.src_ids.map(function (id) { return rich("[[" + id + "]]"); }).join(" ") + "</p><p>" + rich(l.text) + "</p><p><em>" + esc(l.q) + "</em></p></div>";
           }).join("") + "</div>" +
@@ -489,7 +489,7 @@
         return '<section class="source-group"><h2>' + esc(g.group) + "</h2>" + (g.note ? '<p class="meta">' + esc(g.note) + "</p>" : "") +
           '<ul class="source-list">' + g.items.map(function (it) {
             return '<li id="src-' + it.id + '" tabindex="-1">' + esc(it.text) +
-              (it.status === "verify" ? ' <span class="verify">verify before launch</span>' : "") +
+              (it.status === "verify" ? ' <span class="verify">verify before launch</span>' : it.status === "placeholder" ? ' <span class="verify">to be added</span>' : "") +
               (it.note ? '<span class="note">' + esc(it.note) + "</span>" : "") + "</li>";
           }).join("") + "</ul></section>";
       }).join(""));
