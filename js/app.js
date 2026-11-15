@@ -15,12 +15,15 @@
   var memory = {};
   var storageOK = true;
   function load() {
+    var raw;
+    try { raw = localStorage.getItem(STORE_KEY); }
+    catch (e) { storageOK = false; return memory; }
     try {
-      var v = JSON.parse(localStorage.getItem(STORE_KEY));
+      var v = JSON.parse(raw);
       // Anything that isn't a plain object (corrupted or hand-edited) falls back to empty progress.
       return v && typeof v === "object" && !Array.isArray(v) ? v : {};
     }
-    catch (e) { storageOK = false; return memory; }
+    catch (e) { return {}; }
   }
   var state = load();
   function save() {
@@ -108,7 +111,7 @@
   // ---------- Home ----------
   function renderHome() {
     var resume = "";
-    var started = CASES.filter(function (c) { return c.ready && state.cases && state.cases[c.id] && state.cases[c.id].stage; });
+    var started = CASES.filter(function (c) { return c.ready && state.cases && state.cases[c.id] && state.cases[c.id].stage && !state.cases[c.id].done; });
     if (started.length) {
       var c = started[0], st = state.cases[c.id].stage;
       resume = '<p><a class="btn btn-quiet" href="#/case/' + c.id + "/" + st + '">Resume Case ' + c.id + ": " + esc(c.title) + " (" + esc(STAGES[st - 1]) + ")</a></p>";
@@ -122,7 +125,7 @@
       "<p>We often make conclusions about people’s choices based on what we can see: whether someone stayed, returned, participated, or did not leave. But what can be observed is not always enough to explain why someone acted. This interactive tool helps you examine the assumptions, reasoning, and evidence behind those interpretations.</p>" +
       '<div class="btn-row"><a class="btn btn-primary" href="' + (state.noteAck ? "#/cases" : "#/note") + '">Explore a case</a>' +
       '<a class="btn btn-secondary" href="#/how">How it works</a></div>' + resume +
-      '<p class="meta hero-note">Content note: this project discusses trafficking and coercion in general terms, with no graphic detail and no real people’s accounts. <a href="#/note">Read the note</a>. About 13 minutes for the first case.</p>' +
+      '<p class="meta hero-note">Content note: this project discusses trafficking and coercion in general terms, with no graphic detail and no real people’s accounts. <a href="#/note">Read the note</a>. About ' + CASES[0].minutes + ' minutes for the first case.</p>' +
       "</div></div>";
   }
 
@@ -536,7 +539,7 @@
       "</div></div>";
   }
 
-  function renderSources(focusId) {
+  function renderSources() {
     return page(h1("Sources") +
       "<p>Every source the project relies on is listed here in APA format. Course readings come from <em>The Portable Feminist Reader</em> (Gay, 2025).</p>" +
       SOURCES.map(function (g) {
@@ -630,7 +633,7 @@
   function route() {
     var hash = location.hash || "#/";
     var parts = hash.replace(/^#\/?/, "").split("/");
-    var html, title = "Beyond the Label", focusSel = "h1", current = parts[0] || "home";
+    var html, title = "Beyond the Label", focusId = null, current = parts[0] || "home";
 
     if (hash !== "#/break") { state.lastRoute = hash; save(); }
 
@@ -649,7 +652,7 @@
     else if (parts[0] === "final") { html = renderFinal(); title = "Think before you label · " + title; }
     else if (parts[0] === "showcase") { html = renderShowcase(); title = "Showcase · " + title; }
     else if (parts[0] === "handout") { html = renderHandout(); title = "Handout · " + title; }
-    else if (parts[0] === "sources") { html = renderSources(); title = "Sources · " + title; if (parts[1]) focusSel = "#src-" + parts[1]; }
+    else if (parts[0] === "sources") { html = renderSources(); title = "Sources · " + title; if (parts[1]) focusId = "src-" + parts[1]; }
     else { html = renderNotFound(); }
 
     app.innerHTML = html;
@@ -660,10 +663,11 @@
     });
     var menu = document.querySelector(".menu"); if (menu) menu.open = false;
 
-    if (!first || focusSel !== "h1") {
-      var el = app.querySelector(focusSel) || app.querySelector("h1");
-      if (el) { el.focus({ preventScroll: true }); el.scrollIntoView({ block: focusSel === "h1" ? "start" : "center" }); }
-      if (focusSel === "h1") window.scrollTo(0, 0);
+    if (!first || focusId) {
+      // getElementById, not querySelector: a hand-typed id can't throw.
+      var el = (focusId && document.getElementById(focusId)) || app.querySelector("h1");
+      if (el) { el.focus({ preventScroll: true }); el.scrollIntoView({ block: focusId ? "center" : "start" }); }
+      if (!focusId) window.scrollTo(0, 0);
     }
     live.textContent = title.split(" · ")[0];
     first = false;
@@ -697,13 +701,14 @@
       }
     } else if (kind === "premise") {
       cs.premise = t.value; save();
-      if (cs.premiseRevealed) rerenderKeepingFocus(t);
+      if (cs.premiseRevealed || nudges["reveal-premise"]) rerenderKeepingFocus(t);
     } else if (kind === "cards") {
       var picks = Array.prototype.map.call(form.querySelectorAll("input:checked"), function (i) { return i.value; });
       var max = c.evidence.pick;
       if (picks.length > max) { t.checked = false; picks = picks.filter(function (v) { return v !== t.value; }); live.textContent = "You can choose up to " + max + ". Uncheck one to pick another."; }
       cs.cards = picks; save();
-      var count = document.getElementById("pick-count"); if (count) count.textContent = "(" + picks.length + " chosen)";
+      if (nudges["reveal-cards"]) { nudges["reveal-cards"] = false; rerenderKeepingFocus(t); }
+      else { var count = document.getElementById("pick-count"); if (count) count.textContent = "(" + picks.length + " chosen)"; }
     } else if (kind === "checks") {
       cs.checks = Array.prototype.map.call(form.querySelectorAll("input:checked"), function (i) { return parseInt(i.value, 10); }); save();
     }
@@ -732,7 +737,11 @@
       if (action === "sc-next") show.step = Math.min(4, show.step + 1);
       if (action === "sc-back") show.step = Math.max(1, show.step - 1);
       if (action === "sc-reveal") show.revealed = true;
-      if (action === "sc-restart") show = { step: 1, rating: null, pick: null, revealed: false };
+      if (action === "sc-restart") {
+        show = { step: 1, rating: null, pick: null, revealed: false };
+        // Shared laptop: also clear anything a visitor saved in the full cases.
+        state = { theme: state.theme }; nudges = {}; save();
+      }
       first = false; route();
       return;
     }

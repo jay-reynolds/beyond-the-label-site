@@ -8,7 +8,7 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 - **Publish:** upload this folder to any static host (GitHub Pages, Netlify, Cloudflare Pages).
 
 ## Showcase table
-- `#/showcase`: a 4-step, about 3-minute walk through one case, in large type, with a "Start over for the next visitor" button. Answers are kept in memory only. Choose the case with `SHOWCASE_CASE` in `js/app.js`.
+- `#/showcase`: a 4-step, about 3-minute walk through one case, in large type, with a "Start over for the next visitor" button. Showcase answers are kept in memory only, and "Start over" also clears any progress a visitor saved in the full cases on that laptop (the theme choice is kept). Choose the case with `SHOWCASE_CASE` in `js/app.js`.
 - `#/handout`: a one-page printable handout. Add the QR code and site address once the site is published.
 
 ## Where the words live
