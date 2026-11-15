@@ -510,8 +510,14 @@
       "<h2>Privacy</h2><p>Nothing you enter is sent anywhere. There are no accounts, cookies, or analytics. Your progress and answers are saved only in this browser, and you can clear them at any time from the bottom of the page.</p>");
   }
 
+  // One copy of the hotline: the support page, the handout, and the footer (filled in below) all use it.
+  var HOTLINE = "National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733";
+  // The questions on the Final screen and the printed handout.
+  var ASK = ["What do I know?", "What am I assuming?", "What evidence am I missing?", "What does the person’s own account tell me, if they’ve shared one?", "How can I describe this more carefully?"];
+  function listItems(xs) { return xs.map(function (q) { return "<li>" + esc(q) + "</li>"; }).join(""); }
+
   function resourcesHTML() {
-    return '<ul><li>National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733</li>' +
+    return '<ul><li>' + esc(HOTLINE) + '</li>' +
       '<li>National Domestic Violence Hotline (U.S.): call 1-800-799-7233 or text START to 88788</li>' +
       '<li>988 Suicide &amp; Crisis Lifeline (U.S.): call or text 988</li>' +
       '<li>If you’re in immediate danger, call 911.</li>' +
@@ -531,9 +537,7 @@
     return '<div class="page final"><div class="reading">' +
       '<h1 tabindex="-1">Think before you label.</h1>' +
       '<p class="sub">A person’s behavior is only one part of a story.</p>' +
-      "<p>Before drawing conclusions about someone’s choices, ask:</p><ol>" +
-      ["What do I know?", "What am I assuming?", "What evidence am I missing?", "What does the person’s own account tell me, if they’ve shared one?", "How can I describe this more carefully?"]
-        .map(function (q) { return "<li>" + esc(q) + "</li>"; }).join("") + "</ol>" +
+      "<p>Before drawing conclusions about someone’s choices, ask:</p><ol>" + listItems(ASK) + "</ol>" +
       "<h2>And then</h2><ul><li>Question “she could have left” when you hear it, kindly and out loud.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li><li>Share this tool with someone who scrolls past these stories.</li></ul>" +
       '<div class="btn-row"><button class="btn btn-secondary" data-action="print">Print or save this card</button><a class="btn btn-quiet" href="#/cases">Back to cases</a></div>' +
       "</div></div>";
@@ -614,10 +618,10 @@
       '<p class="lede">How language and reasoning shape the way we understand trafficking narratives.</p>' +
       "<h2>The issue</h2><p>People often judge trafficked women’s choices from what they can see: she stayed, she went back, she participated, she didn’t leave. What’s visible rarely explains why. Those assumptions shape who gets believed, helped, or blamed.</p>" +
       "<h2>Who it’s for</h2><p>College students and young adults who meet these stories on social media, in the news, and in everyday conversation.</p>" +
-      "<h2>Before you label, ask</h2><ol><li>What do I know?</li><li>What am I assuming?</li><li>What evidence am I missing?</li><li>What does the person’s own account tell me, if they’ve shared one?</li><li>How can I describe this more carefully?</li></ol>" +
+      "<h2>Before you label, ask</h2><ol>" + listItems(ASK) + "</ol>" +
       "<h2>Then act</h2><ul><li>Question “she could have left” when you hear it.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li></ul>" +
       qrCard("Try the interactive cases.") +
-      '<p class="meta">WGS 200 · NC State University · Fall 2026. Need support? National Human Trafficking Hotline (U.S.): 1-888-373-7888, text 233733.</p>' +
+      '<p class="meta">WGS 200 · NC State University · Fall 2026. Need support? ' + esc(HOTLINE) + '.</p>' +
       '<div class="btn-row no-print"><button class="btn btn-secondary" data-action="print">Print</button></div></div></div>';
   }
 
@@ -791,6 +795,7 @@
   });
 
   applyTheme(state.theme);
+  document.getElementById("footer-hotline").textContent = HOTLINE;
   // Same-page anchors (the skip link, "because") share the hash with the router.
   // Handle them without changing the route.
   function jumpTo(id) {
