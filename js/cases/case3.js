@@ -23,22 +23,22 @@ window.BTL_CASES.push({
     },
 
     sort: {
-      intro: "For each statement, decide whether the scenario actually says it, whether a reader would be assuming it, or whether we simply aren’t told.",
+      intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "C. knew the job would involve sex work.", answer: "stated",
           reason: "The scenario says this directly. Her decision to take the job was hers." },
         { id: "s2", text: "C. has been advertising and meeting clients for several months.", answer: "stated",
           reason: "Stated. What it shows about her consent is a separate question." },
-        { id: "s3", text: "C. agreed to the conditions she is working under now.", answer: "assumed",
-          reason: "This is the bridge many readers cross without noticing. Agreeing to a kind of work is not the same as agreeing to every condition that comes with it later." },
-        { id: "s4", text: "C. was forced into sex work.", answer: "assumed",
-          reason: "Some readers assume this from the fact of sex work alone. The scenario doesn’t say it, and it does say she knew what the work would be. This is the opposite leap, and it goes just as far past the facts." },
-        { id: "s5", text: "C. keeps the share of her earnings she was promised.", answer: "unknown",
+        { id: "s3", text: "C. agreed to the conditions she is working under now.", answer: "notstated", tag: "leans",
+          reason: "This is the bridge many readers cross without noticing, and it carries them straight to “she consented.” Agreeing to a kind of work is not the same as agreeing to every condition that comes with it later." },
+        { id: "s4", text: "C. was forced into sex work.", answer: "notstated",
+          reason: "Some readers assume this from the fact of sex work alone, but the scenario doesn’t say it, and it does say she knew what the work would be. This is the opposite leap, and it goes past the facts just as far in the other direction." },
+        { id: "s5", text: "C. keeps the share of her earnings she was promised.", answer: "notstated", tag: "ask",
           reason: "The scenario doesn’t say. Whether the terms stayed the same matters a great deal here." },
-        { id: "s6", text: "C. owes money to the people who arranged the job.", answer: "unknown",
-          reason: "The scenario doesn’t say. A debt can turn a job someone chose into one she can’t leave." }
+        { id: "s6", text: "C. owes money to the people who arranged the job.", answer: "notstated", tag: "ask",
+          reason: "The scenario doesn’t say. A debt can turn a job someone chose into one that is hard to leave." }
       ],
-      takeaway: "Two of these are stated. The claim “she consented” rests on one assumption, and the opposite claim, “she was forced,” rests on another. Both go past what an observer can see."
+      takeaway: "Two of these are stated. The claim “she consented” leans on something the scenario doesn’t say, and the opposite claim, “she was forced,” isn’t in the scenario either. Both go past what an observer can see."
     },
 
     logic: {

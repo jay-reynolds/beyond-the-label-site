@@ -23,18 +23,18 @@ window.BTL_CASES.push({
     },
 
     sort: {
-      intro: "For each statement, decide whether the scenario actually says it, whether a reader would be assuming it, or whether we simply aren’t told.",
+      intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "E. left the situation three times over four years.", answer: "stated",
           reason: "The scenario says this directly. Leaving three times is also worth noticing: each one was an attempt." },
         { id: "s2", text: "Each time she left, she returned to the same situation.", answer: "stated",
           reason: "Stated. What it means is a separate question." },
-        { id: "s3", text: "E. went back because she preferred that life.", answer: "assumed",
-          reason: "The scenario never gives a reason. This is the bridge from “she returned” to “she wanted it.”" },
-        { id: "s4", text: "Once she left, E. had somewhere safe to stay that she could keep.", answer: "unknown",
-          reason: "We aren’t told. Whether a person can stay away depends heavily on housing, money, and records." },
-        { id: "s5", text: "Whatever was wrong with the situation stopped when she left.", answer: "assumed",
-          reason: "Readers often picture leaving as a clean break. The scenario doesn’t say what happened after each exit." }
+        { id: "s3", text: "E. went back because she preferred that life.", answer: "notstated",
+          reason: "The scenario never gives a reason. This is the claim itself in other words, not a step toward it." },
+        { id: "s4", text: "Once she left, E. had somewhere safe to stay that she could keep.", answer: "notstated", tag: "ask",
+          reason: "The scenario doesn’t say. Whether a person can stay away depends heavily on housing, money, and records." },
+        { id: "s5", text: "Whatever was wrong with the situation stopped when she left.", answer: "notstated", tag: "leans",
+          reason: "Readers often picture leaving as a clean break, and the scenario doesn’t say what happened after each exit. Assuming a clean break makes each return look like picking the old life over a fresh start." }
       ],
       takeaway: "Two things are stated: she left, and she returned. The conclusion needs a reason for the returns, and the scenario doesn’t give one. Repetition is visible. The causes are not."
     },

@@ -308,7 +308,7 @@ textarea {
 }
 .field-note { font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-top: var(--s2); }
 
-/* ---------- Sorting: stated / assumed / not told ---------- */
+/* ---------- Sorting: stated / not stated ---------- */
 .sort-list { list-style: none; padding: 0; margin: 0; counter-reset: sort; }
 .sort-item { border-top: 1px solid var(--rule-soft); padding: var(--s5) 0; margin: 0; }
 .sort-item:last-child { border-bottom: 1px solid var(--rule-soft); }
@@ -323,11 +323,11 @@ textarea {
 
 .cat { font-family: var(--sans); font-weight: 700; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 6px; }
 .cat-stated { color: var(--observed); }
-.cat-assumed { color: var(--assumed); }
 .cat-unknown { color: var(--unknown); }
 .reading-note.is-stated { border-left: 2px solid var(--observed); background: var(--observed-wash); }
-.reading-note.is-assumed { border-left: 2px dashed var(--assumed); background: var(--assumed-wash); }
 .reading-note.is-unknown { border-left: 2px dotted var(--unknown); background: var(--unknown-wash); }
+/* The author's tag on an unstated item ("The claim leans on this"): its own line, so it doesn't run into the label before it. */
+.reading-note .role { display: flex; margin: var(--s2) 0 var(--s1); color: var(--ink); }
 .legend-row { display: flex; flex-wrap: wrap; gap: var(--s4) var(--s5); margin: var(--s4) 0 var(--s5); }
 
 /* ---------- Proof sheet ---------- */

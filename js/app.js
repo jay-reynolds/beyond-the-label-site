@@ -26,6 +26,11 @@
     catch (e) { return {}; }
   }
   var state = load();
+  // Older saved sorts used three choices; "assumed" and "unknown" are now one.
+  Object.keys(state.cases || {}).forEach(function (id) {
+    var sort = (state.cases[id] || {}).sort || {};
+    Object.keys(sort).forEach(function (k) { if (sort[k] === "assumed" || sort[k] === "unknown") sort[k] = "notstated"; });
+  });
   function save() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
     catch (e) { storageOK = false; memory = state; }
@@ -63,16 +68,15 @@
   }
   var ICONS = {
     stated: '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" fill="currentColor"/></svg>',
-    assumed: '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M1 11 L11 1 L11 11 Z" fill="currentColor"/></svg>',
-    unknown: '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.6 1.6"/></svg>',
+    notstated: '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.6 1.6"/></svg>',
     doc: '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1h6l3 3v9H3z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 7h5M5 9.5h5" stroke="currentColor" stroke-width="1.3"/></svg>',
     beyond: '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9 6v14M2 13h14" stroke="currentColor" stroke-width="1.3"/><path d="M16 13h6" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 1.5"/></svg>'
   };
   var CATS = {
-    stated: { label: "Stated in the scenario", cls: "cat-stated", note: "is-stated" },
-    assumed: { label: "Assumed by the reader", cls: "cat-assumed", note: "is-assumed" },
-    unknown: { label: "Not told", cls: "cat-unknown", note: "is-unknown" }
+    stated: { label: "The scenario says this", cls: "cat-stated", note: "is-stated" },
+    notstated: { label: "The scenario doesn’t say this", cls: "cat-unknown", note: "is-unknown" }
   };
+  var TAGS = { leans: "The claim leans on this", ask: "A question worth asking" };
   function catTag(key) {
     var c = CATS[key];
     return '<span class="cat ' + c.cls + '">' + ICONS[key] + esc(c.label) + "</span>";
@@ -290,23 +294,23 @@
       var revealed = !!cs.sortRevealed;
       var items = c.sort.items.map(function (it) {
         var chosen = sorted[it.id];
-        var opts = ["stated", "assumed", "unknown"].map(function (k) {
+        var opts = ["stated", "notstated"].map(function (k) {
           return '<label class="choice"><input type="radio" name="sort-' + it.id + '" value="' + k + '"' +
             (chosen === k ? " checked" : "") + "> " + ICONS[k] + " " + esc(CATS[k].label) + "</label>";
         }).join("");
         var note = revealed ? '<div class="reading-note reveal ' + CATS[it.answer].note + '"><span class="cat-label">One reading: ' + catTag(it.answer) + "</span> " +
-          rich(it.reason) + ' <span class="meta">' + (chosen ? "You chose: " + esc(CATS[chosen].label) + "." : "You didn’t sort this one.") + "</span></div>" : "";
+          (it.tag ? '<span class="cat role">' + esc(TAGS[it.tag]) + "</span> " : "") + rich(it.reason) + ' <span class="meta">' + (chosen ? "You chose: " + esc(CATS[chosen].label) + "." : "You didn’t sort this one.") + "</span></div>" : "";
         return '<li class="sort-item"><fieldset><legend class="sort-statement" style="font-family:var(--serif);font-weight:400;font-size:1.125rem">' + esc(it.text) + "</legend>" +
           '<div class="sort-options">' + opts + "</div></fieldset>" + note + "</li>";
       }).join("");
       return {
         main: '<p class="stage-kicker">Stage 3 · Assumptions</p>' + h1("What’s stated, and what’s assumed?") +
           "<p>" + rich(c.sort.intro) + "</p>" +
-          '<div class="legend-row">' + catTag("stated") + catTag("assumed") + catTag("unknown") + "</div>" +
+          '<div class="legend-row">' + catTag("stated") + catTag("notstated") + "</div>" +
           '<ol class="sort-list" data-form="sort">' + items + "</ol>" +
           '<p class="meta" id="sort-count">' + (c.sort.items.length - remainingSort(c, cs)) + " of " + c.sort.items.length + " sorted</p>" +
           (revealed
-            ? '<p class="key-idea reveal">' + rich(c.sort.takeaway) + "</p><p class=\"meta\">Where the scenario is ambiguous, reasonable people can sort differently.</p>" + resetRow("reveal-sort")
+            ? '<p class="key-idea reveal">' + rich(c.sort.takeaway) + "</p><p class=\"meta\">Something the scenario doesn’t say may still be true. The problem is being sure without asking.</p>" + resetRow("reveal-sort")
             : revealRow(c, cs, "reveal-sort")),
         margin: "<div><h2>Observation vs. conclusion</h2><p>An observed behavior doesn’t necessarily give complete information about the circumstances, motivations, or constraints around it.</p></div>"
       };
@@ -376,7 +380,7 @@
       var E = c.evidence, picks = cs.cards || [], revealed = !!cs.cardsRevealed;
       var cards = E.cards.map(function (k) {
         var on = picks.indexOf(k.id) >= 0;
-        var why = revealed ? '<p class="card-why reveal">' + (k.relevant ? '<span class="cat cat-stated">' + ICONS.stated + esc(E.relevantLabel || "Bears on the question") + "</span>" : '<span class="cat cat-unknown">' + ICONS.unknown + "Less helpful here</span>") + " " + rich(k.why) + "</p>" : "";
+        var why = revealed ? '<p class="card-why reveal">' + (k.relevant ? '<span class="cat cat-stated">' + ICONS.stated + esc(E.relevantLabel || "Bears on the question") + "</span>" : '<span class="cat cat-unknown">' + ICONS.notstated + "Less helpful here</span>") + " " + rich(k.why) + "</p>" : "";
         return '<li><label class="choice"><input type="checkbox" name="card" value="' + k.id + '"' + (on ? " checked" : "") +
           '> <span class="choice-text">' + esc(k.text) + why + "</span></label></li>";
       }).join("");
@@ -390,7 +394,7 @@
           (E.rivals ? "<h2>" + esc(E.rivals.title) + "</h2><p>" + rich(E.rivals.text) + "</p><ul>" +
             E.rivals.list.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ul><p>" + rich(E.rivals.after) + "</p>" : ""),
         margin: (E.legal ? "<div><h2>What the law says</h2><p>" + rich(E.legal) + "</p></div>" : "") +
-          "<div><h2>Three kinds of claims</h2><p>" + catTag("stated") + "<br>What the scenario establishes.</p><p>" + catTag("assumed") + "<br>What a reader is assuming.</p><p>" + catTag("unknown") + "<br>What remains unknown.</p></div>"
+          "<div><h2>Two kinds of statements</h2><p>" + catTag("stated") + "<br>What the scenario establishes.</p><p>" + catTag("notstated") + "<br>What it leaves open. Treating an open question as settled is an assumption.</p></div>"
       };
     },
     // 6. Fuller picture
@@ -469,7 +473,7 @@
       '<p class="lede">This tool doesn’t tell you what to think about trafficking. It helps you check the reasoning behind conclusions about other people’s choices.</p>' +
       "<h2>Seven stages per case</h2><ol>" +
       ["<strong>Scenario:</strong> what an outside observer can see.", "<strong>Claim:</strong> a conclusion someone might draw, and how well you think it’s supported.",
-       "<strong>Assumptions:</strong> sort what’s stated from what’s assumed and what’s unknown.", "<strong>Logic:</strong> find the hidden premise, and separate “does it follow?” from “is it true?”",
+       "<strong>Assumptions:</strong> sort what the scenario says from what it doesn’t, and see which unstated things the claim leans on.", "<strong>Logic:</strong> find the hidden premise, and separate “does it follow?” from “is it true?”",
        "<strong>Evidence:</strong> what we’d need to know, and what else could explain the behavior.", "<strong>Fuller picture:</strong> the constraints the observer couldn’t see, the systems behind them, and the person’s own agency.",
        "<strong>Reframe:</strong> say it more carefully, then decide what to do."].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ol>" +
       "<h2>A 60-second example</h2><p><em>“She went back, so she wanted to.”</em></p>" +

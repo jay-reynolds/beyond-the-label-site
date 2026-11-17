@@ -23,20 +23,20 @@ window.BTL_CASES.push({
     },
 
     sort: {
-      intro: "For each statement, decide whether the scenario actually says it, whether a reader would be assuming it, or whether we simply aren’t told.",
+      intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "The doors at D.’s workplace are not locked.", answer: "stated",
           reason: "The scenario says this directly." },
         { id: "s2", text: "D. has never called the police.", answer: "stated",
           reason: "Stated. What it means is a separate question." },
-        { id: "s3", text: "If D. were in danger, she would have run or called for help.", answer: "assumed",
-          reason: "This is the bridge many readers cross without noticing. The scenario never says it, and people stay put for many reasons, including fear of what happens next." },
-        { id: "s4", text: "Nobody has threatened D. or anyone she cares about.", answer: "unknown",
-          reason: "The scenario doesn’t say. Threats leave no mark that an observer can see." },
-        { id: "s5", text: "D. is free to leave without anything bad happening.", answer: "assumed",
-          reason: "An open door shows that leaving is physically possible. It doesn’t show that leaving is safe." }
+        { id: "s3", text: "If D. were in danger, she would have run or called for help.", answer: "notstated", tag: "leans",
+          reason: "This is the bridge many readers cross without noticing: it turns her staying put into proof that she is safe. People stay put for many reasons, including fear of what happens next." },
+        { id: "s4", text: "Nobody has threatened D. or anyone she cares about.", answer: "notstated", tag: "ask",
+          reason: "The scenario doesn’t say. Threats, if there were any, would leave no mark an observer could see." },
+        { id: "s5", text: "D. is free to leave without anything bad happening.", answer: "notstated", tag: "leans",
+          reason: "An open door shows that leaving is physically possible, not that it is safe. Assuming it is safe makes “she didn’t leave” look like a free decision to stay." }
       ],
-      takeaway: "Two of these are stated, and neither one says why D. stays. The conclusion “she wasn’t coerced” rests on the assumed ones."
+      takeaway: "Two of these are stated, and neither one says why D. stays. The conclusion “she wasn’t coerced” rests on things the scenario doesn’t say."
     },
 
     logic: {

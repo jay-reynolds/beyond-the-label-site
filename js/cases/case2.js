@@ -23,22 +23,22 @@ window.BTL_CASES.push({
     },
 
     sort: {
-      intro: "For each statement, decide whether the scenario actually says it, whether a reader would be assuming it, or whether we simply aren’t told.",
+      intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "B. stayed with a friend for a week.", answer: "stated",
           reason: "The scenario says this directly." },
         { id: "s2", text: "B. went back to her boyfriend.", answer: "stated",
           reason: "Stated. Going back was her own act. What she was choosing between is a separate question." },
-        { id: "s3", text: "B. had other good places to live.", answer: "assumed",
-          reason: "A common inference from “she had a friend,” but a friend’s place for a week isn’t the same as a lasting option." },
-        { id: "s4", text: "B. went back because she wanted the relationship as it was.", answer: "assumed",
-          reason: "Possible, but the scenario never gives a reason. People return for many different reasons, often for more than one at once." },
-        { id: "s5", text: "B. controls her own money and has her own documents.", answer: "unknown",
+        { id: "s3", text: "B. had other good places to live.", answer: "notstated", tag: "leans",
+          reason: "A common inference from “she had a friend,” but a friend’s place for a week isn’t the same as a lasting option. Assuming she had one makes going back look like a pick between good options." },
+        { id: "s4", text: "B. went back because she wanted the relationship as it was.", answer: "notstated",
+          reason: "Possible, but the scenario never gives a reason. This is the claim itself in stronger words, and people return for many different reasons, often for more than one at once." },
+        { id: "s5", text: "B. controls her own money and has her own documents.", answer: "notstated", tag: "ask",
           reason: "The scenario doesn’t say. Money and documents shape what leaving can realistically involve." },
-        { id: "s6", text: "B.’s boyfriend contacted her while she was away.", answer: "unknown",
-          reason: "The scenario doesn’t say. An observer sees the return, not the pressure or promises that may have come before it." }
+        { id: "s6", text: "B.’s boyfriend contacted her while she was away.", answer: "notstated", tag: "ask",
+          reason: "The scenario doesn’t say. An observer sees the return, not what was said to her, if anything, while she was away." }
       ],
-      takeaway: "Two of these are stated. The rest are assumed or unknown. What a person does is visible. The options she was weighing usually aren’t."
+      takeaway: "Two of these are stated. The rest are things the scenario doesn’t say. What a person does is visible. The options she was weighing usually aren’t."
     },
 
     logic: {

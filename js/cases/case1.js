@@ -28,26 +28,26 @@ window.BTL_CASES.push({
     },
 
     sort: {
-      intro: "For each statement, decide whether the scenario actually says it, whether a reader would be assuming it, or whether we simply aren’t told.",
+      intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "A. has lived in the family’s home for three years.", answer: "stated",
           reason: "The scenario says this directly." },
         { id: "s2", text: "A. walks the children to school on her own.", answer: "stated",
           reason: "Stated. Notice that being alone outside is not the same as being free to go." },
-        { id: "s3", text: "A. could leave any time she wanted.", answer: "assumed",
-          reason: "A common inference from “she’s out alone,” but the scenario never says it. Whether someone can leave depends on more than an unlocked door." },
+        { id: "s3", text: "A. could leave any time she wanted.", answer: "notstated", tag: "leans",
+          reason: "A common inference from “she’s out alone,” but the scenario never says it. Assuming it makes her staying look like proof of what she wants." },
         { id: "s4", text: "A. has never asked the neighbors for help.", answer: "stated",
           reason: "Stated. What it means is a separate question." },
-        { id: "s5", text: "If A. needed help, she would have asked for it.", answer: "assumed",
-          reason: "This is the bridge many readers cross without noticing. People don’t ask for help for many reasons, including fear of what happens if they do." },
-        { id: "s6", text: "A. likes her job.", answer: "assumed",
-          reason: "She might. But the scenario says nothing about how she feels." },
-        { id: "s7", text: "A. keeps her own passport and identity documents.", answer: "unknown",
+        { id: "s5", text: "If A. needed help, she would have asked for it.", answer: "notstated", tag: "leans",
+          reason: "This is the bridge many readers cross without noticing: it turns her silence into a sign that nothing is wrong. People don’t ask for help for many reasons, including fear of what happens if they do." },
+        { id: "s6", text: "A. likes her job.", answer: "notstated",
+          reason: "She might. But the scenario says nothing about how she feels, and this is close to the claim itself in other words." },
+        { id: "s7", text: "A. keeps her own passport and identity documents.", answer: "notstated", tag: "ask",
           reason: "The scenario doesn’t say. In labor trafficking, this detail often matters a great deal." },
-        { id: "s8", text: "A. is paid what she was promised and owes no debt.", answer: "unknown",
+        { id: "s8", text: "A. is paid what she was promised and owes no debt.", answer: "notstated", tag: "ask",
           reason: "The scenario doesn’t say. Pay and debt shape whether leaving is a real option." }
       ],
-      takeaway: "Three of these are stated. The conclusion “she wanted to stay” rests on the assumed ones. What a person does is visible. Why they do it usually isn’t."
+      takeaway: "Three of these are stated. The conclusion “she wanted to stay” rests on things the scenario doesn’t say. What a person does is visible. Why they do it usually isn’t."
     },
 
     logic: {
