@@ -28,12 +28,12 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 **Author tasks**
 - [ ] Verify each source marked `status: "verify"` against the original (the case mechanisms and legal context first), then change it to `"checked"`. A source that doesn't support its sentence gets rewritten or removed, not just relabeled.
 - [ ] Add NC State counseling and Women's Center details (`resourcesHTML` in `app.js`), from official NC State pages.
-- [ ] Write the creator's name and "Why I made this" on the About page, in her own words.
 - [ ] After publishing, add the QR code and site address to `#/showcase` and `#/handout`.
 - [ ] Rehearse the showcase path with a timer and one classmate, and print the handout once on the real printer.
 - [ ] Open `index.html` directly on the showcase laptop with Wi-Fi off.
 
 **Done**
+- [x] Creator’s name, “Why I made this,” “Who it’s for,” and a call to action on the About page, in her own words (Nov. 20, 2026).
 - [x] Course readings checked against the ebook (page ranges from its print-page markers).
 - [x] Hotline, NDVH, and 988 numbers confirmed on their official sites (Oct. 17, 2026). Re-check close to the showcase.
 - [x] Vacatur placeholder replaced with Polaris's Criminal Records Relief page (checked Oct. 17, 2026).
