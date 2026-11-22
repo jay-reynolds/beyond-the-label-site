@@ -12,12 +12,11 @@
   var STORE_KEY = "btl.v1";
 
   // ---------- storage (wrapped: private windows may block it) ----------
-  var memory = {};
   var storageOK = true;
   function load() {
     var raw;
     try { raw = localStorage.getItem(STORE_KEY); }
-    catch (e) { storageOK = false; return memory; }
+    catch (e) { storageOK = false; return {}; }
     try {
       var v = JSON.parse(raw);
       // Anything that isn't a plain object (corrupted or hand-edited) falls back to empty progress.
@@ -33,7 +32,7 @@
   });
   function save() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
-    catch (e) { storageOK = false; memory = state; }
+    catch (e) { storageOK = false; }
   }
   function caseState(id) {
     state.cases = state.cases || {};
@@ -517,11 +516,14 @@
       "<h2>Privacy</h2><p>Nothing you enter is sent anywhere. There are no accounts, cookies, or analytics. Your progress and answers are saved only in this browser, and you can clear them at any time from the bottom of the page.</p>");
   }
 
-  // One copy of the hotline: the support page, the handout, and the footer (filled in below) all use it.
+  // Shared by Home and the handout.
   var STAKES = "Those assumptions shape who gets believed, helped, or blamed.";
+  // One copy of the hotline: the support page, the handout, and the footer (filled in below) all use it.
   var HOTLINE = "National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733";
   // The questions on the Final screen and the printed handout.
   var ASK = ["What do I know?", "What am I assuming?", "What evidence am I missing?", "What does the person’s own account tell me, if they’ve shared one?", "How can I describe this more carefully?"];
+  // The actions on the Final screen and the printed handout.
+  var ACT = ["Question “she could have left” when you hear it, kindly and out loud.", "Follow and support survivor-led organizations, such as the National Survivor Network.", "Support labor protections for domestic workers. Ask your state legislators to cover every conviction connected to trafficking.", "Share this tool with someone who scrolls past these stories."];
   function listItems(xs) { return xs.map(function (q) { return "<li>" + esc(q) + "</li>"; }).join(""); }
 
   function resourcesHTML() {
@@ -546,7 +548,7 @@
       '<h1 tabindex="-1">Think before you label.</h1>' +
       '<p class="sub">A person’s behavior is only one part of a story.</p>' +
       "<p>Before drawing conclusions about someone’s choices, ask:</p><ol>" + listItems(ASK) + "</ol>" +
-      "<h2>And then</h2><ul><li>Question “she could have left” when you hear it, kindly and out loud.</li><li>Follow and support survivor-led organizations, such as the National Survivor Network.</li><li>Support labor protections for domestic workers. Ask your state legislators to cover every conviction connected to trafficking.</li><li>Share this tool with someone who scrolls past these stories.</li></ul>" +
+      "<h2>And then</h2><ul>" + listItems(ACT) + "</ul>" +
       '<div class="btn-row"><button class="btn btn-secondary" data-action="print">Print or save this card</button><a class="btn btn-quiet" href="#/cases">Back to cases</a></div>' +
       "</div></div>";
   }
@@ -628,7 +630,7 @@
       "<h2>The issue</h2><p>People often judge trafficked women’s choices from what they can see: she stayed, she went back, she participated, she didn’t leave. What’s visible rarely explains why. " + STAKES + "</p>" +
       "<h2>Who it’s for</h2><p>College students and young adults who meet these stories on social media, in the news, and in everyday conversation.</p>" +
       "<h2>Before you label, ask</h2><ol>" + listItems(ASK) + "</ol>" +
-      "<h2>Then act</h2><ul><li>Question “she could have left” when you hear it.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li></ul>" +
+      "<h2>Then act</h2><ul>" + listItems(ACT) + "</ul>" +
       qrCard("Try the interactive cases.") +
       '<p class="meta">WGS 200 · NC State University · Fall 2026. Need support? ' + esc(HOTLINE) + '.</p>' +
       '<div class="btn-row no-print"><button class="btn btn-secondary" data-action="print">Print</button></div></div></div>';
@@ -731,6 +733,12 @@
     var t = e.target, c = currentCase(), f = t.getAttribute && t.getAttribute("data-field");
     if (!c || !f) return;
     caseState(c.id)[f] = t.value; save();
+    // The "write your own version first" nudge is stale once there is text.
+    // Swap only the nudge, not the page, so the textarea (and any IME composition in it) is untouched.
+    if (f === "rewrite" && nudges["show-reframe"] && t.value.trim()) {
+      nudges["show-reframe"] = false;
+      var nudge = app.querySelector(".nudge"); if (nudge) nudge.outerHTML = revealRow(c, caseState(c.id), "show-reframe");
+    }
   });
 
   function rerenderKeepingFocus(t) {
