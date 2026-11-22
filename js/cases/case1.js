@@ -60,17 +60,17 @@ window.BTL_CASES.push({
       conclusion: "So she wanted to stay.",
       prompt: "Something has to connect the stated fact to the conclusion. Which sentence is the argument quietly relying on?",
       options: [
-        { id: "a", text: "Anyone who stays somewhere wants to be there.", key: true,
-          why: "This is the hidden premise. With it, the conclusion follows. Without it, “she stayed” doesn’t lead anywhere." },
         { id: "b", text: "She stayed for three years.", key: false,
           why: "This repeats the stated fact with more detail. It doesn’t connect staying to wanting." },
         { id: "c", text: "Staying is sometimes a choice.", key: false,
           why: "True, but too weak. “Sometimes” leaves room for the times it isn’t, so the conclusion still doesn’t follow." },
+        { id: "a", text: "Anyone who stays somewhere wants to be there.", key: true,
+          why: "This is the hidden premise. With it, the conclusion follows. Without it, “she stayed” doesn’t lead anywhere." },
         { id: "d", text: "People who are controlled are never allowed outside.", key: false,
           why: "This is a different claim, and a false one. But it does point at a real assumption readers bring: that control looks like being locked in." }
       ],
       follows: "With the hidden premise added, the argument is valid. That means: if both premises were true, the conclusion would have to be true.",
-      isTrue: "But is the hidden premise true? “Anyone who stays somewhere wants to be there” is a claim about everyone. One clear counterexample is enough to show it’s false: a person who stays, and doesn’t want to, because her employer holds her passport or because she owes a debt she can’t repay. So the argument is valid but not sound.",
+      isTrue: "But is the hidden premise true? “Anyone who stays somewhere wants to be there” is a claim about everyone. One clear counterexample is enough to show it’s false: a person who stays, and doesn’t want to be there, because her employer holds her passport or because she owes a debt she can’t repay. Even “most people who stay want to” would need evidence, and it would still leave A.’s own reasons open. So the argument is valid but not sound.",
       keyIdea: "Making an argument valid is easy: just add “if this, then that.” The hard question is whether that added premise is true, and that’s a question about evidence, not logic. Notice, too, that “wanted” can shift meaning. More on that below.",
       symbols: {
         key: [ ["S", "She stayed."], ["W", "She wanted to stay."] ],
@@ -105,9 +105,9 @@ window.BTL_CASES.push({
       pick: 3,
       cards: [
         { id: "e1", text: "Who holds her passport and identity documents?", relevant: true,
-          why: "Employers holding workers’ documents is a recognized sign of forced labor. Without them, leaving can mean having no legal identity. [[ilo]]" },
+          why: "Employers holding workers’ documents is a recognized sign of forced labor. Without them, leaving can mean losing the papers she needs to travel, work, or get help. [[ilo]]" },
         { id: "e2", text: "Is she paid what she was promised? Does she owe a debt to the people she works for?", relevant: true,
-          why: "Debt that can’t be paid off is a way of keeping someone working. U.S. law names it debt bondage. [[tvpa]]" },
+          why: "Debt that can’t be paid off is a way of keeping someone working. When a debt is used this way, U.S. law can treat it as debt bondage. [[tvpa]]" },
         { id: "e3", text: "What does she believe would happen if she went to the police?", relevant: true,
           why: "Being told you’ll be arrested or deported keeps many people from seeking help, whether or not it’s true. [[brennan]]" },
         { id: "e4", text: "Does she have money, a place to go, and people she could call?", relevant: true,
@@ -115,7 +115,7 @@ window.BTL_CASES.push({
         { id: "e5", text: "Is someone back home depending on her wages?", relevant: true,
           why: "Obligations to family can make leaving feel impossible even when the door is open." },
         { id: "e6", text: "Does she get along with the children?", relevant: false,
-          why: "She might love the children. That tells us about a relationship, not about whether she is free to leave." },
+          why: "She might love the children, and that could be part of why she stays. But she could love them and still not be free to leave, so it can’t tell the explanations apart." },
         { id: "e7", text: "Is the house in a nice neighborhood?", relevant: false,
           why: "Coercion happens in every kind of neighborhood. This doesn’t help us tell explanations apart." },
         { id: "e8", text: "Did she work as a nanny before this job?", relevant: false,
@@ -145,11 +145,11 @@ window.BTL_CASES.push({
         "A. is not passive. At church, she met another worker and quietly saved her number. She has a plan: wait until the debt “is paid,” then call."
       ],
       mechanisms: [
-        { name: "Document confiscation", system: "Immigration and labor systems", text: "Without a passport, leaving can mean losing legal identity. [[ilo]]" },
+        { name: "Document confiscation", system: "Immigration and labor systems", text: "Without a passport, leaving can mean losing the papers she needs to travel, work, or get help. [[ilo]]" },
         { name: "Debt bondage", system: "Economic inequality, recruitment practices", text: "A debt that never shrinks turns work into an obligation she can’t end. [[tvpa]]" },
         { name: "Fear of arrest and deportation", system: "Immigration enforcement", text: "Threats work whether or not they’re accurate. [[brennan]]" },
-        { name: "Isolation and family obligation", system: "Global economic inequality, gendered care work", text: "Live-in domestic work happens inside private homes, out of public view, and is done mostly by women. Housework has long been treated as women’s job and dismissed as not quite “real work,” and paid domestic work inherits that devaluation. [[mainardi]]" },
-        { name: "Overlapping vulnerabilities", system: "Intersecting systems: gender, immigration status, class", text: "A. is a woman, a migrant, and a domestic worker at once. Looking at any one of these alone misses how they compound. [[crenshaw]]" }
+        { name: "Isolation and family obligation", system: "Global economic inequality, gendered care work", text: "Live-in domestic work happens inside private homes, out of public view, and is done mostly by women. Mainardi argued that housework has long been treated as women’s job and dismissed as not quite “real work.” Applied to paid domestic work, that devaluation carries over. [[mainardi]]" },
+        { name: "How systems overlap", system: "Intersecting systems: gender, immigration status, class", text: "A. is a woman, a migrant, and a domestic worker at once. Crenshaw showed that laws and services built around one category at a time miss people who stand where categories meet. [[crenshaw]]" }
       ],
       agency: "Saving that number and waiting is a decision. A. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes Western feminist writing that pictures “Third World women” as one generic, powerless victim. A. is constrained, not powerless. [[mohanty]]",
       idealVictim: "A. doesn’t match the popular image of a trafficking victim. She isn’t chained or locked in, and she goes outside. Sociologist Nils Christie called this the “ideal victim” problem: we recognize harm most easily in people who fit a familiar story, and overlook others. [[christie]]",
@@ -160,7 +160,7 @@ window.BTL_CASES.push({
         { name: "Relational autonomy", src: "Catriona Mackenzie & Natalie Stoljar (eds.)", src_ids: ["mackenzie"],
           text: "Our ability to direct our own lives depends on relationships and social conditions, not only on individual will.",
           q: "Which relationships and conditions limit what A. can do?" },
-        { name: "Adaptive preferences", src: "Serena Khader", src_ids: ["khader"],
+        { name: "Adaptive preferences", src: "Serene J. Khader", src_ids: ["khader"],
           text: "People sometimes come to prefer what their circumstances allow. Respecting a person means taking her preferences seriously while also asking what shaped them.",
           q: "If A. said she was fine, how should we take that?" }
       ],
@@ -185,10 +185,10 @@ window.BTL_CASES.push({
         "My version points to what we’d need to know."
       ],
       actions: [
-        { lead: "Say it out loud.", text: "When you hear “she could have left,” ask what was stopping her." },
+        { lead: "Say it out loud.", text: "When you hear “she could have left,” ask what her options were." },
         { lead: "Know the signs in domestic work.", text: "Held documents, unpayable debt, and fear of police are warning signs, even when someone isn’t locked in. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself." },
         { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them." },
-        { lead: "Push for structural change.", text: "Support labor protections for domestic workers, and criminal-record relief (vacatur) for trafficking survivors." }
+        { lead: "Push for structural change.", text: "Support labor protections for domestic workers, and criminal-record relief (such as vacatur, expungement, or sealing) for trafficking survivors." }
       ]
     }
   });

@@ -28,8 +28,9 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 **Author tasks**
 - [ ] Verify each source marked `status: "verify"` against the original (the case mechanisms and legal context first), then change it to `"checked"`. A source that doesn't support its sentence gets rewritten or removed, not just relabeled.
 - [ ] Add NC State counseling and Women's Center details (`resourcesHTML` in `app.js`), from official NC State pages.
-- [ ] After publishing, add the QR code and site address to `#/showcase` and `#/handout`.
 - [ ] Rehearse the showcase path with a timer and one classmate, and print the handout once on the real printer.
+- [ ] Print the handout and scan its QR code with a phone to confirm it opens the live site.
+- [ ] Remaining source checks: Aristotle edition; Wertheimer 1987 vs 1988 (copyright page); Mohanty and Davis titles against her anthology copy; ebook page ranges; DOIs for books (optional); web-page titles after (n.d.).
 - [ ] Open `index.html` directly on the showcase laptop with Wi-Fi off.
 
 **Done**

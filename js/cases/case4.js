@@ -45,18 +45,18 @@ window.BTL_CASES.push({
       conclusion: "So she wasn’t being coerced.",
       prompt: "Something has to connect the stated fact to the conclusion. Which sentence is the argument quietly relying on?",
       options: [
-        { id: "a", text: "If someone is being coerced, she leaves (or seeks help).", key: true,
-          why: "This is the hidden premise. With it, “she didn’t leave” does lead to “she wasn’t coerced.” Without it, the step is missing." },
         { id: "b", text: "The doors at D.’s workplace are not locked.", key: false,
           why: "This is part of the scenario, not a link between staying and coercion. It matters later, as a different reading of the argument." },
         { id: "c", text: "Some people who are coerced do leave.", key: false,
-          why: "Possibly true, but too weak. “Some” doesn’t let us move from one person’s staying to her not being coerced." }
+          why: "Possibly true, but too weak. “Some” doesn’t let us move from one person’s staying to her not being coerced." },
+        { id: "a", text: "If someone is being coerced, she leaves.", key: true,
+          why: "This is the hidden premise. With it, “she didn’t leave” does lead to “she wasn’t coerced.” Without it, the step is missing." }
       ],
-      follows: "With the hidden premise added, the argument is valid. If both premises were true, the conclusion would have to be true. Logicians call this form modus tollens: if C then L; not L; therefore not C.",
-      isTrue: "But is the hidden premise true? It is close to backwards. Coercion works by making leaving costly or dangerous, so it tends to produce staying. [[stark]] Not leaving is what coercion would often look like, which means it can’t count as evidence against it. The argument is valid, but the premise is a myth, not a fact. So this is not a fallacy in the usual sense. The reasoning is fine; the belief it is built on is not.",
+      follows: "With the hidden premise added, the argument is valid. If both premises were true, the conclusion would have to be true. Logicians call this form modus tollens: if C (she is coerced) then L (she leaves); not L; therefore not C.",
+      isTrue: "But is the hidden premise true? Coercion works by making leaving costly or dangerous, so people who are coerced often stay. People who are content stay too. Staying alone can’t settle which applies. [[stark]] The argument is valid, but the premise is a myth, not a fact. So this is not a fallacy in the usual sense. The reasoning is fine; the belief it is built on is not.",
       keyIdea: "Valid arguments can carry myths in their premises. When an argument is valid but the conclusion still feels off, check the premises. That is a question about evidence, not logic.",
       symbols: {
-        key: [ ["C", "She is being coerced."], ["L", "She leaves (or seeks help)."] ],
+        key: [ ["C", "She is being coerced."], ["L", "She leaves."] ],
         steps: [
           { label: "With the hidden premise", lines: [
               { f: "<var>C</var> <span class=op>→</span> <var>L</var>", r: "If C, then L." },
@@ -76,14 +76,14 @@ window.BTL_CASES.push({
             { f: "<span class=op>¬</span><var>K</var>", r: "She wasn’t locked in." },
             { f: "<span class=op>∴</span> <span class=op>¬</span><var>C</var>", r: "Therefore, she wasn’t coerced." }
           ],
-          text: "(¬ means “not”; ∨ means “or.”) Here K means “she was locked in.” This version is not valid. It denies the antecedent. Being locked in is one way of coercing someone. It isn’t the only way. This time the form itself fails, for a different reason than before." },
+          text: "(¬ means “not.”) Here K means “she was locked in.” This version is not valid. It denies the antecedent. Being locked in is one way of coercing someone. It isn’t the only way. This time the form itself fails, for a different reason than before." },
         { title: "A third reading: “held or free”",
           lines: [
             { f: "<var>P</var> <span class=op>∨</span> <var>F</var>", r: "Either she was physically prevented from leaving, or she stayed freely." },
             { f: "<span class=op>¬</span><var>P</var>", r: "She wasn’t physically prevented." },
             { f: "<span class=op>∴</span> <var>F</var>", r: "Therefore, she stayed freely." }
           ],
-          text: "This form is valid, but the first line is a false dilemma. It leaves out threats against family, unpayable debt, held documents, fear of police, and having nowhere to go. One sentence, three readings, three different problems: a backwards premise, a faulty form, and a missing option. Only the second is a fallacy in the formal sense." }
+          text: "(∨ means “or.”) This form is valid, but the first line is a false dilemma. It leaves out threats against family, unpayable debt, held documents, fear of police, and having nowhere to go. One sentence, three readings, three different problems: a premise that fails, a faulty form, and a missing option. Only the second is a fallacy in the formal sense." }
       ],
       inverse: [
         { title: "Not following doesn’t make it false", text: "Showing that the argument fails is not the same as showing D. is coerced. She might be working freely. The point is that staying, by itself, can’t tell us." },
@@ -132,7 +132,7 @@ window.BTL_CASES.push({
       ],
       mechanisms: [
         { name: "Threats to family", system: "Coercion beyond physical restraint", text: "Danger to people she loves can keep a person in place more firmly than a lock. [[stark]]" },
-        { name: "Fear of criminalization and abuse of the legal process", system: "Criminal law, immigration enforcement", text: "Threatening someone with arrest or deportation is itself coercion under U.S. law, which calls it abuse of the legal process. When police seem like a risk, calling them isn’t a realistic option. [[tvpa]]" },
+        { name: "Fear of criminalization and abuse of the legal process", system: "Criminal law, immigration enforcement", text: "U.S. law lists the abuse or threatened abuse of the legal process as a form of coercion, and a threat of arrest or deportation can be one. When police seem like a risk, calling them isn’t a realistic option. [[tvpa]]" },
         { name: "Surveillance", system: "Coercive control", text: "Research on coercive control describes this tactic: checking her phone makes every outside contact a risk. [[stark]]" },
         { name: "Language isolation", system: "Services that assume English", text: "When hotlines, shelters, and police work mainly in English, limited English narrows who she can ask, and what she can ask for." }
       ],

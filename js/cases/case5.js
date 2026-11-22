@@ -11,7 +11,7 @@ window.BTL_CASES.push({
 
     scenario: {
       paragraphs: [
-        "E. has left a trafficking situation three times over four years. Once, she left with help from a program. Each time, she ended up back in the same situation.",
+        "E. has left the same situation three times over four years. Once, she left with help from a program. Each time, she ended up back in the same situation.",
         "People who know only this much about her see a pattern: she leaves, and then she returns."
       ],
       note: "That is everything an outside observer can see. Notice that it is a pattern of movements, and says nothing about why she returned each time."
@@ -26,7 +26,7 @@ window.BTL_CASES.push({
       intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "E. left the situation three times over four years.", answer: "stated",
-          reason: "The scenario says this directly. Leaving three times is also worth noticing: each one was an attempt." },
+          reason: "The scenario says this directly." },
         { id: "s2", text: "Each time she left, she returned to the same situation.", answer: "stated",
           reason: "Stated. What it means is a separate question." },
         { id: "s3", text: "E. went back because she preferred that life.", answer: "notstated",
@@ -45,15 +45,15 @@ window.BTL_CASES.push({
       conclusion: "So she must have wanted the situation.",
       prompt: "Something has to connect the stated fact to the conclusion. Which sentence is the argument quietly relying on?",
       options: [
-        { id: "a", text: "If someone keeps going back, she must want the situation she goes back to.", key: true,
-          why: "This is the hidden premise. It adds a jump from going back to wanting the whole situation. Without it, “she went back” leads nowhere." },
         { id: "b", text: "She went back three times.", key: false,
           why: "This repeats the stated fact. It doesn’t connect going back to wanting." },
+        { id: "a", text: "If someone keeps going back, she must want the situation she goes back to.", key: true,
+          why: "This is the hidden premise. It adds a jump from going back to wanting the whole situation. Without it, “she went back” leads nowhere." },
         { id: "c", text: "People sometimes return to situations they would rather leave.", key: false,
           why: "True, but it points the other way. It supports doubt about the conclusion rather than connecting to it." }
       ],
       follows: "With the hidden premise added, the argument is valid. That means: if both premises were true, the conclusion would have to be true.",
-      isTrue: "But is the hidden premise true? “If someone keeps going back, she must want the situation” is a claim about everyone. One counterexample is enough: a person who keeps returning because every route out ends at a door closed to her. So the argument is valid but not sound.",
+      isTrue: "But is the hidden premise true? “If someone keeps going back, she must want the situation” is a claim about everyone. One counterexample is enough: a person who keeps returning to a situation she doesn’t want, because every route out ends at a door closed to her. So the argument is valid but not sound.",
       keyIdea: "Case 1 asked whether staying showed wanting. This case adds three new things: the claim has grown from one choice to a whole situation, repetition feels like extra proof, and the word “must” claims certainty. Each is worth a look below.",
       equivocation: {
         title: "A scope shift: from returning to wanting the situation",
@@ -61,8 +61,8 @@ window.BTL_CASES.push({
       },
       extra: [
         {
-          title: "Repetition shows a stable cause, not which cause",
-          text: "If something happens again and again, a steady cause is probably at work. That much is reasonable. But a steady cause could be a preference, or it could be a wall that is still standing. Three returns look the same either way. The pattern points to something persistent. It doesn’t tell us whether that something is desire, a barrier, or a mix of both."
+          title: "Repetition shows something persistent, not which cause",
+          text: "Repetition can suggest something persistent. But her reasons may have differed each time. A persistent cause could be a preference, or it could be a wall that is still standing. Three returns look the same either way. The pattern doesn’t tell us whether the cause is desire, a barrier, or a mix of both, or whether it was the same each time."
         },
         {
           title: "The word “must”",
@@ -72,7 +72,7 @@ window.BTL_CASES.push({
       beyond: {
         sentence: "She must have wanted it.",
         trigger: "must",
-        text: "“Must” claims that something is necessarily so. Knowing what happened doesn’t establish that nothing else could have produced it. Claims about necessity need evidence about the world, not only a look at the facts. In plain terms: seeing what happened is different from showing it had to happen that way."
+        text: "“Must” claims that something is necessarily so. Knowing what happened doesn’t establish that nothing else could have produced it. Claims about necessity need evidence about the world, not only a look at the facts. In plain terms: seeing what happened is different from knowing why it happened."
       },
       inverse: [
         { title: "Not following doesn’t make it false", text: "Showing that a conclusion doesn’t follow is not the same as showing it’s false. E. might have wanted some things about her situation. The point is that the pattern alone can’t tell us." },
@@ -87,7 +87,7 @@ window.BTL_CASES.push({
       cards: [
         { id: "e1", text: "Where could she sleep the night she left, and for how long?", relevant: true,
           why: "Leaving requires somewhere to go that lasts. A short-term bed can end before a person has other options in place." },
-        { id: "e2", text: "Could she rent a place or get a job with her record?", relevant: true,
+        { id: "e2", text: "If she has a record, could she still rent a place or get a job?", relevant: true,
           why: "Convictions connected to being exploited can show up in housing and job applications, closing doors long after the exploitation ended. Davis and Shaylor describe how punishment of poor women through prostitution laws can become a cycle. [[davis]]" },
         { id: "e3", text: "Did anyone offer her housing at the moment she had none, and who was it?", relevant: true,
           why: "An offer from the person who exploits her can look like generosity when she has nowhere else to go. It may be the only offer on the table." },
@@ -115,7 +115,7 @@ window.BTL_CASES.push({
     },
 
     fuller: {
-      label: "Still constructed. Each detail reflects a pattern documented in research and survivor-led work on trafficking and criminalization. This is one possible fuller picture: a different one would fit the same observations.",
+      label: "Still constructed. Each detail reflects a pattern documented in research and survivor-led work on trafficking and criminalization. This is one possible fuller picture: a different one, in which E. prefers that life, would fit the same observations.",
       paragraphs: [
         "Each time E. left, she ran into the same walls. Convictions connected to prostitution were on her record, and landlords and employers turned her applications down. The program’s shelter bed had a 30-day limit, which was not long enough to find work or housing she could keep. A substance dependence that began during the exploitation went untreated. On the day she was evicted, the person exploiting her offered her a place to stay. She had no other offer.",
         "Each return was a decision about where to sleep that night, and each exit was an attempt. E. is now applying for record relief. Many states let survivors clear convictions connected to their trafficking. She is working to open a door that stayed shut."
@@ -125,7 +125,7 @@ window.BTL_CASES.push({
         { name: "Short-term exit resources", system: "Social services and housing", text: "Time-limited shelter beds can end before longer-term housing and work are in place. Support that ends after a few weeks treats exit as an event instead of a process." },
         { name: "Untreated health needs", system: "Health care access", text: "A dependence that began during exploitation is a health need, not a character flaw. Without care, it makes each step harder." },
         { name: "An exploiter’s offer of housing", system: "Economic power inside exploitation", text: "When housing runs out, the person who exploits her can be the only one who offers it. Accepting it is a real choice, made under pressure. [[lloyd]]" },
-        { name: "Overlapping vulnerabilities", system: "Intersecting systems: gender, class, criminalization", text: "Crenshaw showed that harms where race and sex meet are more than the sum of each. Gender, poverty, and a record work the same way here: together they close more doors than any one alone. [[crenshaw]]" }
+        { name: "How systems overlap", system: "Intersecting systems: gender, class, criminalization", text: "Crenshaw showed that harms where race and sex meet are more than the sum of each. Gender, poverty, and a record work the same way here: together they close more doors than any one alone. [[crenshaw]]" }
       ],
       agency: "Leaving three times is persistence, and returning to a bed is a decision. E. is making deliberate choices inside tight limits, and applying for record relief is a plan to change those limits. Recognizing constraint doesn’t mean treating her as helpless.",
       idealVictim: "E. doesn’t match the popular image of someone who is “rescued” and stays rescued. Sociologist Nils Christie called this the “ideal victim” problem: we recognize harm most easily in people who fit a familiar story, and we judge those who don’t. [[christie]]",
@@ -142,7 +142,7 @@ window.BTL_CASES.push({
     reframe: {
       short: "Judge the conditions, not just the person.",
       prompt: "Rewrite “She went back more than once, so she must have wanted the situation” in a way that keeps what we know and doesn’t claim more than we know.",
-      model: "That E. returned more than once doesn’t, by itself, tell us why. A repeated pattern points to something persistent, and to understand it we’d need to know where she could stay, what her record allowed, and what help was available when she left.",
+      model: "That E. returned more than once doesn’t, by itself, tell us why. A repeated pattern doesn’t show one cause, and her reasons may have differed each time. To understand it, we’d need to know where she could stay, what her record allowed, and what help was available when she left.",
       why: [
         "It keeps the observation (she returned more than once).",
         "It doesn’t claim a reason the scenario never gives.",
@@ -156,8 +156,8 @@ window.BTL_CASES.push({
       ],
       actions: [
         { lead: "Ask about the conditions.", text: "When you hear “she keeps going back,” ask what is waiting for her on the other side of leaving. Judge the conditions, not just the person." },
-        { lead: "Support record relief.", text: "Find out what your state’s vacatur law covers, and ask your state legislators to make sure it covers every conviction connected to trafficking. [[vacatur]] A record shouldn’t keep a person from housing and work." },
-        { lead: "Fund what comes after the exit.", text: "Support longer-term housing, treatment without judgment [[davis]], and services that last as long as people need them. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself. [[hotline]]" },
+        { lead: "Support record relief.", text: "Find out what your state’s record-relief law covers, and ask your state legislators to make sure it covers every conviction connected to trafficking. [[vacatur]] A record shouldn’t keep a person from housing and work." },
+        { lead: "Fund what comes after the exit.", text: "Support longer-term housing, treatment without judgment, and services that last as long as people need them. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself. [[hotline]]" },
         { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them. [[nsn]]" }
       ]
     }

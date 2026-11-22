@@ -30,7 +30,7 @@ window.BTL_SOURCES = [
     items: [
       { id: "tvpa", cite: "TVPA, 2000", status: "verify", text: "Victims of Trafficking and Violence Protection Act of 2000, Pub. L. No. 106-386, 114 Stat. 1464 (2000).",
         note: "U.S. federal law. Defines trafficking through force, fraud, or coercion, and created the T visa." },
-      { id: "palermo", cite: "United Nations, 2000", status: "verify", text: "United Nations. (2000). Protocol to prevent, suppress and punish trafficking in persons, especially women and children, supplementing the United Nations Convention against Transnational Organized Crime.",
+      { id: "palermo", cite: "United Nations, 2000", status: "verify", url: "https://treaties.un.org/Pages/ViewDetails.aspx?chapter=18&mtdsg_no=XVIII-12-a&src=TREATY", text: "United Nations. (2000). Protocol to prevent, suppress and punish trafficking in persons, especially women and children, supplementing the United Nations Convention against Transnational Organized Crime. Nov. 15, 2000, 2237 U.N.T.S. 319. https://treaties.un.org/Pages/ViewDetails.aspx?chapter=18&mtdsg_no=XVIII-12-a&src=TREATY",
         note: "Article 3 defines trafficking and states that consent is irrelevant where coercive means are used." }
     ]
   },
@@ -39,10 +39,9 @@ window.BTL_SOURCES = [
     items: [
       { id: "brennan", cite: "Brennan, 2014", status: "verify", text: "Brennan, D. (2014). Life interrupted: Trafficking into forced labor in the United States. Duke University Press." },
       { id: "stark", cite: "Stark, 2007", status: "verify", text: "Stark, E. (2007). Coercive control: How men entrap women in personal life. Oxford University Press." },
-      { id: "christie", cite: "Christie, 1986", status: "verify", text: "Christie, N. (1986). The ideal victim. In E. A. Fattah (Ed.), From crime policy to victim policy (pp. 17–30). Macmillan." },
-      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm." },
-      { id: "duttonpainter", cite: "Dutton & Painter, 1993", status: "verify", text: "Dutton, D. G., & Painter, S. (1993). Emotional attachments in abusive relationships: A test of traumatic bonding theory. Violence and Victims, 8(2), 105–120." },
-      { id: "doezema", cite: "Doezema, 2010", status: "verify", text: "Doezema, J. (2010). Sex slaves and discourse masters: The construction of trafficking. Zed Books." }
+      { id: "christie", cite: "Christie, 1986", status: "verify", text: "Christie, N. (1986). The ideal victim. In E. A. Fattah (Ed.), From crime policy to victim policy: Reorienting the justice system (pp. 17–30). Macmillan. https://doi.org/10.1007/978-1-349-08305-3_2" },
+      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm Publishers." },
+      { id: "duttonpainter", cite: "Dutton & Painter, 1993", status: "verify", text: "Dutton, D. G., & Painter, S. (1993). Emotional attachments in abusive relationships: A test of traumatic bonding theory. Violence and Victims, 8(2), 105–120. https://doi.org/10.1891/0886-6708.8.2.105" }
     ]
   },
   {
@@ -61,13 +60,13 @@ window.BTL_SOURCES = [
     group: "Survivor-authored and survivor-led",
     note: "This project does not quote survivors. These are places to hear from survivors directly.",
     items: [
-      { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale. Harper.",
+      { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale, an activist finds her calling and heals herself. Harper.",
         note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services). Focused mainly on girls and young women." },
       { id: "nsn", cite: "National Survivor Network, n.d.", status: "checked", url: "https://nationalsurvivornetwork.org/", text: "National Survivor Network. (n.d.). Retrieved October 17, 2026, from https://nationalsurvivornetwork.org/",
         note: "Checked Oct. 17, 2026: a membership association of trafficking survivors working toward a movement “led by survivors.” Contact runs through the Coalition to Abolish Slavery & Trafficking (CAST)." },
       { id: "gems", cite: "GEMS, n.d.", status: "checked", url: "https://www.gems-girls.org/", text: "Girls Educational & Mentoring Services. (n.d.). Retrieved October 17, 2026, from https://www.gems-girls.org/",
         note: "Founded by survivor Rachel Lloyd in 1998; serves girls and young women in New York City, with a Survivor Leadership Institute." },
-      { id: "nswp", cite: "NSWP, n.d.", status: "verify", text: "Global Network of Sex Work Projects. (n.d.). [Website].", note: "A sex worker-led network. Confirm the current URL and description before listing." }
+      { id: "nswp", cite: "NSWP, n.d.", status: "verify", url: "https://www.nswp.org/", text: "Global Network of Sex Work Projects. (n.d.). https://www.nswp.org/", note: "A sex worker-led network, not a survivor-led one. Confirm the current description before listing." }
     ]
   },
   {
@@ -76,8 +75,8 @@ window.BTL_SOURCES = [
       { id: "ilo", cite: "ILO, 2012", status: "verify", text: "International Labour Organization. (2012). ILO indicators of forced labour. International Labour Office." },
       { id: "ndvh", cite: "National Domestic Violence Hotline, n.d.", status: "checked", url: "https://www.thehotline.org", text: "National Domestic Violence Hotline. (n.d.). Retrieved October 17, 2026, from https://www.thehotline.org",
         note: "Checked Oct. 17, 2026: call 1-800-799-7233 or text START to 88788." },
-      { id: "vacatur", cite: "Polaris, n.d.", status: "checked", url: "https://polarisproject.org/criminal-records-relief/", text: "Polaris. (n.d.). Criminal records relief. Retrieved October 17, 2026, from https://polarisproject.org/criminal-records-relief/",
-        note: "Checked Oct. 17, 2026: all states except Alaska, Iowa, and Maine, plus the federal government, offer some form of record relief for survivors." },
+      { id: "vacatur", cite: "Polaris, n.d.", status: "checked", url: "https://polarisproject.org/criminal-records-relief/", text: "Polaris. (n.d.). Criminal records relief. Retrieved November 22, 2026, from https://polarisproject.org/criminal-records-relief/",
+        note: "Checked Nov. 2026: most states offer some form of criminal-record relief for survivors, and a 2026 federal law (Trafficking Survivors Relief Act, Pub. L. 119-73) added a federal pathway. Coverage varies by state." },
       { id: "hotline", cite: "National Human Trafficking Hotline, n.d.", status: "checked", url: "https://humantraffickinghotline.org/en", text: "National Human Trafficking Hotline. (n.d.). Retrieved October 17, 2026, from https://humantraffickinghotline.org/en",
         note: "Checked Oct. 17, 2026: call 1-888-373-7888 or text 233733. The site says it is operated by Compass Connections and funded by the U.S. Administration for Children and Families." }
     ]

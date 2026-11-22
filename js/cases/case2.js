@@ -45,19 +45,19 @@ window.BTL_CASES.push({
       deepDive: false,
       stated: "She returned.",
       conclusion: "So she freely chose to return.",
-      prompt: "Something has to connect the stated fact to the conclusion. Which sentence is the argument quietly relying on?",
+      prompt: "Read “chose” the way the claim usually means it: freely, among real options. What would we have to assume to get there? Which sentence is the argument quietly relying on?",
       options: [
-        { id: "a", text: "Anyone who returns made a free choice, with nothing seriously limiting her options.", key: true,
-          why: "This is the hidden step. It treats “she chose” as if it meant “she chose freely, among good options.” Without it, the conclusion says much less than it seems to." },
         { id: "b", text: "She went back after a week.", key: false,
           why: "This repeats the stated fact with more detail. It doesn’t connect returning to choosing freely." },
+        { id: "a", text: "Anyone who returns made a free choice, with nothing seriously limiting her options.", key: true,
+          why: "This is the hidden step. It treats “she chose” as if it meant “she chose freely, among good options.” Without it, the conclusion says much less than it seems to." },
         { id: "c", text: "People sometimes make choices they later regret.", key: false,
           why: "True, but it doesn’t link returning to free choice. Regret and constraint are different things." },
         { id: "d", text: "People who are controlled can never choose anything.", key: false,
           why: "This is a different claim, and not a true one. People under pressure make real choices all the time. That is the point of this case." }
       ],
       follows: "With the hidden premise added, the argument is valid. That means: if both premises were true, the conclusion would have to be true.",
-      isTrue: "But is the hidden premise true? “Anyone who returns made a free choice, with nothing seriously limiting her options” is a claim about everyone who returns. One counterexample is enough to show it’s false: a person who chooses between two bad options still chooses, but the options were limited. So the argument is valid but not sound.",
+      isTrue: "But is the hidden premise true? “Anyone who returns made a free choice, with nothing seriously limiting her options” is a claim about everyone who returns. One counterexample is enough to show it’s false: a person who returns because her only other option is unsafe. She still chooses, but her options were limited. So the argument is valid but not sound.",
       keyIdea: "The simple version of this claim is plausibly true: she made a decision. The problem comes from the word “chose” changing size partway through. Yes, she made a choice. The question is what she was choosing between.",
       symbols: {
         key: [ ["R", "She returned."], ["C", "She made a decision to return."], ["F", "Her decision was free of serious constraint."] ],
@@ -122,7 +122,7 @@ window.BTL_CASES.push({
         ],
         after: "Affection is on the list on purpose. The point isn’t to rule it out. It’s that returning, by itself, can’t tell these explanations apart, and several can be true together."
       },
-      legal: "U.S. law treats sex trafficking of an adult as requiring force, fraud, or coercion. [[tvpa]] An abusive relationship is not, by itself, trafficking. The law sets a threshold for prosecution. It doesn’t capture everything a person lives through in a controlling relationship."
+      legal: "For adults, U.S. law counts sex trafficking as a severe form of trafficking when force, fraud, or coercion is used. [[tvpa]] An abusive relationship is not, by itself, trafficking. The law sets a threshold for prosecution. It doesn’t capture everything a person lives through in a controlling relationship."
     },
 
     fuller: {
@@ -137,7 +137,7 @@ window.BTL_CASES.push({
         { name: "Financial control", system: "Economic dependence, gender inequality", text: "When one person controls the money, leaving can mean losing everything at once. [[stark]]" },
         { name: "Isolation from family", system: "Coercive control", text: "Cutting someone off from people who might help is a common part of controlling relationships. [[stark]]" },
         { name: "No stable housing", system: "Housing and income inequality", text: "Without a lasting place to go, every exit is temporary. This is a structural limit, not a personal weakness." },
-        { name: "Overlapping vulnerabilities", system: "Intersecting systems: gender, age, class", text: "B. is a young woman with little money, working in a stigmatized trade. Looking at any one of these alone misses how they compound. [[crenshaw]]" }
+        { name: "How systems overlap", system: "Intersecting systems: gender, age, class", text: "B. is a young woman with little money, working in a stigmatized trade. Looking at any one of these alone misses how they compound. [[crenshaw]]" }
       ],
       agency: "Going back to get her documents is a decision, and so is telling a counselor about it. B. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticized Western feminist writing that pictures “Third World women” as one generic, powerless victim. Her warning applies more widely. B. is constrained, not powerless. [[mohanty]]",
       idealVictim: "B. went back, loves him, and works in the sex trade. That doesn’t match the popular image of a victim. Nils Christie called this the “ideal victim” problem: we see harm most easily in people who fit a familiar story. [[christie]] Sex work and trafficking are not the same thing, and this case doesn’t treat them as the same.",
@@ -175,8 +175,8 @@ window.BTL_CASES.push({
       actions: [
         { lead: "Ask the second question.", text: "When you hear “she chose it,” ask what she was choosing between." },
         { lead: "Leave the door open.", text: "If someone you know goes back, keep being someone they can reach without judgment. If you’re worried, the National Domestic Violence Hotline can offer advice [[ndvh]], and so can the National Human Trafficking Hotline if someone is controlling her money or her work. [[hotline]]" },
-        { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them." },
-        { lead: "Push for structural change.", text: "Support funding for longer-term housing and exit services, and criminal-record relief (vacatur) for survivors, so that leaving has somewhere to lead." }
+        { lead: "Follow survivor-led work.", text: "Support and share organizations led by survivors, not only stories told about them. [[gems]]" },
+        { lead: "Push for structural change.", text: "Support funding for longer-term housing and exit services, and criminal-record relief (such as vacatur, expungement, or sealing) for survivors, so that leaving has somewhere to lead." }
       ]
     }
   });

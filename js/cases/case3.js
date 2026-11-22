@@ -12,7 +12,7 @@ window.BTL_CASES.push({
     scenario: {
       paragraphs: [
         "C. moved to another city for a job she knew would involve sex work.",
-        "For several months, she has been seen advertising online and meeting clients. She has never told anyone she wants to stop."
+        "For several months, she has been seen advertising online and meeting clients. She hasn’t said that she wants to stop."
       ],
       note: "That is everything an outside observer can see. Hold on to it. We’ll come back to what it leaves out."
     },
@@ -26,7 +26,7 @@ window.BTL_CASES.push({
       intro: "For each statement, decide whether the scenario actually says it. Something it doesn’t say might still be true. You just can’t get it from the scenario.",
       items: [
         { id: "s1", text: "C. knew the job would involve sex work.", answer: "stated",
-          reason: "The scenario says this directly. Her decision to take the job was hers." },
+          reason: "The scenario says this directly. It tells us what she knew, not what she agreed to." },
         { id: "s2", text: "C. has been advertising and meeting clients for several months.", answer: "stated",
           reason: "Stated. What it shows about her consent is a separate question." },
         { id: "s3", text: "C. agreed to the conditions she is working under now.", answer: "notstated", tag: "leans",
@@ -47,14 +47,14 @@ window.BTL_CASES.push({
       conclusion: "So she consented.",
       prompt: "Something has to connect the stated fact to the conclusion. Which sentence is the argument quietly relying on?",
       options: [
-        { id: "a", text: "Anyone who takes part in something has consented to it, including everything that comes with it.", key: true,
-          why: "This is the hidden premise. With it, the conclusion follows. Without it, “she participated” doesn’t lead anywhere." },
         { id: "b", text: "She participated for several months.", key: false,
           why: "This repeats the stated fact with more detail. It doesn’t connect taking part to consenting." },
-        { id: "c", text: "She agreed to do sex work before she moved.", key: false,
-          why: "This is stated, and it matters: her first decision was real. But agreeing to the work at the start doesn’t, by itself, reach conditions that may have been added or changed later." },
+        { id: "c", text: "She knew the job would involve sex work.", key: false,
+          why: "The scenario says this, and it matters: she knew what the work was. But knowing that at the start doesn’t, by itself, reach conditions that may have been added or changed later." },
         { id: "d", text: "No one would freely choose sex work.", key: false,
-          why: "This is a different claim, and it points toward the opposite conclusion. Feminists disagree about it, and many sex workers say they did choose their work. Either way, it doesn’t connect participation to consent." }
+          why: "This is a different claim, and it points toward the opposite conclusion. Feminists disagree about it, and many sex workers say they did choose their work. Either way, it doesn’t connect participation to consent." },
+        { id: "a", text: "Anyone who takes part in something has consented to it, including everything that comes with it.", key: true,
+          why: "This is the hidden premise. With it, the conclusion follows. Without it, “she participated” doesn’t lead anywhere." }
       ],
       follows: "With the hidden premise added, the argument is valid. That means: if both premises were true, the conclusion would have to be true.",
       isTrue: "But is the hidden premise true? “Anyone who takes part in something has consented to everything that comes with it” is a claim about everyone. One clear counterexample is enough to show it’s false: a person who agreed to one arrangement and is now being held to a different one, through a debt she never agreed to or threats against her family. She keeps taking part, but she never consented to those terms. So the argument is valid but not sound.",
@@ -73,12 +73,12 @@ window.BTL_CASES.push({
       },
       equivocation: {
         title: "Two meanings of “consented”",
-        text: "“She consented” can mean two different things. It can mean she went along with something: she showed up and did the work. Or it can mean she gave valid consent, the kind that makes an arrangement fair to hold her to. Valid consent is generally understood to require at least three things: no coercion, no deception about what is being agreed to, and the capacity to consent, which includes being old enough. Participation is evidence, at most, of the first meaning. The claim sounds true because of the first meaning and sounds important because of the second. Consent also has an object. C. consented to something specific: a kind of work, on certain terms. That doesn’t stretch to cover terms that were changed on her later."
+        text: "“She consented” can mean two different things. It can mean she went along with something: she showed up and did the work. Or it can mean she gave valid consent, the kind that makes an arrangement fair to hold her to. Valid consent is generally understood to require at least three things: no coercion, no deception about what is being agreed to, and the capacity to consent, which includes being old enough. [[wertheimer]] Taking part shows what C. did. It doesn’t show what she agreed to. The claim sounds true because of the first meaning and sounds important because of the second. Consent also has an object: it covers specific terms, not everything that follows. If C. agreed to a kind of work on certain terms, that doesn’t stretch to cover terms that were changed on her later."
       },
       extra: [
         { title: "What valid consent requires",
           lines: [ { f: "<var>V</var> <span class=op>→</span> (<span class=op>¬</span><var>C</var> <span class=op>∧</span> <span class=op>¬</span><var>D</var> <span class=op>∧</span> <var>K</var>)", r: "If V, then not C, and not D, and K." } ],
-          text: "Here V means “she gave valid consent,” C means “she was coerced,” D means “she was deceived about what she agreed to,” and K means “she had the capacity to consent.” The symbol ¬ means “not” and ∧ means “and.” Participation can be true while C or D is also true. So the premise P → A is believable only if A means “went along.” The conclusion matters only if A means V." },
+          text: "Here V means “she gave valid consent,” C means “she was coerced,” D means “she was deceived about what she agreed to,” and K means “she had the capacity to consent.” The symbol ¬ means “not,” ∧ means “and,” and → means “if … then.” Participation can be true while C or D is also true. So the premise P → A is believable only if A means “went along.” The conclusion matters only if A means V." },
         { title: "If C. were under 18",
           text: "The analysis changes completely. Under U.S. law, anyone under 18 who is induced to perform a commercial sex act is a victim of sex trafficking. No force, fraud, or coercion has to be shown. [[tvpa]] The Palermo Protocol likewise requires no coercive means when the person is a child. [[palermo]] For a minor, whether she “went along” doesn’t enter into it." }
       ],
@@ -101,7 +101,7 @@ window.BTL_CASES.push({
         { id: "e1", text: "What exactly did she agree to before she moved: her share of the earnings, which clients, and whether she could leave?", relevant: true,
           why: "Consent has a scope. To know whether she consented to her current situation, we first need to know what she actually agreed to." },
         { id: "e2", text: "Did her travel or housing costs turn into a debt she has to work off?", relevant: true,
-          why: "A debt that keeps someone working, especially one she never agreed to, is a recognized means of control. U.S. law names it debt bondage. [[tvpa]]" },
+          why: "A debt that keeps someone working, especially one she never agreed to, is a recognized means of control. When a debt is used this way, U.S. law can treat it as debt bondage. [[tvpa]]" },
         { id: "e3", text: "Has anyone threatened her, or someone she loves, if she stops?", relevant: true,
           why: "U.S. law counts threats of serious harm, to her or to anyone else, as coercion. [[tvpa]]" },
         { id: "e4", text: "Who controls her phone, her money, and her ID?", relevant: true,
@@ -127,7 +127,7 @@ window.BTL_CASES.push({
         ],
         after: "The first explanation is on the list on purpose. The point isn’t to rule it out. It’s that participation, by itself, can’t tell these explanations apart."
       },
-      legal: "The Palermo Protocol, Article 3, defines trafficking as an act (such as recruiting or transporting someone), carried out by a means (such as threat, force, fraud, deception, or abuse of a position of vulnerability), for the purpose of exploitation. Article 3(b) says a victim’s consent to the intended exploitation is irrelevant where any of those means were used. [[palermo]] That does not mean adults can’t consent to sex work. It means consent obtained through coercion or deception doesn’t count. U.S. law likewise defines sex trafficking of adults by force, fraud, or coercion. [[tvpa]] The law sets a threshold for prosecution. It doesn’t capture everything a person lives through."
+      legal: "The Palermo Protocol, Article 3, defines trafficking as an act (such as recruiting or transporting someone), carried out by a means (such as threat, force, fraud, deception, or abuse of a position of vulnerability), for the purpose of exploitation. Article 3(b) says a victim’s consent to the intended exploitation is irrelevant where any of those means were used. [[palermo]] That does not mean adults can’t consent to sex work. It means consent obtained through coercion or deception doesn’t count. For adults, U.S. law counts sex trafficking as a severe form of trafficking when force, fraud, or coercion is used. [[tvpa]] The law sets a threshold for prosecution. It doesn’t capture everything a person lives through."
     },
 
     fuller: {
@@ -157,7 +157,7 @@ window.BTL_CASES.push({
       lensNote: "These are two perspectives, not one correct theory. They ask different questions, and neither settles the wider debate about sex work.",
       cards: [
         { title: "Contested terrain",
-          text: "Feminists disagree sharply about sex work. Some, often called abolitionists, argue that prostitution is itself a form of sexual exploitation rooted in gender and economic inequality, so that choices inside it are never fully free. [[mackinnon]] Many in this camp support decriminalizing people who sell sex while penalizing buyers. Others, including many sex workers and sex worker-led organizations, argue that sex work is work, that treating all of it as trafficking harms both sex workers and trafficking survivors, and that decriminalization and labor rights are the better answer. [[giragrant]] [[kempadoo]] Many people hold positions in between. This case doesn’t settle that debate. Its question is narrower: what can and can’t be inferred from participation." },
+          text: "Feminists disagree sharply about sex work. Some, often called abolitionists, argue that prostitution is itself a form of sexual exploitation rooted in gender and economic inequality, so that choices inside it are never fully free. [[mackinnon]] Others, including many sex workers and sex worker-led organizations, argue that sex work is work, that treating all of it as trafficking harms both sex workers and trafficking survivors, and that decriminalization and labor rights are the better answer. [[giragrant]] [[kempadoo]] Many people hold positions in between. This case doesn’t settle that debate. Its question is narrower: what can and can’t be inferred from participation." },
         { title: "Who gets to tell the story",
           text: "Grant describes anti-trafficking campaigners who speak about sex workers’ lives without asking them, and who take a sex worker’s disagreement as proof that she must be a victim. She argues that campaigns to “save” sex workers can remove the options they rely on for safety and income. [[giragrant]] Lila Abu-Lughod, writing about a different context, warns that the rhetoric of saving women carries a sense of superiority, and can keep us from seeing that they may want different things than we want for them. [[abulughod]] In C.’s case, the person best placed to say which terms she agreed to is C." },
         { title: "What changed the analysis",
@@ -170,9 +170,9 @@ window.BTL_CASES.push({
     reframe: {
       short: "Taking part doesn’t tell us what she agreed to.",
       prompt: "Rewrite “She participated, so she consented” in a way that keeps what we know and doesn’t claim more than we know.",
-      model: "C. chose to do sex work, and that choice was real. But her taking part doesn’t, by itself, show that she agreed to the conditions she is working under now. To know that, we’d need to know what terms she agreed to, whether those terms changed, and whether she is free to stop.",
+      model: "C. knew the job would involve sex work, and she took it. But her taking part doesn’t, by itself, show that she agreed to the conditions she is working under now. To know that, we’d need to know what terms she agreed to, whether those terms changed, and whether she is free to stop.",
       why: [
-        "It keeps the observation (she took part) and respects her original choice.",
+        "It keeps the observation (she took part) and what she knew.",
         "It doesn’t treat agreeing to the work as agreeing to everything that follows.",
         "It names what we would need to know.",
         "It doesn’t swap in the opposite certainty that she was trafficked."
@@ -186,7 +186,7 @@ window.BTL_CASES.push({
         { lead: "Ask “consented to what?”", text: "When you hear “she knew what she was getting into,” ask whether what she is in now is what she agreed to." },
         { lead: "Don’t treat sex work as proof of trafficking.", text: "The reverse shortcut is just as unsupported. For adults, what matters is force, fraud, or coercion. If you’re worried about someone, contact the National Human Trafficking Hotline for advice rather than confronting anyone yourself." },
         { lead: "Listen to the people involved.", text: "Seek out writing and organizations led by sex workers and by trafficking survivors, not only stories told about them." },
-        { lead: "Push for structural change.", text: "Support policies that let people report exploitation, violence, or trafficking without being arrested themselves, and criminal-record relief (vacatur) for trafficking survivors." }
+        { lead: "Push for structural change.", text: "Support policies that let people report exploitation, violence, or trafficking without being arrested themselves, and criminal-record relief (such as vacatur, expungement, or sealing) for trafficking survivors." }
       ]
     }
   });

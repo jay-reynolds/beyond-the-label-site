@@ -127,6 +127,7 @@
       "<figcaption>One small word, “so,” carries a whole conclusion. This tool shows you how much it’s carrying.</figcaption></figure>" +
       '<div class="reading">' +
       "<p>We often make conclusions about people’s choices based on what we can see: whether someone stayed, returned, participated, or did not leave. But what can be observed is not always enough to explain why someone acted. This interactive tool helps you examine the assumptions, reasoning, and evidence behind those interpretations.</p>" +
+      "<p>" + STAKES + "</p>" +
       '<div class="btn-row"><a class="btn btn-primary" href="' + (state.noteAck ? "#/cases" : "#/note") + '">Explore a case</a>' +
       '<a class="btn btn-secondary" href="#/how">How it works</a></div>' + resume +
       '<p class="meta hero-note">Content note: this project discusses trafficking and coercion in general terms, with no graphic detail and no real people’s accounts. <a href="#/note">Read the note</a>. About ' + CASES[0].minutes + ' minutes for the first case.</p>' +
@@ -386,7 +387,7 @@
       }).join("");
       return {
         main: '<p class="stage-kicker">Stage 5 · Evidence</p>' + h1("What would we need to know?") +
-          "<p>" + rich(E.intro) + "</p>" +
+          "<p>" + rich(E.intro) + "</p><p>Also ask: what reasons has she shared, if any?</p>" +
           '<fieldset data-form="cards"><legend>Choose up to ' + E.pick + ' <span class="meta" id="pick-count" aria-live="polite">(' + picks.length + " chosen)</span></legend>" +
           '<ul class="cards">' + cards + "</ul></fieldset>" +
           (revealed ? '<p class="key-idea reveal">' + rich(E.compareNote) + "</p>" + resetRow("reveal-cards")
@@ -403,7 +404,7 @@
       return {
         main: provenanceChip(F.label) + '<p class="stage-kicker">Stage 6 · Fuller picture</p>' + h1("What the observer couldn’t see") +
           F.paragraphs.map(function (p) { return '<p class="scenario-text">' + rich(p) + "</p>"; }).join("") +
-          "<h2>The constraints, and the systems behind them</h2>" +
+          "<h2>Pressures and systems shaping her choices</h2>" +
           '<ul class="mechanisms">' + F.mechanisms.map(function (m) {
             return '<li><span class="m-name">' + esc(m.name) + '</span><span class="m-system">' + esc(m.system) + "</span>" + rich(m.text) + "</li>";
           }).join("") + "</ul>" +
@@ -485,17 +486,17 @@
 
   function renderWhy() {
     var items = [
-      ["Gendered and devalued work", "Domestic work is one of the sectors where forced labor is documented. [[ilo]] Pat Mainardi showed how housework is treated as women’s job and dismissed as not quite “real work.” Paid domestic work inherits that devaluation. [[mainardi]]"],
+      ["Gendered and devalued work", "Domestic work is one of the sectors where forced labor is documented. [[ilo]] Pat Mainardi showed how housework is treated as women’s job and dismissed as not quite “real work.” Applied to paid domestic work, that devaluation carries over. [[mainardi]]"],
       ["Immigration law and fear of enforcement", "When a work visa or legal status depends on an employer, or when someone fears arrest and deportation, leaving becomes dangerous. [[brennan]]"],
       ["Economic inequality and debt", "Recruitment fees and debts that can’t be repaid turn a job into an obligation. [[ilo]] [[tvpa]]"],
-      ["Criminalization", "The criminal legal system falls hardest on poor women and women of color, including through prostitution laws. [[davis]] People who were trafficked can be arrested and left with records that block housing and jobs."],
+      ["Criminalization", "The criminal legal system falls hardest on poor women and women of color, including through prostitution laws. [[davis]] People who were trafficked can be arrested and left with records that block housing and jobs. [[vacatur]]"],
       ["Overlapping systems", "Gender, race, immigration status, and class compound each other. Looking at one at a time misses the people most affected. [[crenshaw]]"],
       ["Stories about victims and saviors", "Popular images of the helpless victim waiting for rescue make it harder to recognize people who don’t fit them, and easier to overlook their agency. [[mohanty]] [[abulughod]] [[christie]]"]
     ];
     return page(h1("Why this happens") +
       '<p class="lede">The constraints in each case aren’t random bad luck. They come from systems of power that make some people easier to exploit and harder to believe.</p>' +
       items.map(function (x) { return "<h2>" + esc(x[0]) + "</h2><p>" + rich(x[1]) + "</p>"; }).join("") +
-      "<h2>Why language matters</h2><p>In the short term, assuming “she chose it” can mean a person isn’t recognized, believed, or offered help. Over time, the same assumptions shape how institutions, policies, and the public respond.</p>" +
+      "<h2>Why language matters</h2><p>In the short term, assuming “she chose it” can mean a person isn’t recognized, believed, or offered help. Assuming “she was forced” does harm too: her own account can be dismissed. " + rich("[[giragrant]]") + " Over time, the same assumptions shape how institutions, policies, and the public respond.</p>" +
       '<div class="btn-row"><a class="btn btn-secondary" href="#/sources">See all sources</a></div>');
   }
 
@@ -511,11 +512,13 @@
       "<h2>Scope</h2><p>The project focuses on how people talk about trafficked women, because that’s where these assumptions are most often aimed. Trafficking also affects men, boys, and trans and nonbinary people, and it happens in labor as well as in the sex trade.</p>" +
       "<h2>Limits</h2><ul><li>Logic can show whether a conclusion follows. It can’t settle what’s true about a real person’s life. That takes evidence.</li>" +
       "<li>A constructed scenario is not anyone’s real experience, and no single case represents all survivors.</li>" +
-      "<li>Questioning “she chose it” doesn’t mean assuming the opposite. Adults can and do consent to sex work. For adults, U.S. law defines trafficking by force, fraud, or coercion. Anyone under 18 who is involved in commercial sex counts as a trafficking victim under U.S. law, with no force, fraud, or coercion required. " + rich("[[tvpa]] [[giragrant]]") + "</li></ul>" +
+      "<li>Questioning “she chose it” doesn’t mean assuming the opposite. Adults can and do consent to sex work. For adults, U.S. law counts sex trafficking as a severe form of trafficking when force, fraud, or coercion is used. Anyone under 18 who is involved in commercial sex counts as a trafficking victim under U.S. law, with no force, fraud, or coercion required. " + rich("[[tvpa]] [[giragrant]]") + "</li>" +
+      "<li>These examples were chosen to show how constraints can be missed. They can’t tell us how common coercion is.</li></ul>" +
       "<h2>Privacy</h2><p>Nothing you enter is sent anywhere. There are no accounts, cookies, or analytics. Your progress and answers are saved only in this browser, and you can clear them at any time from the bottom of the page.</p>");
   }
 
   // One copy of the hotline: the support page, the handout, and the footer (filled in below) all use it.
+  var STAKES = "Those assumptions shape who gets believed, helped, or blamed.";
   var HOTLINE = "National Human Trafficking Hotline (U.S.): call 1-888-373-7888 or text 233733";
   // The questions on the Final screen and the printed handout.
   var ASK = ["What do I know?", "What am I assuming?", "What evidence am I missing?", "What does the person’s own account tell me, if they’ve shared one?", "How can I describe this more carefully?"];
@@ -543,7 +546,7 @@
       '<h1 tabindex="-1">Think before you label.</h1>' +
       '<p class="sub">A person’s behavior is only one part of a story.</p>' +
       "<p>Before drawing conclusions about someone’s choices, ask:</p><ol>" + listItems(ASK) + "</ol>" +
-      "<h2>And then</h2><ul><li>Question “she could have left” when you hear it, kindly and out loud.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li><li>Share this tool with someone who scrolls past these stories.</li></ul>" +
+      "<h2>And then</h2><ul><li>Question “she could have left” when you hear it, kindly and out loud.</li><li>Follow and support survivor-led organizations, such as the National Survivor Network.</li><li>Support labor protections for domestic workers. Ask your state legislators to cover every conviction connected to trafficking.</li><li>Share this tool with someone who scrolls past these stories.</li></ul>" +
       '<div class="btn-row"><button class="btn btn-secondary" data-action="print">Print or save this card</button><a class="btn btn-quiet" href="#/cases">Back to cases</a></div>' +
       "</div></div>";
   }
@@ -580,6 +583,7 @@
     if (n === 1) {
       body = provenanceChip() + '<p class="stage-kicker">What an observer sees</p>' +
         c.scenario.paragraphs.map(function (p) { return '<p class="scenario-text">' + rich(p) + "</p>"; }).join("") +
+        '<p class="meta">Content note: this discusses trafficking and coercion in general terms, with no graphic detail.</p>' +
         '<p class="claim-label">A reader might conclude:</p><p class="claim-display">“' + claimHTML(c.claim) + "”</p>" +
         '<fieldset data-show="rating"><legend>Does the scenario support that?</legend><div class="scale">' +
         [["yes", "Yes"], ["unsure", "Not sure"], ["no", "No"]].map(function (o) {
@@ -595,7 +599,7 @@
             '> <span class="choice-text">' + esc(o.text) + "</span></label>";
         }).join("") + "</div></fieldset>" +
         (show.revealed
-          ? '<div class="reveal"><p class="key-idea">The hidden premise: “' + esc(key.text) + "”</p><p>" + rich(c.logic.isTrue) + "</p></div>"
+          ? '<div class="reveal"><p class="key-idea">The hidden premise: “' + esc(key.text) + "”</p><p>" + rich(c.logic.isTrue) + "</p><p>Valid means the conclusion would follow if the premises were true. Sound means valid, with premises that really are true.</p></div>"
           : '<div class="btn-row"><button class="btn btn-secondary" data-action="sc-reveal">Show the hidden premise</button></div>');
     } else if (n === 3) {
       body = provenanceChip(c.fuller.label) + '<p class="stage-kicker">What the observer couldn’t see</p>' +
@@ -621,7 +625,7 @@
   function renderHandout() {
     return '<div class="page handout"><div class="reading">' + h1("Beyond the Label") +
       '<p class="lede">How language and reasoning shape the way we understand trafficking narratives.</p>' +
-      "<h2>The issue</h2><p>People often judge trafficked women’s choices from what they can see: she stayed, she went back, she participated, she didn’t leave. What’s visible rarely explains why. Those assumptions shape who gets believed, helped, or blamed.</p>" +
+      "<h2>The issue</h2><p>People often judge trafficked women’s choices from what they can see: she stayed, she went back, she participated, she didn’t leave. What’s visible rarely explains why. " + STAKES + "</p>" +
       "<h2>Who it’s for</h2><p>College students and young adults who meet these stories on social media, in the news, and in everyday conversation.</p>" +
       "<h2>Before you label, ask</h2><ol>" + listItems(ASK) + "</ol>" +
       "<h2>Then act</h2><ul><li>Question “she could have left” when you hear it.</li><li>Follow and support survivor-led organizations.</li><li>Support labor protections for domestic workers and record relief for survivors.</li></ul>" +
