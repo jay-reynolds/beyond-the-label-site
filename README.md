@@ -20,5 +20,5 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 | `css/styles.css` | Design tokens are at the top. |
 
 ## After any content edit
-- Run `node tools/validate-cases.js` and `node tools/smoke-test.js` from the repo root. The first checks fields and citation ids (not whether a source is accurate); the second renders every page and stage and fails on raw `[[id]]`, `undefined`, or `NaN`. Publishing runs both.
+- Run `node tools/validate-cases.js` and `node tools/smoke-test.js` from the repo root. The first checks fields and citation ids (not whether a source is accurate); the second renders every page and stage and fails on raw `[[id]]`, `undefined`, or `NaN`. It also checks the reset buttons, corrupt saved data, the Resume link, the reveal nudge, one hotline per page, and source links. CI runs both on every pull request. Publishing runs both.
 - In a browser, check that **Skip to content** and the **because** link in Case 1's Logic stage stay on the current page, and that browser Back still works.

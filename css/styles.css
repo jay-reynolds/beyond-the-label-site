@@ -193,6 +193,7 @@ main { display: block; }
   text-underline-offset: 0.16em;
 }
 .hero-note { margin-top: var(--s5); }
+.hero .btn-row { margin-bottom: var(--s5); }
 
 /* ---------- Provenance chip ---------- */
 .chip {
@@ -484,8 +485,14 @@ td.q { font-weight: 700; color: var(--unknown); }
 @media print {
   .no-print { display: none !important; }
   .handout { padding-top: 0; }
-  .handout h1 { font-size: 28pt; }
-  .handout h2 { margin-top: 14pt; font-size: 14pt; }
+  /* Sized so the handout, QR card included, fits one Letter or A4 page. */
+  .handout h1 { font-size: 24pt; margin-bottom: 6pt; }
+  .handout h2 { margin-top: 10pt; font-size: 13pt; }
+  .handout { font-size: 11pt; }
+  .handout .qr-card { margin: 12pt 0; break-inside: avoid; }
+  .handout li { margin: 0 0 2pt; }
+  .handout ul, .handout ol { margin: 4pt 0; }
+  .handout p { margin-bottom: 6pt; }
 }
 .qr-img { flex: none; width: 132px; height: 132px; background: #fff; padding: 4px; border: 1px solid var(--rule); }
 .qr-url { font-family: var(--sans); font-weight: 600; font-size: 1.0625rem; overflow-wrap: anywhere; }
