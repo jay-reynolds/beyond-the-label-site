@@ -583,6 +583,11 @@
       "<p><strong>" + esc(lead) + '</strong><br><span class="qr-url">' + esc(SITE_URL.replace("https://", "")) + "</span></p></div>";
   }
   var show = { step: 1, rating: null, pick: null, revealed: false };
+  // "Start over" and "Clear my progress" both wipe everything but the theme.
+  function resetAll() {
+    show = { step: 1, rating: null, pick: null, revealed: false };
+    state = { theme: state.theme }; nudges = {}; save();
+  }
 
   function renderShowcase() {
     var c = findCase(SHOWCASE_CASE);
@@ -764,11 +769,8 @@
       if (action === "sc-next") show.step = Math.min(4, show.step + 1);
       if (action === "sc-back") show.step = Math.max(1, show.step - 1);
       if (action === "sc-reveal") show.revealed = true;
-      if (action === "sc-restart") {
-        show = { step: 1, rating: null, pick: null, revealed: false };
-        // Shared laptop: also clear anything a visitor saved in the full cases.
-        state = { theme: state.theme }; nudges = {}; save();
-      }
+      // Shared laptop: also clear anything a visitor saved in the full cases.
+      if (action === "sc-restart") resetAll();
       first = false; route();
       return;
     }
@@ -810,8 +812,7 @@
     var tb = e.target.closest(".theme-switch button");
     if (tb) { state.theme = tb.getAttribute("data-theme"); save(); applyTheme(state.theme); }
     if (e.target.closest("[data-action='clear']")) {
-      var theme = state.theme;
-      state = { theme: theme }; save();
+      resetAll();
       live.textContent = "Your progress has been cleared.";
       first = true; route();
     }
