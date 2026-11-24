@@ -30,7 +30,7 @@ A static site made of plain HTML, CSS, and JavaScript. There is no build step, n
 - [ ] Add NC State counseling and Women's Center details (`resourcesHTML` in `app.js`), from official NC State pages.
 - [ ] Rehearse the showcase path with a timer and one classmate, and print the handout once on the real printer.
 - [ ] Print the handout and scan its QR code with a phone to confirm it opens the live site.
-- [ ] Remaining source checks: Aristotle edition; Wertheimer 1987 vs 1988 (copyright page); Mohanty and Davis titles against her anthology copy; ebook page ranges; DOIs for books (optional); web-page titles after (n.d.).
+- [ ] Remaining source checks (NC State library): Wertheimer 1987 vs 1988 (copyright page), his threat test (chs. 12–14), and Case 3’s three conditions for valid consent; Olsaretti on choices made with no acceptable alternative; Khader on adaptive preferences (Case 1); Mackenzie & Stoljar, introduction p. 4 (free publisher preview); Christie’s “ideal victim” wording; Lloyd’s apology-and-warning pattern (Case 2); Kempadoo and MacKinnon positions (Case 3); Mohanty and Davis titles against her anthology copy; ebook page ranges; page dates for the hotline, Polaris, and trafficking hotline pages.
 - [ ] Open `index.html` directly on the showcase laptop with Wi-Fi off.
 
 **Done**

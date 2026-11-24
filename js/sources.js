@@ -28,7 +28,7 @@ window.BTL_SOURCES = [
   {
     group: "Law",
     items: [
-      { id: "tvpa", cite: "TVPA, 2000", status: "verify", text: "Victims of Trafficking and Violence Protection Act of 2000, Pub. L. No. 106-386, 114 Stat. 1464 (2000).",
+      { id: "tvpa", cite: "TVPA, 2000", status: "verify", url: "https://www.govinfo.gov/content/pkg/PLAW-106publ386/pdf/PLAW-106publ386.pdf", text: "Victims of Trafficking and Violence Protection Act of 2000, Pub. L. No. 106-386, 114 Stat. 1464 (2000).",
         note: "U.S. federal law. Defines trafficking through force, fraud, or coercion, and created the T visa." },
       { id: "palermo", cite: "United Nations, 2000", status: "verify", url: "https://treaties.un.org/Pages/ViewDetails.aspx?chapter=18&mtdsg_no=XVIII-12-a&src=TREATY", text: "United Nations. (2000). Protocol to prevent, suppress and punish trafficking in persons, especially women and children, supplementing the United Nations Convention against Transnational Organized Crime. Nov. 15, 2000, 2237 U.N.T.S. 319. https://treaties.un.org/Pages/ViewDetails.aspx?chapter=18&mtdsg_no=XVIII-12-a&src=TREATY",
         note: "Article 3 defines trafficking and states that consent is irrelevant where coercive means are used." }
@@ -37,8 +37,8 @@ window.BTL_SOURCES = [
   {
     group: "Scholarly research",
     items: [
-      { id: "brennan", cite: "Brennan, 2014", status: "verify", text: "Brennan, D. (2014). Life interrupted: Trafficking into forced labor in the United States. Duke University Press." },
-      { id: "stark", cite: "Stark, 2007", status: "verify", text: "Stark, E. (2007). Coercive control: How men entrap women in personal life. Oxford University Press." },
+      { id: "brennan", cite: "Brennan, 2014", status: "verify", url: "https://muse.jhu.edu/book/69034", text: "Brennan, D. (2014). Life interrupted: Trafficking into forced labor in the United States. Duke University Press. https://doi.org/10.1215/9780822376910", note: "Open access: free to read on Project MUSE or JSTOR." },
+      { id: "stark", cite: "Stark & Hester, 2019", status: "verify", url: "https://research-information.bris.ac.uk/ws/portalfiles/portal/208237229/Full_text_PDF_accepted_author_manuscript_.pdf", text: "Stark, E., & Hester, M. (2019). Coercive control: Update and review. Violence Against Women, 25(1), 81–104. https://doi.org/10.1177/1077801218816191", note: "Free to read: the authors’ accepted manuscript, hosted by the University of Bristol." },
       { id: "christie", cite: "Christie, 1986", status: "verify", text: "Christie, N. (1986). The ideal victim. In E. A. Fattah (Ed.), From crime policy to victim policy: Reorienting the justice system (pp. 17–30). Macmillan. https://doi.org/10.1007/978-1-349-08305-3_2" },
       { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm Publishers." },
       { id: "duttonpainter", cite: "Dutton & Painter, 1993", status: "verify", text: "Dutton, D. G., & Painter, S. (1993). Emotional attachments in abusive relationships: A test of traumatic bonding theory. Violence and Victims, 8(2), 105–120. https://doi.org/10.1891/0886-6708.8.2.105" }
@@ -47,7 +47,7 @@ window.BTL_SOURCES = [
   {
     group: "Philosophy",
     items: [
-      { id: "aristotle", cite: "Aristotle", status: "verify", text: "Aristotle. Nicomachean ethics (Book III, ch. 1). Edition and translator to be chosen by the author.",
+      { id: "aristotle", cite: "Aristotle, ca. 350 B.C.E./1994–2009", status: "verify", url: "http://classics.mit.edu/Aristotle/nicomachaen.3.iii.html", text: "Aristotle. (1994–2009). Nicomachean ethics (W. D. Ross, Trans.; Book III, ch. 1). The Internet Classics Archive. http://classics.mit.edu/Aristotle/nicomachaen.3.iii.html (Original work published ca. 350 B.C.E.)",
         note: "Source of the sailors who throw cargo overboard in a storm: an example of a choice made under pressure." },
       { id: "olsaretti", cite: "Olsaretti, 2004", status: "verify", text: "Olsaretti, S. (2004). Liberty, desert and the market: A philosophical study. Cambridge University Press." },
       { id: "wertheimer", cite: "Wertheimer, 1987", status: "verify", text: "Wertheimer, A. (1987). Coercion. Princeton University Press." },
@@ -72,7 +72,7 @@ window.BTL_SOURCES = [
   {
     group: "Research and support organizations",
     items: [
-      { id: "ilo", cite: "ILO, 2012", status: "verify", text: "International Labour Organization. (2012). ILO indicators of forced labour. International Labour Office." },
+      { id: "ilo", cite: "ILO, 2012", status: "verify", url: "https://www.ilo.org/publications/ilo-indicators-forced-labour", text: "International Labour Organization. (2012). ILO indicators of forced labour. International Labour Office. https://www.ilo.org/publications/ilo-indicators-forced-labour" },
       { id: "ndvh", cite: "National Domestic Violence Hotline, n.d.", status: "checked", url: "https://www.thehotline.org", text: "National Domestic Violence Hotline. (n.d.). Retrieved October 17, 2026, from https://www.thehotline.org",
         note: "Checked Oct. 17, 2026: call 1-800-799-7233 or text START to 88788." },
       { id: "vacatur", cite: "Polaris, n.d.", status: "checked", url: "https://polarisproject.org/criminal-records-relief/", text: "Polaris. (n.d.). Criminal records relief. Retrieved November 22, 2026, from https://polarisproject.org/criminal-records-relief/",

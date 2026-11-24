@@ -94,11 +94,11 @@ window.BTL_CASES.push({
       pick: 3,
       cards: [
         { id: "e1", text: "Does B. have her own ID, her own bank account, and access to the money she earns?", relevant: true,
-          why: "Control over a partner’s money and papers is a recognized feature of coercive control, and it limits what leaving can mean in practice. [[stark]]" },
+          why: "Control over a partner’s money is a recognized feature of coercive control, and it limits what leaving can mean in practice. [[stark]]" },
         { id: "e2", text: "Where could B. live after the week was over, and for how long?", relevant: true,
           why: "A temporary couch is not a lasting alternative. Housing is one of the most practical limits on leaving." },
         { id: "e3", text: "What did he say to her during the week she was gone?", relevant: true,
-          why: "Alternating apologies and promises with warnings is a documented pattern in controlling relationships. It can make returning feel like the only way to calm things down. [[stark]] [[lloyd]]" },
+          why: "Alternating apologies and promises with warnings is a documented pattern in controlling relationships. It can make returning feel like the only way to calm things down. [[duttonpainter]] [[lloyd]]" },
         { id: "e4", text: "Does he have a hold over her with her family, such as threats to tell them things?", relevant: true,
           why: "Cutting someone off from family, then using that against her, is another way control works without any physical restraint. [[stark]]" },
         { id: "e5", text: "What reasons does B. herself give for going back?", relevant: true,
