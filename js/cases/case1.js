@@ -86,7 +86,7 @@ window.BTL_CASES.push({
       },
       equivocation: {
         title: "Two meanings of “wanted”",
-        text: "“She wanted to stay” can mean two different things. It can mean she preferred staying over the options she actually had. Or it can mean she wanted the situation she was in. The first might even be true, and still not show the second. Aristotle described sailors who throw their cargo overboard in a storm. They choose to do it, but they don’t want the storm. [[aristotle]]"
+        text: "“She wanted to stay” can mean two different things. It can mean she preferred staying over the options she actually had. Or it can mean she wanted the situation she was in. The first might even be true, and still not show the second. Aristotle described sailors who throw their cargo overboard in a storm. They choose to do it, but no one would throw cargo away for its own sake. [[aristotle]]"
       },
       beyond: {
         sentence: "She stayed because she wanted to.",
@@ -148,14 +148,14 @@ window.BTL_CASES.push({
         { name: "Document confiscation", system: "Immigration and labor systems", text: "Without a passport, leaving can mean losing the papers she needs to travel, work, or get help. [[ilo]]" },
         { name: "Debt bondage", system: "Economic inequality, recruitment practices", text: "A debt that never shrinks turns work into an obligation she can’t end. [[tvpa]]" },
         { name: "Fear of arrest and deportation", system: "Immigration enforcement", text: "Threats work whether or not they’re accurate. [[brennan]]" },
-        { name: "Isolation and family obligation", system: "Global economic inequality, gendered care work", text: "Live-in domestic work happens inside private homes, out of public view, and is done mostly by women. Mainardi argued that housework has long been treated as women’s job and dismissed as not quite “real work.” Applied to paid domestic work, that devaluation carries over. [[mainardi]]" },
-        { name: "How systems overlap", system: "Intersecting systems: gender, immigration status, class", text: "A. is a woman, a migrant, and a domestic worker at once. Crenshaw showed that laws and services built around one category at a time miss people who stand where categories meet. [[crenshaw]]" }
+        { name: "Isolation and family obligation", system: "Global economic inequality, gendered care work", text: "Live-in domestic work happens inside private homes, out of public view, and is done mostly by women. Pat Mainardi described how housework gets dismissed as trivial and as “women’s work.” That devaluation can carry over to paid domestic work. [[mainardi]]" },
+        { name: "How systems overlap", system: "Intersecting systems: gender, immigration status, class", text: "A. is a woman, a migrant, and a domestic worker at once. Crenshaw showed that anti-discrimination law, built around one category at a time, failed Black women, who face race and sex discrimination together. Gender, immigration status, and class can compound the same way for A. [[crenshaw]]" }
       ],
-      agency: "Saving that number and waiting is a decision. A. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes Western feminist writing that pictures “Third World women” as one generic, powerless victim. A. is constrained, not powerless. [[mohanty]]",
+      agency: "Saving that number and waiting is a decision. A. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes Western feminist writing that flattens “third world women” into one generic, victimized figure. The same habit can shape how an observer pictures A. She is constrained, not powerless. [[mohanty]]",
       idealVictim: "A. doesn’t match the popular image of a trafficking victim. She isn’t chained or locked in, and she goes outside. Sociologist Nils Christie called this the “ideal victim” problem: we recognize harm most easily in people who fit a familiar story, and overlook others. [[christie]]",
       lenses: [
         { name: "Choice under pressure", src: "Aristotle; Serena Olsaretti", src_ids: ["aristotle", "olsaretti"],
-          text: "A choice can be real and still not be free in the way that matters, if the alternatives are unacceptable.",
+          text: "Aristotle called throwing cargo overboard in a storm a “mixed” act: voluntary at the time, though no one would choose it for its own sake. Olsaretti separates being free from acting voluntarily: a choice is not voluntary when someone makes it because she has no acceptable alternative, even if nobody is stopping her from doing otherwise.",
           q: "What were A.’s real alternatives to staying?" },
         { name: "Relational autonomy", src: "Catriona Mackenzie & Natalie Stoljar (eds.)", src_ids: ["mackenzie"],
           text: "Our ability to direct our own lives depends on relationships and social conditions, not only on individual will.",
@@ -172,7 +172,7 @@ window.BTL_CASES.push({
     reframe: {
       short: "Her staying, by itself, doesn’t tell us why she stayed.",
       prompt: "Rewrite “She stayed, so she wanted to stay” in a way that keeps what we know and doesn’t claim more than we know.",
-      model: "That A. has stayed for three years doesn’t, by itself, tell us why she stayed. To understand her decision, we’d need to know who holds her documents, whether she owes a debt, what she’s been told about the police, and what options she actually has.",
+      model: "That A. has stayed for three years doesn’t, by itself, tell us why she stayed. To understand her decision, we’d need to know who holds her documents, whether she owes a debt, what she believes would happen if she went to the police, and what options she actually has.",
       why: [
         "It keeps the observation (she stayed).",
         "It doesn’t claim a reason the scenario never gives.",

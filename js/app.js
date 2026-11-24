@@ -125,10 +125,10 @@
       '<figure class="specimen-hero"><blockquote>“She went back, <span class="so">so</span> she wanted to.”</blockquote>' +
       "<figcaption>One small word, “so,” carries a whole conclusion. This tool shows you how much it’s carrying.</figcaption></figure>" +
       '<div class="reading">' +
-      "<p>We often make conclusions about people’s choices based on what we can see: whether someone stayed, returned, participated, or did not leave. But what can be observed is not always enough to explain why someone acted. This interactive tool helps you examine the assumptions, reasoning, and evidence behind those interpretations.</p>" +
-      "<p>" + STAKES + "</p>" +
       '<div class="btn-row"><a class="btn btn-primary" href="' + (state.noteAck ? "#/cases" : "#/note") + '">Explore a case</a>' +
       '<a class="btn btn-secondary" href="#/how">How it works</a></div>' + resume +
+      "<p>We often make conclusions about people’s choices based on what we can see: whether someone stayed, returned, participated, or did not leave. But what can be observed is not always enough to explain why someone acted. This interactive tool helps you examine the assumptions, reasoning, and evidence behind those interpretations.</p>" +
+      "<p>" + STAKES + "</p>" +
       '<p class="meta hero-note">Content note: this project discusses trafficking and coercion in general terms, with no graphic detail and no real people’s accounts. <a href="#/note">Read the note</a>. About ' + CASES[0].minutes + ' minutes for the first case.</p>' +
       "</div></div>";
   }
@@ -197,7 +197,7 @@
     var body = STAGE_RENDER[n - 1](c, cs);
     var prev = n > 1 ? '<a class="btn btn-quiet" href="#/case/' + c.id + "/" + (n - 1) + '">Back</a>' : '<a class="btn btn-quiet" href="#/cases">All cases</a>';
     var next = n < 7 ? '<a class="btn btn-primary" href="#/case/' + c.id + "/" + (n + 1) + '">' + esc(NEXT_LABEL[n - 1]) + "</a>"
-      : '<a class="btn btn-primary" href="#/final" data-action="finish-case" data-case="' + c.id + '">Finish: Think before you label</a>';
+      : '<a class="btn btn-primary" href="#/final" data-action="finish-case" data-case="' + c.id + '">Finish this case</a>';
 
     return '<div class="case-shell">' +
       '<div class="case-top"><div class="bar"><span class="case-name">Case ' + c.id + ": " + esc(c.title) + "</span>" +
@@ -236,7 +236,7 @@
       reset: function (cs) { delete cs.premise; }
     },
     "reveal-cards": {
-      flag: "cardsRevealed", label: "Compare", focus: ".card-why",
+      flag: "cardsRevealed", label: "Compare with one reading", focus: ".card-why",
       ready: function (c, cs) { return (cs.cards || []).length > 0; },
       nudge: function () { return "Choose at least one question first, or see the comparison now."; },
       reset: function (cs) { cs.cards = []; }
@@ -485,7 +485,7 @@
 
   function renderWhy() {
     var items = [
-      ["Gendered and devalued work", "Domestic work is one of the sectors where forced labor is documented. [[ilo]] Pat Mainardi showed how housework is treated as women’s job and dismissed as not quite “real work.” Applied to paid domestic work, that devaluation carries over. [[mainardi]]"],
+      ["Gendered and devalued work", "Domestic work is one of the sectors where forced labor is documented. [[ilo]] Pat Mainardi described how housework gets dismissed as trivial and as “women’s work.” That devaluation can carry over to paid domestic work. [[mainardi]]"],
       ["Immigration law and fear of enforcement", "When a work visa or legal status depends on an employer, or when someone fears arrest and deportation, leaving becomes dangerous. [[brennan]]"],
       ["Economic inequality and debt", "Recruitment fees and debts that can’t be repaid turn a job into an obligation. [[ilo]] [[tvpa]]"],
       ["Criminalization", "The criminal legal system falls hardest on poor women and women of color, including through prostitution laws. [[davis]] People who were trafficked can be arrested and left with records that block housing and jobs. [[vacatur]]"],
@@ -523,15 +523,14 @@
   // The questions on the Final screen and the printed handout.
   var ASK = ["What do I know?", "What am I assuming?", "What evidence am I missing?", "What does the person’s own account tell me, if they’ve shared one?", "How can I describe this more carefully?"];
   // The actions on the Final screen and the printed handout.
-  var ACT = ["Question “she could have left” when you hear it, kindly and out loud.", "Follow and support survivor-led organizations, such as the National Survivor Network.", "Support labor protections for domestic workers. Ask your state legislators to cover every conviction connected to trafficking.", "Share this tool with someone who scrolls past these stories."];
+  var ACT = ["Question “she could have left” when you hear it, kindly and out loud.", "Follow and support survivor-led organizations, such as the National Survivor Network.", "Support labor protections for domestic workers.", "Ask your state legislators to make sure your state’s record-relief law covers convictions that resulted from being trafficked.", "Share this tool with someone who scrolls past these stories."];
   function listItems(xs) { return xs.map(function (q) { return "<li>" + esc(q) + "</li>"; }).join(""); }
 
   function resourcesHTML() {
     return '<ul><li>' + esc(HOTLINE) + '</li>' +
       '<li>National Domestic Violence Hotline (U.S.): call 1-800-799-7233 or text START to 88788</li>' +
       '<li>988 Suicide &amp; Crisis Lifeline (U.S.): call or text 988</li>' +
-      '<li>If you’re in immediate danger, call 911.</li>' +
-      '<li class="placeholder" style="list-style:none">Placeholder: NC State campus counseling and the Women’s Center. Look up their current details on official NC State pages.</li></ul>';
+      '<li>If you’re in immediate danger, call 911.</li></ul>';
   }
 
   function renderBreak() {
@@ -548,14 +547,14 @@
       '<h1 tabindex="-1">Think before you label.</h1>' +
       '<p class="sub">A person’s behavior is only one part of a story.</p>' +
       "<p>Before drawing conclusions about someone’s choices, ask:</p><ol>" + listItems(ASK) + "</ol>" +
-      "<h2>And then</h2><ul>" + listItems(ACT) + "</ul>" +
-      '<div class="btn-row"><button class="btn btn-secondary" data-action="print">Print or save this card</button><a class="btn btn-quiet" href="#/cases">Back to cases</a></div>' +
+      "<h2>Then act</h2><ul>" + listItems(ACT) + "</ul>" +
+      '<div class="btn-row"><button class="btn btn-secondary" data-action="print">Print or save this card</button><a class="btn btn-quiet" href="#/cases">Choose another case</a></div>' +
       "</div></div>";
   }
 
   // Make URLs inside a citation clickable; trailing punctuation stays outside the link.
   function linkUrls(text) {
-    return esc(text).replace(/https?:\/\/[^\s<]*[^\s<.,;)]/g, function (u) {
+    return esc(text).replace(/\*([^*]+)\*/g, "<em>$1</em>").replace(/https?:\/\/[^\s<]*[^\s<.,;)]/g, function (u) {
       return '<a href="' + u + '" rel="noopener" target="_blank">' + u + '<span class="sr-only"> (opens in a new tab)</span></a>';
     });
   }

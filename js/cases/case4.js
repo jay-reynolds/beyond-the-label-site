@@ -48,12 +48,12 @@ window.BTL_CASES.push({
         { id: "b", text: "The doors at D.’s workplace are not locked.", key: false,
           why: "This is part of the scenario, not a link between staying and coercion. It matters later, as a different reading of the argument." },
         { id: "c", text: "Some people who are coerced do leave.", key: false,
-          why: "Possibly true, but too weak. “Some” doesn’t let us move from one person’s staying to her not being coerced." },
+          why: "True, but too weak. “Some” doesn’t let us move from one person’s staying to her not being coerced." },
         { id: "a", text: "If someone is being coerced, she leaves.", key: true,
           why: "This is the hidden premise. With it, “she didn’t leave” does lead to “she wasn’t coerced.” Without it, the step is missing." }
       ],
       follows: "With the hidden premise added, the argument is valid. If both premises were true, the conclusion would have to be true. Logicians call this form modus tollens: if C (she is coerced) then L (she leaves); not L; therefore not C.",
-      isTrue: "But is the hidden premise true? Coercion works by making leaving costly or dangerous, so people who are coerced often stay. People who are content stay too. Staying alone can’t settle which applies. [[stark]] The argument is valid, but the premise is a myth, not a fact. So this is not a fallacy in the usual sense. The reasoning is fine; the belief it is built on is not.",
+      isTrue: "But is the hidden premise true? Coercion works by making leaving costly or dangerous, so people who are coerced often stay. People who are content stay too. Staying alone can’t settle which applies. [[stark]] The argument is valid, but the premise is a myth, not a fact. So this is not a fallacy in the usual sense. Once the hidden premise is filled in, the form is fine. The belief it is built on is not.",
       keyIdea: "Valid arguments can carry myths in their premises. When an argument is valid but the conclusion still feels off, check the premises. That is a question about evidence, not logic.",
       symbols: {
         key: [ ["C", "She is being coerced."], ["L", "She leaves."] ],
@@ -97,7 +97,7 @@ window.BTL_CASES.push({
       pick: 3,
       cards: [
         { id: "e1", text: "Has anyone threatened her, or people she cares about, if she leaves?", relevant: true,
-          why: "Threats against family are a recognized form of coercion, and they work without any locked door. [[tvpa]] [[stark]]" },
+          why: "Threats against family are a recognized form of coercion, and they work without any locked door. [[tvpa]] [[ilo]]" },
         { id: "e2", text: "What has she been told would happen if she went to the police?", relevant: true,
           why: "Being told you will be arrested or reported to immigration keeps many people from seeking help, whether or not it is true. [[brennan]]" },
         { id: "e3", text: "Is her phone, or her time, monitored by anyone?", relevant: true,
@@ -131,12 +131,12 @@ window.BTL_CASES.push({
         "D. is not passive. She keeps going to work and keeps her head down because that is how she keeps her son safe. Staying is her strategy."
       ],
       mechanisms: [
-        { name: "Threats to family", system: "Coercion beyond physical restraint", text: "Danger to people she loves can keep a person in place more firmly than a lock. [[stark]]" },
+        { name: "Threats to family", system: "Coercion beyond physical restraint", text: "Danger to people she loves can keep a person in place more firmly than a lock. [[tvpa]] [[ilo]]" },
         { name: "Fear of criminalization and abuse of the legal process", system: "Criminal law, immigration enforcement", text: "U.S. law lists the abuse or threatened abuse of the legal process as a form of coercion, and a threat of arrest or deportation can be one. When police seem like a risk, calling them isn’t a realistic option. [[tvpa]]" },
-        { name: "Surveillance", system: "Coercive control", text: "Research on coercive control describes this tactic: checking her phone makes every outside contact a risk. [[stark]]" },
+        { name: "Surveillance", system: "Coercive control", text: "Research on coercive control in abusive relationships describes monitoring and limits on social contact. [[stark]] For D., having her phone checked makes every outside contact a risk." },
         { name: "Language isolation", system: "Services that assume English", text: "When hotlines, shelters, and police work mainly in English, limited English narrows who she can ask, and what she can ask for." }
       ],
-      agency: "D. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticizes Western feminist writing that pictures “Third World women” as one generic, powerless victim. D. is constrained, not powerless. [[mohanty]]",
+      agency: "D. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. D. is constrained, not powerless.",
       idealVictim: "D. doesn’t match the popular image of a coercion victim. No one has her locked in, and she goes out on her own. Sociologist Nils Christie called this the “ideal victim” problem: we recognize harm most easily in people who fit a familiar story, and overlook others. [[christie]]",
       returnPrompt: "Look back at the claim: “She didn’t leave, so she wasn’t being coerced.” What did it leave out?",
       survivors: "To hear from survivors in their own words, start with survivor-led work. [[nsn]]"

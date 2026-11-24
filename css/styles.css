@@ -445,7 +445,17 @@ td.q { font-weight: 700; color: var(--unknown); }
 
 /* ---------- Print ---------- */
 @media print {
-  :root { --paper: #fff; --surface: #fff; --ink: #000; --muted: #333; }
+  /* Every colour token, so a page printed from the dark theme has no dark panels or pale text. */
+  :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+    color-scheme: light;
+    --paper: #fff; --surface: #fff; --sunk: #fff;
+    --ink: #000; --muted: #333; --rule: #666; --rule-soft: #ccc;
+    --accent: #000; --on-accent: #fff;
+    --observed: #000; --observed-wash: #fff;
+    --assumed: #000; --assumed-wash: #fff;
+    --unknown: #000; --unknown-wash: #fff;
+    --focus: #000;
+  }
   .site-header, .site-footer, .stage-nav, .case-top, .rail, .btn-row, .skip-link { display: none !important; }
   body { font-size: 12pt; }
   a { color: #000; }

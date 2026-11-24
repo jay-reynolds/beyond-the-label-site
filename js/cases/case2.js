@@ -32,7 +32,7 @@ window.BTL_CASES.push({
         { id: "s3", text: "B. had other good places to live.", answer: "notstated", tag: "leans",
           reason: "A common inference from “she had a friend,” but a friend’s place for a week isn’t the same as a lasting option. Assuming she had one makes going back look like a pick between good options." },
         { id: "s4", text: "B. went back because she wanted the relationship as it was.", answer: "notstated",
-          reason: "Possible, but the scenario never gives a reason. This is the claim itself in stronger words, and people return for many different reasons, often for more than one at once." },
+          reason: "Possible, but the scenario never gives a reason. This goes beyond the claim: choosing to return isn’t the same as wanting things as they were. People return for many different reasons, often for more than one at once." },
         { id: "s5", text: "B. controls her own money and has her own documents.", answer: "notstated", tag: "ask",
           reason: "The scenario doesn’t say. Money and documents shape what leaving can realistically involve." },
         { id: "s6", text: "B.’s boyfriend contacted her while she was away.", answer: "notstated", tag: "ask",
@@ -97,7 +97,7 @@ window.BTL_CASES.push({
           why: "Control over a partner’s money is a recognized feature of coercive control, and it limits what leaving can mean in practice. [[stark]]" },
         { id: "e2", text: "Where could B. live after the week was over, and for how long?", relevant: true,
           why: "A temporary couch is not a lasting alternative. Housing is one of the most practical limits on leaving." },
-        { id: "e3", text: "What did he say to her during the week she was gone?", relevant: true,
+        { id: "e3", text: "Did he contact her during the week she was gone, and if so, what did he say?", relevant: true,
           why: "Alternating apologies and promises with warnings is a documented pattern in controlling relationships. It can make returning feel like the only way to calm things down. [[duttonpainter]] [[lloyd]]" },
         { id: "e4", text: "Does he have a hold over her with her family, such as threats to tell them things?", relevant: true,
           why: "Cutting someone off from family, then using that against her, is another way control works without any physical restraint. [[stark]]" },
@@ -137,16 +137,16 @@ window.BTL_CASES.push({
         { name: "Financial control", system: "Economic dependence, gender inequality", text: "When one person controls the money, leaving can mean losing everything at once. [[stark]]" },
         { name: "Isolation from family", system: "Coercive control", text: "Cutting someone off from people who might help is a common part of controlling relationships. [[stark]]" },
         { name: "No stable housing", system: "Housing and income inequality", text: "Without a lasting place to go, every exit is temporary. This is a structural limit, not a personal weakness." },
-        { name: "How systems overlap", system: "Intersecting systems: gender, age, class", text: "B. is a young woman with little money, working in a stigmatized trade. Looking at any one of these alone misses how they compound. [[crenshaw]]" }
+        { name: "How systems overlap", system: "Intersecting systems: gender, age, class", text: "B. is a young woman with little money, working in a stigmatized trade. Crenshaw showed how race and sex discrimination compound for Black women. Gender, age, and class can compound the same way for B., and looking at any one alone misses it. [[crenshaw]]" }
       ],
-      agency: "Going back to get her documents is a decision, and so is telling a counselor about it. B. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. Chandra Talpade Mohanty criticized Western feminist writing that pictures “Third World women” as one generic, powerless victim. Her warning applies more widely. B. is constrained, not powerless. [[mohanty]]",
+      agency: "Going back to get her documents is a decision, and so is telling a counselor about it. B. is making deliberate choices inside tight limits. Recognizing constraint doesn’t mean treating her as helpless. B. is constrained, not powerless.",
       idealVictim: "B. went back, loves him, and works in the sex trade. That doesn’t match the popular image of a victim. Nils Christie called this the “ideal victim” problem: we see harm most easily in people who fit a familiar story. [[christie]] Sex work and trafficking are not the same thing, and this case doesn’t treat them as the same.",
       cards: [
         { title: "Both can be true", text: "B. can love him and be constrained by him. Neither fact cancels the other." }
       ],
       lenses: [
         { name: "Choice under pressure", src: "Aristotle; Serena Olsaretti", src_ids: ["aristotle", "olsaretti"],
-          text: "A choice can be real and still not be free in the way that matters, if the alternatives are unacceptable.",
+          text: "Aristotle called throwing cargo overboard in a storm a “mixed” act: voluntary at the time, though no one would choose it for its own sake. Olsaretti separates being free from acting voluntarily: a choice is not voluntary when someone makes it because she has no acceptable alternative, even if nobody is stopping her from doing otherwise.",
           q: "What were B.’s real alternatives to going back?" },
         { name: "Relational autonomy", src: "Catriona Mackenzie & Natalie Stoljar (eds.)", src_ids: ["mackenzie"],
           text: "Our ability to direct our own lives depends on relationships and social conditions, not only on individual will.",
