@@ -553,15 +553,21 @@
       "</div></div>";
   }
 
+  // Make URLs inside a citation clickable; trailing punctuation stays outside the link.
+  function linkUrls(text) {
+    return esc(text).replace(/https?:\/\/[^\s<]*[^\s<.,;)]/g, function (u) {
+      return '<a href="' + u + '" rel="noopener" target="_blank">' + u + '<span class="sr-only"> (opens in a new tab)</span></a>';
+    });
+  }
+
   function renderSources() {
     return page(h1("Sources") +
       "<p>Every source the project relies on is listed here in APA format. Course readings come from <em>The Portable Feminist Reader</em> (Gay, 2025).</p>" +
       SOURCES.map(function (g) {
         return '<section class="source-group"><h2>' + esc(g.group) + "</h2>" + (g.note ? '<p class="meta">' + esc(g.note) + "</p>" : "") +
           '<ul class="source-list">' + g.items.map(function (it) {
-            return '<li id="src-' + it.id + '" tabindex="-1">' + esc(it.text) +
-              (it.status === "verify" ? ' <span class="verify">verify before launch</span>' : it.status === "placeholder" ? ' <span class="verify">to be added</span>' : "") +
-              (it.url ? ' <a href="' + esc(it.url) + '" rel="noopener" target="_blank">Visit ' + esc(it.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")) + '<span class="sr-only"> (opens in a new tab)</span></a>' : "") +
+            return '<li id="src-' + it.id + '" tabindex="-1">' + linkUrls(it.text) +
+              (it.url && it.text.indexOf(it.url) < 0 ? ' <a href="' + esc(it.url) + '" rel="noopener" target="_blank">Visit ' + esc(it.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")) + '<span class="sr-only"> (opens in a new tab)</span></a>' : "") +
               (it.note ? '<span class="note">' + esc(it.note) + "</span>" : "") + "</li>";
           }).join("") + "</ul></section>";
       }).join(""));

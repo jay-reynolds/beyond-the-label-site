@@ -410,7 +410,6 @@ td.q { font-weight: 700; color: var(--unknown); }
   background: transparent; margin: var(--s4) 0;
 }
 .placeholder strong { color: var(--ink); }
-.verify { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--assumed); border: 1px solid var(--assumed); padding: 0 var(--s1); border-radius: 2px; white-space: nowrap; }
 
 /* ---------- Reframe ---------- */
 .compare { display: grid; gap: var(--s4); margin: var(--s5) 0; }
@@ -433,7 +432,7 @@ td.q { font-weight: 700; color: var(--unknown); }
 /* ---------- Sources ---------- */
 .source-group { margin-bottom: var(--s6); }
 .source-list { list-style: none; padding: 0; }
-.source-list li { padding: var(--s3) 0 var(--s3) 2em; text-indent: -2em; border-bottom: 1px solid var(--rule-soft); margin: 0; }
+.source-list li { padding: var(--s3) 0 var(--s3) 2em; text-indent: -2em; border-bottom: 1px solid var(--rule-soft); margin: 0; overflow-wrap: anywhere; }
 .source-list .note { display: block; text-indent: 0; font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-top: var(--s1); }
 .source-list li:target { background: var(--surface); outline: 2px solid var(--accent); }
 

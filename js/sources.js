@@ -40,7 +40,7 @@ window.BTL_SOURCES = [
       { id: "brennan", cite: "Brennan, 2014", status: "verify", url: "https://muse.jhu.edu/book/69034", text: "Brennan, D. (2014). Life interrupted: Trafficking into forced labor in the United States. Duke University Press. https://doi.org/10.1215/9780822376910", note: "Open access: free to read on Project MUSE or JSTOR." },
       { id: "stark", cite: "Stark & Hester, 2019", status: "verify", url: "https://research-information.bris.ac.uk/ws/portalfiles/portal/208237229/Full_text_PDF_accepted_author_manuscript_.pdf", text: "Stark, E., & Hester, M. (2019). Coercive control: Update and review. Violence Against Women, 25(1), 81–104. https://doi.org/10.1177/1077801218816191", note: "Free to read: the authors’ accepted manuscript, hosted by the University of Bristol." },
       { id: "christie", cite: "Christie, 1986", status: "verify", text: "Christie, N. (1986). The ideal victim. In E. A. Fattah (Ed.), From crime policy to victim policy: Reorienting the justice system (pp. 17–30). Macmillan. https://doi.org/10.1007/978-1-349-08305-3_2" },
-      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm Publishers." },
+      { id: "kempadoo", cite: "Kempadoo et al., 2005", status: "verify", url: "https://archive.org/details/traffickingprost0000unse", text: "Kempadoo, K., Sanghera, J., & Pattanaik, B. (Eds.). (2005). Trafficking and prostitution reconsidered: New perspectives on migration, sex work, and human rights. Paradigm Publishers.", note: "Free to borrow from the Internet Archive (free account needed)." },
       { id: "duttonpainter", cite: "Dutton & Painter, 1993", status: "verify", text: "Dutton, D. G., & Painter, S. (1993). Emotional attachments in abusive relationships: A test of traumatic bonding theory. Violence and Victims, 8(2), 105–120. https://doi.org/10.1891/0886-6708.8.2.105" }
     ]
   },
@@ -49,19 +49,19 @@ window.BTL_SOURCES = [
     items: [
       { id: "aristotle", cite: "Aristotle, ca. 350 B.C.E./1994–2009", status: "verify", url: "http://classics.mit.edu/Aristotle/nicomachaen.3.iii.html", text: "Aristotle. (1994–2009). Nicomachean ethics (W. D. Ross, Trans.; Book III, ch. 1). The Internet Classics Archive. http://classics.mit.edu/Aristotle/nicomachaen.3.iii.html (Original work published ca. 350 B.C.E.)",
         note: "Source of the sailors who throw cargo overboard in a storm: an example of a choice made under pressure." },
-      { id: "olsaretti", cite: "Olsaretti, 2004", status: "verify", text: "Olsaretti, S. (2004). Liberty, desert and the market: A philosophical study. Cambridge University Press." },
-      { id: "wertheimer", cite: "Wertheimer, 1987", status: "verify", text: "Wertheimer, A. (1987). Coercion. Princeton University Press." },
-      { id: "mackenzie", cite: "Mackenzie & Stoljar, 2000", status: "verify", text: "Mackenzie, C., & Stoljar, N. (Eds.). (2000). Relational autonomy: Feminist perspectives on autonomy, agency, and the social self. Oxford University Press." },
-      { id: "khader", cite: "Khader, 2011", status: "verify", text: "Khader, S. J. (2011). Adaptive preferences and women’s empowerment. Oxford University Press." },
-      { id: "mackinnon", cite: "MacKinnon, 1989", status: "verify", text: "MacKinnon, C. A. (1989). Toward a feminist theory of the state. Harvard University Press.", note: "A leading statement of the view that prostitution is itself a form of sexual exploitation." }
+      { id: "olsaretti", cite: "Olsaretti, 2004", status: "verify", text: "Olsaretti, S. (2004). Liberty, desert and the market: A philosophical study. Cambridge University Press. https://doi.org/10.1017/CBO9780511487422" },
+      { id: "wertheimer", cite: "Wertheimer, 1987", status: "verify", url: "https://www.jstor.org/stable/j.ctt7zv0kh", text: "Wertheimer, A. (1987). Coercion. Princeton University Press.", note: "Available through a library subscription to JSTOR." },
+      { id: "mackenzie", cite: "Mackenzie & Stoljar, 2000", status: "verify", text: "Mackenzie, C., & Stoljar, N. (Eds.). (2000). Relational autonomy: Feminist perspectives on autonomy, agency, and the social self. Oxford University Press. https://doi.org/10.1093/oso/9780195123333.001.0001" },
+      { id: "khader", cite: "Khader, 2011", status: "verify", text: "Khader, S. J. (2011). Adaptive preferences and women’s empowerment. Oxford University Press. https://doi.org/10.1093/acprof:oso/9780199777884.001.0001" },
+      { id: "mackinnon", cite: "MacKinnon, 1989", status: "verify", url: "https://archive.org/details/towardfeministth00mack", text: "MacKinnon, C. A. (1989). Toward a feminist theory of the state. Harvard University Press.", note: "A leading statement of the view that prostitution is itself a form of sexual exploitation. Free to borrow from the Internet Archive (free account needed)." }
     ]
   },
   {
     group: "Survivor-authored and survivor-led",
     note: "This project does not quote survivors. These are places to hear from survivors directly.",
     items: [
-      { id: "lloyd", cite: "Lloyd, 2011", status: "verify", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale, an activist finds her calling and heals herself. Harper.",
-        note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services). Focused mainly on girls and young women." },
+      { id: "lloyd", cite: "Lloyd, 2011", status: "verify", url: "https://archive.org/details/girlslikeusfight0000lloy", text: "Lloyd, R. (2011). Girls like us: Fighting for a world where girls are not for sale, an activist finds her calling and heals herself. Harper.",
+        note: "Memoir and advocacy by a survivor, who founded GEMS (Girls Educational & Mentoring Services). Focused mainly on girls and young women. Free to borrow from the Internet Archive (free account needed)." },
       { id: "nsn", cite: "National Survivor Network, n.d.", status: "checked", url: "https://nationalsurvivornetwork.org/", text: "National Survivor Network. (n.d.). Retrieved October 17, 2026, from https://nationalsurvivornetwork.org/",
         note: "Checked Oct. 17, 2026: a membership association of trafficking survivors working toward a movement “led by survivors.” Contact runs through the Coalition to Abolish Slavery & Trafficking (CAST)." },
       { id: "gems", cite: "GEMS, n.d.", status: "checked", url: "https://www.gems-girls.org/", text: "Girls Educational & Mentoring Services. (n.d.). Retrieved October 17, 2026, from https://www.gems-girls.org/",
