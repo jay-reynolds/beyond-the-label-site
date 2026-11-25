@@ -201,11 +201,11 @@ main { display: block; }
 
 /* ---------- Provenance chip ---------- */
 .chip {
-  display: inline-flex; align-items: center; gap: var(--s2);
-  font-family: var(--sans); font-size: 0.875rem; font-weight: 600; color: var(--muted);
+  display: inline-flex; align-items: flex-start; gap: var(--s2);
+  font-family: var(--sans); font-size: 0.875rem; font-weight: 400; color: var(--muted);
   border: 1px solid var(--rule); border-radius: 2px; padding: var(--s1) var(--s3); margin-bottom: var(--s4);
 }
-.chip svg { flex: none; }
+.chip svg { flex: none; margin-top: 0.2em; }
 
 /* ---------- Case index ---------- */
 .case-list { list-style: none; padding: 0; margin: var(--s6) 0 0; border-top: 1px solid var(--rule); max-width: 52rem; }
@@ -216,6 +216,7 @@ main { display: block; }
 @media (min-width: 720px) { .case-row { grid-template-columns: 1fr 12rem; align-items: baseline; gap: var(--s5); } }
 a.case-row:hover .case-title { text-decoration: underline; text-underline-offset: 0.2em; }
 .case-title { font-size: 1.25rem; font-weight: 600; }
+a.case-row .case-title::after { content: " →"; content: " →" / ""; color: var(--accent); }
 .case-claim { font-style: italic; }
 .case-focus { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); }
 .case-status { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); display: flex; gap: var(--s2); align-items: center; }
@@ -275,6 +276,11 @@ a.case-row:hover .case-title { text-decoration: underline; text-underline-offset
 .stage h1 { margin-bottom: var(--s5); }
 .stage-kicker { font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--muted); margin-bottom: var(--s2); }
 .stage-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); margin-top: var(--s7); padding-top: var(--s5); border-top: 1px solid var(--rule-soft); }
+@media (max-width: 480px) {
+  .stage-nav { flex-direction: column-reverse; }
+  .stage-nav .btn { width: 100%; text-align: center; }
+  .stage-nav > span:empty { display: none; }
+}
 .saved-note { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); margin-top: var(--s3); }
 
 /* ---------- Panels ---------- */
@@ -346,6 +352,7 @@ textarea {
 .proof .unstated .lbl { color: var(--assumed); }
 .proof .slot-empty { font-family: var(--sans); font-size: 0.9375rem; color: var(--assumed); font-style: normal; }
 .proof .conclusion { border-top: 2px solid var(--ink); margin-top: var(--s2); padding-top: var(--s4); font-weight: 500; }
+.proof .conclusion .lbl { font-size: 1.375rem; line-height: 1; color: var(--ink); }
 .proof .tag { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); display: block; }
 
 .feedback-list { list-style: none; padding: 0; margin: var(--s4) 0; }
@@ -429,8 +436,8 @@ td.q { font-weight: 700; color: var(--unknown); }
 .shift { font-family: var(--sans); font-size: 1rem; }
 
 /* ---------- Final screen ---------- */
-.final h1 { text-align: center; font-size: clamp(2.5rem, 8vw, 4.25rem); margin: var(--s7) 0 var(--s5); }
-.final .sub { text-align: center; font-size: 1.375rem; margin-bottom: var(--s7); }
+.final h1 { font-size: clamp(2.5rem, 8vw, 4.25rem); margin: var(--s7) 0 var(--s5); }
+.final .sub { font-size: 1.375rem; margin-bottom: var(--s7); }
 .final ol { font-size: 1.375rem; line-height: 1.45; }
 .final li { margin-bottom: var(--s4); }
 
@@ -474,8 +481,11 @@ td.q { font-weight: 700; color: var(--unknown); }
 
 .btn-link {
   font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer;
+  position: relative;
   text-decoration: underline; text-underline-offset: 0.18em;
 }
+/* A 44px-tall tap area without changing the line it sits in. */
+.btn-link::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }
 .cite { font-size: 0.9em; white-space: nowrap; }
 /* On phones the full sentence strip is too tall to keep pinned. */
 @media (max-width: 719px) { .case-top { position: static; } }

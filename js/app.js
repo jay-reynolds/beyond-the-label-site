@@ -116,7 +116,7 @@
     var resume = "";
     var started = CASES.filter(function (c) { return c.ready && state.cases && state.cases[c.id] && state.cases[c.id].stage && !state.cases[c.id].done; });
     if (started.length) {
-      var c = started[0], st = state.cases[c.id].stage;
+      var c = started.filter(function (x) { return x.id === state.lastCase; })[0] || started[0], st = state.cases[c.id].stage;
       resume = '<p><a class="btn btn-quiet" href="#/case/' + c.id + "/" + st + '">Resume Case ' + c.id + ": " + esc(c.title) + " (" + esc(STAGES[st - 1]) + ")</a></p>";
     }
     return '<div class="page hero">' +
@@ -623,8 +623,8 @@
       body = '<p class="stage-kicker">Say it more carefully</p>' +
         '<div class="compare"><div class="before"><span class="label">Instead of</span><p>“' + esc(c.claim) + '”</p></div>' +
         '<div class="after"><span class="label">Try</span><p>“' + esc(c.reframe.model) + "”</p></div></div>" +
-        renderCTA(c.reframe.actions) +
-        qrCard("Try all five cases on your phone.");
+        qrCard("Try all five cases on your phone.") +
+        renderCTA(c.reframe.actions);
     }
     var nav = '<div class="stage-nav">' +
       (n > 1 ? '<button class="btn btn-quiet" data-action="sc-back">Back</button>' : '<span></span>') +
@@ -663,13 +663,14 @@
     var html, title = "Beyond the Label", focusId = null, current = parts[0] || "home";
 
     if (hash !== "#/break") { state.lastRoute = hash; save(); }
+    if (parts[0] !== "showcase") show = { step: 1, rating: null, pick: null, revealed: false };
 
     if (!parts[0]) { html = renderHome(); }
     else if (parts[0] === "cases") { html = renderCases(); title = "Cases · " + title; }
     else if (parts[0] === "case") {
       var c = findCase(parts[1]), n = parseInt(parts[2], 10) || 1;
       if (!c || !c.ready || n < 1 || n > 7) { html = renderNotFound(); }
-      else { html = renderCase(c, n); title = "Case " + c.id + ", " + STAGES[n - 1] + " · " + title; current = "cases"; }
+      else { html = renderCase(c, n); title = "Case " + c.id + ", " + STAGES[n - 1] + " · " + title; current = "cases"; state.lastCase = c.id; save(); }
     }
     else if (parts[0] === "how") { html = renderHow(); title = "How it works · " + title; }
     else if (parts[0] === "why") { html = renderWhy(); title = "Why this happens · " + title; }
@@ -773,6 +774,8 @@
       // Shared laptop: also clear anything a visitor saved in the full cases.
       if (action === "sc-restart") resetAll();
       first = false; route();
+      var rv = action === "sc-reveal" && app.querySelector(".reveal");
+      if (rv) { rv.setAttribute("tabindex", "-1"); rv.focus({ preventScroll: true }); rv.scrollIntoView({ block: "start" }); live.textContent = "Explanation shown."; }
       return;
     }
     if (action === "finish-case") { var fc = findCase(b.getAttribute("data-case")); if (fc) { caseState(fc.id).done = true; save(); } return; }
@@ -810,6 +813,8 @@
     });
   }
   document.addEventListener("click", function (e) {
+    var om = document.querySelector(".menu[open]");
+    if (om && !om.contains(e.target)) om.open = false;
     var tb = e.target.closest(".theme-switch button");
     if (tb) { state.theme = tb.getAttribute("data-theme"); save(); applyTheme(state.theme); }
     if (e.target.closest("[data-action='clear']")) {
@@ -817,6 +822,11 @@
       live.textContent = "Your progress has been cleared.";
       first = true; route();
     }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    var om = document.querySelector(".menu[open]");
+    if (om && e.key === "Escape") { om.open = false; om.querySelector("summary").focus(); }
   });
 
   applyTheme(state.theme);
