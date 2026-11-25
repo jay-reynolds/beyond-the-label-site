@@ -195,7 +195,7 @@ main { display: block; }
 .hero-note { margin-top: var(--s5); }
 .hero .btn-row { margin-bottom: var(--s5); }
 /* Small on purpose: the signatures on the poster must stay illegible. */
-.about-figure { margin: var(--s5) 0; max-width: 260px; }
+.about-figure { margin: var(--s5) auto; max-width: 260px; text-align: center; }
 .about-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 .about-figure figcaption { margin-top: var(--s2); font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); }
 
