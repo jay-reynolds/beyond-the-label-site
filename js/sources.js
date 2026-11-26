@@ -1,5 +1,6 @@
 /*
- * Sources, in APA 7.
+ * Sources. Course readings follow the course's citation handout (the reading's own year, given twice;
+ * a single year in the text), not canonical APA 7. Do not "correct" them. Other entries use APA 7.
  * status "verify" = suggested by the project's expert review, NOT yet checked against the
  * original by the author. Every entry must be checked (title, year, publisher, pages) before
  * launch, then switched to status "checked". Do not add a source you have not seen.
@@ -9,19 +10,19 @@ window.BTL_SOURCES = [
     group: "Course readings",
     note: "All from the course text, The Portable Feminist Reader. Page ranges come from the ebook’s print-page markers and include the editor’s headnote.",
     items: [
-      { id: "mohanty", cite: "Mohanty, 1984/2025", status: "checked", text: "Mohanty, C. T. (2025). Under Western eyes: Feminist scholarship and colonial discourses (excerpts). In R. Gay (Ed.), *The portable feminist reader* (pp. 123–140). Penguin Books. (Original work published 1984)",
+      { id: "mohanty", cite: "Mohanty, 1984", status: "checked", text: "Mohanty, C. T. (1984). Under Western Eyes. (1984). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 123–140). Penguin Books.",
         note: "Critiques the image of the generic, victimized “Third World Woman.” Used in Case 1: A. is constrained, not powerless." },
-      { id: "crenshaw", cite: "Crenshaw, 1989/2025", status: "checked", text: "Crenshaw, K. (2025). Demarginalizing the intersection of race and sex (excerpts). In R. Gay (Ed.), *The portable feminist reader* (pp. 3–10). Penguin Books. (Original work published 1989)",
+      { id: "crenshaw", cite: "Crenshaw, 1989", status: "checked", text: "Crenshaw, K. (1989). Demarginalizing the Intersection of Race and Sex. (1989). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 3–10). Penguin Books.",
         note: "Intersectionality: harms that compound across categories go unseen by single-axis analysis." },
-      { id: "mainardi", cite: "Mainardi, 1970/2025", status: "checked", text: "Mainardi, P. (2025). The politics of housework. In R. Gay (Ed.), *The portable feminist reader* (pp. 211–215). Penguin Books. (Original work published 1970)",
+      { id: "mainardi", cite: "Mainardi, 1970", status: "checked", text: "Mainardi, P. (1970). The Politics of Housework. (1970). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 211–215). Penguin Books.",
         note: "Housework is devalued as “real work” while still expected of women. Context for live-in domestic work." },
-      { id: "abulughod", cite: "Abu-Lughod, 2002/2025", status: "checked", text: "Abu-Lughod, L. (2025). Do Muslim women really need saving? Anthropological reflections on cultural relativism and its others. In R. Gay (Ed.), *The portable feminist reader* (pp. 141–150). Penguin Books. (Original work published 2002)",
+      { id: "abulughod", cite: "Abu-Lughod, 2002", status: "checked", text: "Abu-Lughod, L. (2002). Do Muslim Women Really Need Saving? Anthropological Reflections on Cultural Relativism and Its Others. (2002). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 141–150). Penguin Books.",
         note: "Critiques “saving” narratives that treat women as lacking agency." },
-      { id: "giragrant", cite: "Grant, 2012/2025", status: "checked", text: "Grant, M. G. (2025). Happy hookers. In R. Gay (Ed.), *The portable feminist reader* (pp. 511–515). Penguin Books. (Original work published 2012)",
+      { id: "giragrant", cite: "Grant, 2012", status: "checked", text: "Grant, M. G. (2012). Happy Hookers. (2012). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 511–515). Penguin Books.",
         note: "By a former sex worker; on the gap between “savior” narratives and sex workers’ own accounts. Used in Case 3." },
-      { id: "davis", cite: "Davis & Shaylor, 2001/2025", status: "checked", text: "Davis, A. Y., & Shaylor, C. (2025). Race, gender, and the prison industrial complex: California and beyond. In R. Gay (Ed.), *The portable feminist reader* (pp. 334–355). Penguin Books. (Original work published 2001)",
+      { id: "davis", cite: "Davis & Shaylor, 2001", status: "checked", text: "Davis, A. Y., & Shaylor, C. (2001). Race, Gender, and the Prison Industrial Complex. (2001). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 334–355). Penguin Books.",
         note: "Criminalization of poor women, including through prostitution laws. Used in Case 5." },
-      { id: "rubin", cite: "Rubin, 1984/2025", status: "checked", text: "Rubin, G. S. (2025). Thinking sex: Notes for a radical theory of the politics of sexuality (excerpt). In R. Gay (Ed.), *The portable feminist reader* (pp. 427–447). Penguin Books. (Original work published 1984)",
+      { id: "rubin", cite: "Rubin, 1984", status: "checked", text: "Rubin, G. S. (1984). Thinking Sex: Notes for a Radical Theory of the Politics of Sexuality. (1984). In R. Gay (Ed.), *The Portable Feminist Reader* (1st ed., pp. 427–447). Penguin Books.",
         note: "How some sexual behavior is constructed as moral and some as deviant. Used in Case 3." }
     ]
   },
